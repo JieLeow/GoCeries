@@ -73,6 +73,14 @@ body{
     margin: 70px 0;
 }
 
+
+.col-3{
+    flex: 33%;
+    min-width: 180px; 
+    margin-bottom: 30px;
+}
+
+
 .col-4{
     flex: 25%;
     min-width: 180px;
@@ -203,7 +211,14 @@ p{
 }
 
 .categories img{
+    width: 200px;
+    height: 200px;
+    display:block;
+    margin: auto;
+}
 
+.categories h3{
+    text-align: center;
 }
 
 
@@ -298,4 +313,66 @@ p{
 .copyright{
     text-align: center;
     font-weight: 500;
+}
+
+
+
+
+
+
+/* ----------------------------------ALL PRODUCTS PAGE------------------------------ */
+
+
+/*---All Products Category---*/
+.all-products select{
+    border: 1px solid;
+    padding: 5px;
+    margin-bottom: 40px;
+}
+
+.all-products label{
+    font-weight: 600;
+}
+
+.all-products .col-3{
+    flex: 33%;
+    max-width: 33%;
+}
+
+.all-products img{
+    display: block;
+    margin: 0 auto;
+}
+
+.all-products p{
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+
+
+
+/* ----Button for Switching Page---- */
+.products-button{
+    margin: 0 auto 80px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.products-button span{
+    display: inline-block;
+    border: 1px solid rgb(162, 253, 57);
+    border-radius: 50%;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.products-button span:hover{
+    background: rgb(94, 208, 94);
+    color: white;
 }
