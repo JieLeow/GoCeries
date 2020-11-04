@@ -1,0 +1,91 @@
+body{
+  background-image: url(market.jpg);
+  background-repeat: no-repeat;
+background-size: 100% auto;
+}
+.register {
+  position: relative;
+  margin: 280px auto;
+  padding: 20px 20px 20px;
+  width: 310px;
+  background: white;
+  border-radius: 3px;
+
+}
+.register:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+}
+.register h1 {
+  margin: -20px -20px 21px;
+  line-height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+  text-shadow: 0 1px white;
+  background: #f3f3f3;
+  border-bottom: 1px solid #cfcfcf;
+  border-radius: 3px 3px 0 0;
+
+
+}
+
+
+.register p {
+  margin: 20px 0 0;
+}
+
+.register p:first-child {
+  margin-top: 0;
+}
+
+.register input[type=text], .register input[type=password] {
+  width: 278px;
+  height: 30px;
+}
+.register p.submit {
+  text-align: center;
+}
+
+.login-help {
+  margin: -230px 0;
+  font-size: 15px;
+  color: black;
+  text-align: center;
+  text-shadow: 0 1px #2a85a1;
+}
+
+.login-help a {
+  color: blue;
+  text-decoration: none;
+}
+
+.login-help a:hover {
+  text-decoration: underline;
+}
+
+.feedback-warning,
+.feedback-suggestions {
+	display: block;
+}
+#password-strength-meter {
+		transition: all 1s linear;
+}
+
+.progress {
+    height: 10px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border: 1px solid #ccc;
+    border-top: 0;
+    box-shadow: none;
+    background: white;
+}
