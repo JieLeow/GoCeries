@@ -3,7 +3,42 @@
     <title>Confirmation</title>
   </head>
   <body>
-    <h1>Confirmation</h1>
+    <style>
+    <?php
+         include 'style.css';
+         include 'typography.css';
+    ?>
+    </style>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class = header-nav>
+            <div class = "container">
+                <div class = "navbar">
+                    <div class = "logo">
+                        <h1>GOCERIES</h1>
+                    </div>
+
+                    <nav>
+                        <ul>
+                            <li><a href = "">Home</a></li>
+                            <li><a href = "">Products</a></li>
+                            <li><a href = "">Contact</a></li>
+                            <li><a href = "">Account</a></li>
+                            <li><a href = ""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class = "row">
+            <div class ="column">
+        </div>
+    </div>
+
+    <h1>Thank you! Your order has been placed.</h1>
+
     <?php
 
       //if username exists
@@ -46,18 +81,22 @@
 
           //checks whether or not the output is received from database
           if ($results) {
-            echo "The user has been added.";
+            echo '<span style="color: black; font-size: 25px; font-weight:bold;
+            margin-left: 20px;">'.$_POST['firstname'].'</span>';
             echo $fullname = $_POST["firstname"];
-            echo $email = $_POST["email"];
-            echo $address = $_POST["address"];
-            echo $city = $_POST["city"];
-            echo $state = $_POST["state"];
-            echo $zip = $_POST["zip"];
-            echo $cardname = $_POST["cardname"];
-            echo $cardnumber = $_POST["cardnumber"];
-            echo $monthexp= $_POST["expmonth"];
-            echo $yearexp = $_POST["expyear"];
-            echo $cvv = $_POST["cvv"];
+            echo "<br>";
+            echo '<span style="color: black; font-size: 25px; font-weight:bold;
+            margin-left: 20px;">'.$_POST['email'].'</span>';
+            echo "<br>";
+            echo '<span style="color: black; font-size: 25px; font-weight:bold;
+            margin-left: 20px;">'.$_POST['address'].'</span>';
+            echo "<br>";
+            echo '<span style="color: black; font-size: 25px; font-weight:bold;
+            margin-left: 20px;">'.$_POST['city'].',</span>';
+            echo '<span style="color: black; font-size: 25px; font-weight:bold;
+            margin-left: 5px;">'.$_POST['state'].'</span>';
+            echo '<span style="color: black; font-size: 25px; font-weight:bold;
+            margin-left: 5px; margin-bottom: 200px;">'.$_POST['zip'].'</span>';
           } else {
             echo mysqli_error($conn);
           }
@@ -68,16 +107,49 @@
                 location="checkout.html"; </script>';
         }
       } else {
-        echo "Form was not submitted.";
+        echo "Form was not submitted. Please try again.";
       }
     ?>
-    <br>
-    <br>
-    <form action="/Login.php" method="post">
-      <button type="submit">Proceed to Login</button>
-    </form>
-    <form action="/Registration.php" method="post">
-      <button type="submit">Return to Registration</button>
-    </form>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios Mobile</p>
+                </div>
+
+                <div class="footer-col-2">
+                    <img src="mainPageImages/logo_transparent.png">
+                    <p>Lazy? No Problem. Your laziness is matched with our speed.
+                        </p>
+                </div>
+
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class = "copyright">Copyright 2020 Go!Ceries </p>
+        </div>
+    </div>
+
   </body>
 </html>
