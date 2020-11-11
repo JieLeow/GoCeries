@@ -37,15 +37,16 @@
         </div>
     </div>
 
-    <h1>Thank you! Your order has been placed.</h1>
+    <h1 style="margin-left: 15px;">Thank you! Your order has been placed.</h1>
 
     <?php
 
-      //if username exists
+      //if container has been filled out
       if (isset($_POST["firstname"]) && isset($_POST["email"]) && isset($_POST["address"])
-        && isset($_POST["address"]) && isset($_POST["city"]) && isset($_POST["state"])
-        && isset($_POST["zip"]) && isset($_POST["cardname"]) && isset($_POST["cardnumber"])
-        && isset($_POST["expmonth"]) && isset($_POST["expyear"]) && isset($_POST["cvv"])) {
+        && isset($_POST["city"]) && isset($_POST["state"]) && isset($_POST["zip"]) &&
+        isset($_POST["cardname"]) && isset($_POST["cardnumber"]) && isset($_POST["expmonth"])
+        && isset($_POST["expyear"]) && isset($_POST["cvv"]) && isset($_POST["shipemail"]) && isset($_POST["shipaddress"]) && isset($_POST["shipcity"])
+        && isset($_POST["shipstate"]) && isset($_POST["shipzip"])) {
         if ($_POST["firstname"] && $_POST["email"] && $_POST["address"] &&
             $_POST["city"] && $_POST["state"] && $_POST["zip"] && $_POST["cardname"] &&
             $_POST["cardnumber"] && $_POST["expmonth"] && $_POST["expyear"]
@@ -61,6 +62,12 @@
               $monthexp= $_POST["expmonth"];
               $yearexp = $_POST["expyear"];
               $cvv = $_POST["cvv"];
+              $shipemail = $_POST["shipemail"];
+              $shipaddress = $_POST["shipaddress"];
+              $shipcity = $_POST["shipcity"];
+              $shipstate = $_POST["shipstate"];
+              $shipzip = $_POST["shipzip"];
+
 
           // create connection
           $conn = mysqli_connect("localhost", "root", "", "users");
@@ -72,9 +79,11 @@
 
           // register user
           $sql = "INSERT INTO customers (fullname, email, address, city, state, zip,
-          namecard, cardnumber, monthexp, yearexp, cvv) VALUES ('$fullname', '$email',
+          namecard, cardnumber, monthexp, yearexp, cvv, shipemail, shipaddress, shipcity,
+          shipstate, shipzip ) VALUES ('$fullname', '$email',
           '$address', '$city', '$state', '$zip', '$cardname', '$cardnumber',
-          '$monthexp', '$yearexp', '$cvv')";
+          '$monthexp', '$yearexp', '$cvv', '$shipemail', '$shipaddress', '$shipcity',
+          '$shipstate', '$shipzip')";
 
           //send sequel to database
           $results = mysqli_query($conn, $sql);
@@ -83,7 +92,6 @@
           if ($results) {
             echo '<span style="color: black; font-size: 25px; font-weight:bold;
             margin-left: 20px;">'.$_POST['firstname'].'</span>';
-            echo $fullname = $_POST["firstname"];
             echo "<br>";
             echo '<span style="color: black; font-size: 25px; font-weight:bold;
             margin-left: 20px;">'.$_POST['email'].'</span>';
