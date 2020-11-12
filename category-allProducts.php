@@ -34,14 +34,15 @@
           <label for ="sort">Sort By :</label>
           <select name="list" id="list" accesskey="target">
             <option value='none' selected>Choose a category</option>
-            <option value="products.php">All Products</option>
-            <option value="fruits.php">Fruits</option>
-            <option value="vegetables.php">Vegetables</option>
-            <option value="dairyneggs.php">Dairy & Eggs</option>
-            <option value="/beverages.php">Beverage</option>
+            <option value="./category-allproducts.php">All Products</option>
+            <option value="./category-fruits.php">Fruits</option>
+            <option value="./category-vegetables.php">Vegetables</option>
+            <option value="./category-dairyneggs.php">Dairy & Eggs</option>
+            <option value="./category-beverages.php">Beverage</option>
           </select>
           <input type=button value="Go" onclick="goToNewPage()" />
         </form>
+        
         <script type="text/javascript">
         function goToNewPage()
         {
