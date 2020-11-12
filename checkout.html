@@ -111,24 +111,24 @@
 
           <div class="row">
             <div class="col-50">
-              <h3>Billing Address</h3>
+              <h3>Shipping Address</h3>
               <label for="fname"><i class="fa fa-user"></i>Full Name</label>
-              <input type="text" id="fname" name="firstname" placeholder="">
+              <input type="text" id="fname" name="shippingfullname" placeholder="">
               <label for="email"><i class="fa fa-envelope"></i>Email</label>
-              <input type="text" id="email" name="email" placeholder="">
+              <input type="text" id="email" name="shippingemail" placeholder="">
               <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-              <input type="text" id="BillingAddress" name="address" placeholder="">
+              <input type="text" id="ShippingAddress" name="shippingaddress" placeholder="">
               <label for="city"><i class="fa fa-institution"></i> City</label>
-              <input type="text" id="BillingCity" name="city" placeholder="">
+              <input type="text" id="ShippingCity" name="shippingcity" placeholder="">
 
               <div class="row">
                 <div class="col-50">
                   <label for="state">State</label>
-                  <input type="text" id="BillingState" name="state" placeholder="">
+                  <input type="text" id="ShippingState" name="shippingstate" placeholder="">
                 </div>
                 <div class="col-50">
                   <label for="zip">Zip</label>
-                  <input type="text" id="BillingZip" name="zip" placeholder="">
+                  <input type="text" id="ShippingZip" name="shippingzip" placeholder="">
                 </div>
               </div>
             </div>
@@ -163,35 +163,35 @@
 
           <label>
             <div class="form-group">
-              <input id="checkbox" type="checkbox" checked="checked" onclick="boxUnchcked()"
+              <input id="checkbox" type="checkbox" onclick="boxUnchcked()"
               setBilling="checked">
-              Shipping address same as billing
+              Billing address same as shipping
             </div>
 
             <!-- Shipping container if billing and shipping address are not the same -->
             <label>
-              <div id="delivery" style="display:none;">
+              <div id="billing" style="display:block;">
                 <div class="form-group">
                         <div class="row">
                         <div class="col-50">
-                          <h3>Shipping Address</h3>
+                          <h3>Billing Address</h3>
                           <label for="fname"><i class="fa fa-user"></i>Full Name</label>
-                          <input type="text" id="fname" name="shipfirstname" placeholder="">
+                          <input type="text" id="fname" name="billingfullname" placeholder="">
                           <label for="email"><i class="fa fa-envelope"></i>Email</label>
-                          <input type="text" id="email" name="shipemail" placeholder="">
+                          <input type="text" id="email" name="billingemail" placeholder="">
                           <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                          <input type="text" id="ShippingAddress" name="shipaddress" placeholder="">
+                          <input type="text" id="BillingAddress" name="billingaddress" placeholder="">
                           <label for="city"><i class="fa fa-institution"></i> City</label>
-                          <input type="text" id="ShippingCity" name="shipcity" placeholder="">
+                          <input type="text" id="BillingCity" name="billingcity" placeholder="">
 
                           <div class="row">
                             <div class="col-50">
                               <label for="state">State</label>
-                              <input type="text" id="ShippingState" name="shipstate" placeholder="">
+                              <input type="text" id="BillingState" name="billingstate" placeholder="">
                             </div>
                             <div class="col-50">
                               <label for="zip">Zip</label>
-                              <input type="text" id="ShippingZip" name="shipzip" placeholder="">
+                              <input type="text" id="BillingZip" name="billingzip" placeholder="">
                             </div>
                           </div>
                         </div>
@@ -203,21 +203,21 @@
             <!-- Script for showing container for different shipping address -->
             <script>
             var checkbox = document.getElementById('checkbox');
-            var delivery_div = document.getElementById('delivery');
+            var billing_div = document.getElementById('billing');
             checkbox.onclick = function() {
                 console.log(this);
                if(this.checked == false) {
-                 delivery_div.style['display'] = 'block';
-                 document.getElementById('ShippingAddress').value = 'shipaddress';
-                 document.getElementById('ShippingCity').value = 'shipcity';
-                 document.getElementById('ShippingState').value = 'shipstate';
-                 document.getElementById('ShippingZip').value = 'shipzip';
+                 billing_div.style['display'] = 'block';
+                 document.getElementById('BillingAddress').value = '';
+                 document.getElementById('BillingCity').value = '';
+                 document.getElementById('BillingState').value = '';
+                 document.getElementById('BillingZip').value = '';
                } else {
-                 delivery_div.style['display'] = 'none';
-                 document.getElementById('ShippingAddress').value = document.getElementById('BillingAddress').value;
-                 document.getElementById('ShippingCity').value = document.getElementById('BillingCity').value;
-                 document.getElementById('ShippingState').value = document.getElementById('BillingState').value;
-                 document.getElementById('ShippingZip').value = document.getElementById('BillingZip').value;
+                 billing_div.style['display'] = 'none';
+                 document.getElementById('BillingAddress').value = document.getElementById('ShippingAddress').value;
+                 document.getElementById('BillingCity').value = document.getElementById('ShippingCity').value;
+                 document.getElementById('BillingState').value = document.getElementById('ShippingState').value;
+                 document.getElementById('BillingZip').value = document.getElementById('ShippingZip').value;
                }
             };
             </script>
