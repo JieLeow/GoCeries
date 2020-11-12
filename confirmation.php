@@ -37,30 +37,37 @@
         </div>
     </div>
 
-    <h1>Thank you! Your order has been placed.</h1>
+    <h1 style="margin-left: 15px;">Thank you! Your order has been placed.</h1>
 
     <?php
 
-      //if username exists
-      if (isset($_POST["firstname"]) && isset($_POST["email"]) && isset($_POST["address"])
-        && isset($_POST["address"]) && isset($_POST["city"]) && isset($_POST["state"])
-        && isset($_POST["zip"]) && isset($_POST["cardname"]) && isset($_POST["cardnumber"])
-        && isset($_POST["expmonth"]) && isset($_POST["expyear"]) && isset($_POST["cvv"])) {
-        if ($_POST["firstname"] && $_POST["email"] && $_POST["address"] &&
-            $_POST["city"] && $_POST["state"] && $_POST["zip"] && $_POST["cardname"] &&
+      //if container has been filled out
+      if (isset($_POST["shippingfullname"]) && isset($_POST["shippingemail"]) && isset($_POST["shippingaddress"])
+        && isset($_POST["shippingcity"]) && isset($_POST["shippingstate"]) && isset($_POST["shippingzip"]) &&
+        isset($_POST["cardname"]) && isset($_POST["cardnumber"]) && isset($_POST["expmonth"])
+        && isset($_POST["expyear"]) && isset($_POST["cvv"]) && isset($_POST["billingemail"]) && isset($_POST["billingaddress"])
+        && isset($_POST["billingcity"]) && isset($_POST["billingstate"]) && isset($_POST["billingzip"])) {
+        if ($_POST["shippingfullname"] && $_POST["shippingemail"] && $_POST["shippingaddress"] &&
+            $_POST["shippingcity"] && $_POST["shippingstate"] && $_POST["shippingzip"] && $_POST["cardname"] &&
             $_POST["cardnumber"] && $_POST["expmonth"] && $_POST["expyear"]
             && $_POST["cvv"]) {
-              $fullname = $_POST["firstname"];
-              $email = $_POST["email"];
-              $address = $_POST["address"];
-              $city = $_POST["city"];
-              $state = $_POST["state"];
-              $zip = $_POST["zip"];
+              $shippingfullname = $_POST["shippingfullname"];
+              $shippingemail = $_POST["shippingemail"];
+              $shippingaddress = $_POST["shippingaddress"];
+              $shippingcity = $_POST["shippingcity"];
+              $shippingstate = $_POST["shippingstate"];
+              $shippingzip = $_POST["shippingzip"];
               $cardname = $_POST["cardname"];
               $cardnumber = $_POST["cardnumber"];
               $monthexp= $_POST["expmonth"];
               $yearexp = $_POST["expyear"];
               $cvv = $_POST["cvv"];
+              $billingemail = $_POST["billingemail"];
+              $billingaddress = $_POST["billingaddress"];
+              $billingcity = $_POST["billingcity"];
+              $billingstate = $_POST["billingstate"];
+              $billingzip = $_POST["billingzip"];
+
 
           // create connection
           $conn = mysqli_connect("localhost", "root", "", "users");
@@ -72,9 +79,11 @@
 
           // register user
           $sql = "INSERT INTO customers (fullname, email, address, city, state, zip,
-          namecard, cardnumber, monthexp, yearexp, cvv) VALUES ('$fullname', '$email',
-          '$address', '$city', '$state', '$zip', '$cardname', '$cardnumber',
-          '$monthexp', '$yearexp', '$cvv')";
+          namecard, cardnumber, monthexp, yearexp, cvv, shipemail, shipaddress, shipcity,
+          shipstate, shipzip ) VALUES ('$shippingfullname', '$shippingemail',
+          '$shippingaddress', '$shippingcity', '$shippingstate', '$shippingzip', '$cardname', '$cardnumber',
+          '$monthexp', '$yearexp', '$cvv', '$billingemail', '$billingaddress', '$billingcity',
+          '$billingstate', '$billingzip')";
 
           //send sequel to database
           $results = mysqli_query($conn, $sql);
@@ -82,21 +91,20 @@
           //checks whether or not the output is received from database
           if ($results) {
             echo '<span style="color: black; font-size: 25px; font-weight:bold;
-            margin-left: 20px;">'.$_POST['firstname'].'</span>';
-            echo $fullname = $_POST["firstname"];
+            margin-left: 20px;">'.$_POST['shippingfullname'].'</span>';
             echo "<br>";
             echo '<span style="color: black; font-size: 25px; font-weight:bold;
-            margin-left: 20px;">'.$_POST['email'].'</span>';
+            margin-left: 20px;">'.$_POST['shippingemail'].'</span>';
             echo "<br>";
             echo '<span style="color: black; font-size: 25px; font-weight:bold;
-            margin-left: 20px;">'.$_POST['address'].'</span>';
+            margin-left: 20px;">'.$_POST['shippingaddress'].'</span>';
             echo "<br>";
             echo '<span style="color: black; font-size: 25px; font-weight:bold;
-            margin-left: 20px;">'.$_POST['city'].',</span>';
+            margin-left: 20px;">'.$_POST['shippingcity'].',</span>';
             echo '<span style="color: black; font-size: 25px; font-weight:bold;
-            margin-left: 5px;">'.$_POST['state'].'</span>';
+            margin-left: 5px;">'.$_POST['shippingstate'].'</span>';
             echo '<span style="color: black; font-size: 25px; font-weight:bold;
-            margin-left: 5px; margin-bottom: 200px;">'.$_POST['zip'].'</span>';
+            margin-left: 5px; margin-bottom: 200px;">'.$_POST['shippingzip'].'</span>';
           } else {
             echo mysqli_error($conn);
           }
