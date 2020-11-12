@@ -151,7 +151,7 @@ p{
 /* --------------- Header ----------------- */
 
 .header{
-    background-image: url("../mainPageImages/market.jpg");
+    background-image: url("/images/market.jpg");
     /* background-color: rgb(114, 245, 232); */
     
 }
