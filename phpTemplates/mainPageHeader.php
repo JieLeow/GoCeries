@@ -27,7 +27,7 @@
                     <nav>
                         <ul>
                             <li><a href = "mainPage.php">Home</a></li>
-                            <li><a href = "products.php">Products</a></li>
+                            <li><a href = "category-allProducts.php">Products</a></li>
                             <li><a href = "">Contact</a></li>
                             <li><a href = "">Account</a></li>
                             <li><a href = ""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>

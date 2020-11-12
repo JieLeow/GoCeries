@@ -41,7 +41,7 @@
             <option value="./category-beverages.php">Beverage</option>
           </select>
           <input type=button value="Go" onclick="goToNewPage()" />
-        </form>>
+        </form>
         <script type="text/javascript">
         function goToNewPage()
         {
