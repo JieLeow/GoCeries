@@ -1,6 +1,6 @@
 <html>
   <head>
-    
+
   <style>
   body {
     box-sizing: border-box;
@@ -74,7 +74,7 @@
 
 
 </head>
-  
+
 <body>
 
     <!-- HEADER -->
@@ -95,9 +95,9 @@
             <div class="col-50">
               <h3>Shipping Address</h3>
               <label for="fname"><i class="fa fa-user"></i>Full Name</label>
-              <input type="text" id="fname" name="shippingfullname" placeholder="">
+              <input type="text" id="ShippingFname" name="shippingfullname" placeholder="">
               <label for="email"><i class="fa fa-envelope"></i>Email</label>
-              <input type="text" id="email" name="shippingemail" placeholder="">
+              <input type="text" id="ShippingEmail" name="shippingemail" placeholder="">
               <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
               <input type="text" id="ShippingAddress" name="shippingaddress" placeholder="">
               <label for="city"><i class="fa fa-institution"></i> City</label>
@@ -158,9 +158,9 @@
                         <div class="col-50">
                           <h3>Billing Address</h3>
                           <label for="fname"><i class="fa fa-user"></i>Full Name</label>
-                          <input type="text" id="fname" name="billingfullname" placeholder="">
+                          <input type="text" id="BillingFname" name="billingfullname" placeholder="">
                           <label for="email"><i class="fa fa-envelope"></i>Email</label>
-                          <input type="text" id="email" name="billingemail" placeholder="">
+                          <input type="text" id="BillingEmail" name="billingemail" placeholder="">
                           <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
                           <input type="text" id="BillingAddress" name="billingaddress" placeholder="">
                           <label for="city"><i class="fa fa-institution"></i> City</label>
@@ -190,12 +190,16 @@
                 console.log(this);
                if(this.checked == false) {
                  billing_div.style['display'] = 'block';
+                 document.getElementById('BillingFname').value = '';
+                 document.getElementById('BillingEmail').value = '';
                  document.getElementById('BillingAddress').value = '';
                  document.getElementById('BillingCity').value = '';
                  document.getElementById('BillingState').value = '';
                  document.getElementById('BillingZip').value = '';
                } else {
                  billing_div.style['display'] = 'none';
+                 document.getElementById('BillingFname').value = document.getElementById('ShippingFname').value;
+                 document.getElementById('BillingEmail').value = document.getElementById('ShippingEmail').value;
                  document.getElementById('BillingAddress').value = document.getElementById('ShippingAddress').value;
                  document.getElementById('BillingCity').value = document.getElementById('ShippingCity').value;
                  document.getElementById('BillingState').value = document.getElementById('ShippingState').value;
