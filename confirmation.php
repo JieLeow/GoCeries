@@ -1,41 +1,20 @@
 <html>
   <head>
     <title>Confirmation</title>
+
+    <!-- Add boostrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- OWN CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
   </head>
   <body>
-    <style>
-    <?php
-         include '/css/style.css';
-         include '/css/style/typography.css';
-    ?>
-    </style>
-
+ 
     <!-- HEADER -->
-    <div class="header">
-        <div class = header-nav>
-            <div class = "container">
-                <div class = "navbar">
-                    <div class = "logo">
-                        <h1>GOCERIES</h1>
-                    </div>
-
-                    <nav>
-                        <ul>
-                            <li><a href = "">Home</a></li>
-                            <li><a href = "">Products</a></li>
-                            <li><a href = "">Contact</a></li>
-                            <li><a href = "">Account</a></li>
-                            <li><a href = ""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class ="column">
-        </div>
-    </div>
+    <?php
+      include('phpTemplates/header.php');
+    ?>
 
     <h1 style="margin-left: 15px;">Thank you! Your order has been placed.</h1>
 
@@ -112,52 +91,18 @@
 
         } else {
           echo '<script> type="text/javascript"> alert("One or more areas are not filled in.");
-                location="checkout.html"; </script>';
+                location="checkout.php"; </script>';
         }
       } else {
         echo "Form was not submitted. Please try again.";
       }
     ?>
+    
+    
+    
+<!-- FOOTER -->
+<?php
+  include('phpTemplates/footer.php');
+?>
 
-    <!-- FOOTER -->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Download Our App</h3>
-                    <p>Download App for Android and ios Mobile</p>
-                </div>
-
-                <div class="footer-col-2">
-                    <img src="mainPageImages/logo_transparent.png">
-                    <p>Lazy? No Problem. Your laziness is matched with our speed.
-                        </p>
-                </div>
-
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
-                </div>
-
-                <div class="footer-col-4">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <p class = "copyright">Copyright 2020 Go!Ceries </p>
-        </div>
-    </div>
-
-  </body>
-</html>
+    
