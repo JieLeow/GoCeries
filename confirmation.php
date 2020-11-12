@@ -5,8 +5,8 @@
   <body>
     <style>
     <?php
-         include 'style.css';
-         include 'typography.css';
+         include '/css/style.css';
+         include '/css/style/typography.css';
     ?>
     </style>
 
