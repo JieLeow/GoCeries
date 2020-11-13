@@ -26,12 +26,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_address` VARCHAR(255) NOT NULL,
   `user_phone` INT(10) NOT NULL,
   `order_ID` INT(11) NOT NULL,
-  PRIMARY KEY (`user_ID`),
-  CONSTRAINT FK_user_orders
-    FOREIGN KEY (order_ID)
-    REFERENCES `orders` (`order_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`user_ID`)
+  -- CONSTRAINT FK_user_orders
+  --   FOREIGN KEY (order_ID)
+  --   REFERENCES `orders` (`order_ID`)
+  --   ON DELETE NO ACTION
+  --   ON UPDATE NO ACTION
+  )
 
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -47,10 +48,11 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `order_tax` INT(11) NOT NULL,
   `order_date` DATETIME NULL,
   `order_delivery_status` VARCHAR(45) NULL,
-  PRIMARY KEY (`order_ID`),
-  CONSTRAINT FK_person_who_ordered
-    FOREIGN KEY (`user_ID`)
-    REFERENCES `users` (`user_ID`))
+  PRIMARY KEY (`order_ID`)
+  -- CONSTRAINT FK_person_who_ordered
+  --   FOREIGN KEY (`user_ID`)
+  --   REFERENCES `users` (`user_ID`)
+  )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
@@ -85,40 +87,38 @@ CREATE TABLE IF NOT EXISTS `orders_products_details` (
     FOREIGN KEY (`order_ID`)
     REFERENCES `orders` (`order_ID`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT FK_product_ID
-    FOREIGN KEY (`product_ID`)
-    REFERENCES `products` (`product_ID`).
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION
+  -- CONSTRAINT FK_product_ID
+  --   FOREIGN KEY (`product_ID`)
+  --   REFERENCES `products` (`product_ID`).
+  --   ON DELETE NO ACTION
+  --   ON UPDATE NO ACTION
+  )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 
 
---------------------------------------------------------
-------    Dump products data to products table    ------
---------------------------------------------------------
+-- ------------------------------------------------------
+--    Dump products data to products table    
+-- ------------------------------------------------------
 INSERT INTO `products` (`product_ID`,`product_name`,`product_category`,`product_price`, `product_weight`, `product_stock`, 
 `product_imagename`)
 
-VALUES (101, 'Organic Gala Apple', 'fruits', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (102, 'Banana', 'fruits', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (103, 'Blueberry', 'fruits', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (104, 'Cantaloupe', 'fruits', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (105, 'Peach', 'fruits', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (106, 'Strawberry', 'fruits', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-
-VALUES (201, 'Asparagus','vegetables', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (202, 'Beans', 'vegetables', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (203, 'Cabbage', 'vegetables', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (204, 'Carrot', 'vegetables', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (205, 'Pepper', 'vegetables', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (206, 'Tomato', 'vegetables', 0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-
-VALUES (301, 'Creamer', 'Dairy & Eggs',0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (302, 'Milk', 'Dairy & Eggs',0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (303, 'Egg', 'Dairy & Eggs',0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (304, 'Oatmilk', 'Dairy & Eggs',0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (305, 'eggland', 'Dairy & Eggs',0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
-VALUES (306, 'yogurt', 'Dairy & Eggs',0.76 , 0.35, ,100, 'fruit-apple.jpg' ),
+VALUES 
+(101, 'Organic Gala Apple', 'fruits', 0.76 , 0.35 ,100, 'fruit-apple.jpg' ),
+(102, 'Banana', 'fruits', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(103, 'Blueberry', 'fruits', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(104, 'Cantaloupe', 'fruits', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(105, 'Peach', 'fruits', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(106, 'Strawberry', 'fruits', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),(201, 'Asparagus','vegetables', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(202, 'Beans', 'vegetables', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(203, 'Cabbage', 'vegetables', 0.76 , 0.35,100, 'fruit-apple.jpg' ),
+(204, 'Carrot', 'vegetables', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(205, 'Pepper', 'vegetables', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(206, 'Tomato', 'vegetables', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),(301, 'Creamer', 'Dairy & Eggs',0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(302, 'Milk', 'Dairy & Eggs',0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(303, 'Egg', 'Dairy & Eggs',0.76 , 0.35,100, 'fruit-apple.jpg' ),
+(304, 'Oatmilk', 'Dairy & Eggs',0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(305, 'eggland', 'Dairy & Eggs',0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(306, 'yogurt', 'Dairy & Eggs',0.76 , 0.35, 100, 'fruit-apple.jpg' );
