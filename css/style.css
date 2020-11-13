@@ -130,7 +130,7 @@ p{
 
 
 
-
+/* -------------------------------------MAIN PAGE ------------------------------------- */
 
 
 /* --------------- HeaderNav ----------------- */
@@ -151,7 +151,7 @@ p{
 /* --------------- Header ----------------- */
 
 .header{
-    background-image: url("../mainPageImages/market.jpg");
+    background-image: url("/images/market.jpg");
     /* background-color: rgb(114, 245, 232); */
     
 }
@@ -319,6 +319,7 @@ p{
 
 
 
+/* NEW PAGE HERE */
 
 /* ----------------------------------ALL PRODUCTS PAGE------------------------------ */
 
