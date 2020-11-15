@@ -65,7 +65,7 @@
             <div class = "row">
               <div class="col-3">
                   <!-- Fruits -->
-                  <a href= ""><img src="images/fruit-apple.jpg"></a>
+                  <a href= "productDetails.php"><img src="images/fruit-apple.jpg"></a>
                   <br>
                   <p>Organic Gala Apple</p>
                   <p>Weight ~ 0.35lb</p>

@@ -1,14 +1,14 @@
 <?php
 
-class DBController{
+class DBController{  //used to connect to the database
 
     //Database Connection
-    protected $host = 'localhost';  //local server
-    protected $user = 'root';       //server username
-    protected $password = '';       //server pw
+    protected $host = 'localhost';  //server name (right now just local)
+    protected $user = 'root';       //db username
+    protected $password = '';       //db pw
     protected $database = 'goceries'; //server db
 
-    //connection property using nysqli
+    //connection property using mysqli
     public $con = null;
 
     //call constructor
