@@ -30,10 +30,12 @@ public function __construct(DBController $db){ //dependency injection
 
 public function getProductDetailsData($table = 'products'){
 
-    $result = $this->db->con->query("SELECT * FROM {$table}");
+    $result = $this->db->con->query("SELECT product_name, product_category, product_price, 
+    product_description FROM {$table}");
 
     $resultArray = array();
 
+    echo "<br> ";
 
     //fetch product data one by one from the query
     while($item = mysqli_fetch_array($result, MYSQLI_ASSOC)){ //assoc use column name as index key
