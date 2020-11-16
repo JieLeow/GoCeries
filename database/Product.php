@@ -5,9 +5,12 @@ class Product{
     
 //instance fields
 public $db = null;   //make sure i understand what this means
+<<<<<<< HEAD
 public $name = '';
 public $description = '';
 public $price = '';
+=======
+>>>>>>> 5b5ad1d5f9217b073f2e6be7f067aa370fb2c9ce
 
 // protected $productName = '';
 // protected $productImage = '';

@@ -34,15 +34,14 @@
           <label for ="sort">Sort By :</label>
           <select name="list" id="list" accesskey="target">
             <option value='none' selected>Choose a category</option>
-            <option value="./category-allproducts.php">All Products</option>
-            <option value="./category-fruits.php">Fruits</option>
-            <option value="./category-vegetables.php">Vegetables</option>
-            <option value="./category-dairyneggs.php">Dairy & Eggs</option>
-            <option value="./category-beverages.php">Beverage</option>
+            <option value="category-allproducts.php">All Products</option>
+            <option value="category-fruits.php">Fruits</option>
+            <option value="category-vegetables.php">Vegetables</option>
+            <option value="category-dairyneggs.php">Dairy & Eggs</option>
+            <option value="category-beverages.php">Beverage</option>
           </select>
           <input type=button value="Go" onclick="goToNewPage()" />
         </form>
-      
 
 
             <div class = "row">
@@ -51,7 +50,7 @@
                     <a href= ""><img src="images/beverage-applejuice.jpg"></a>
                     <br>
                     <p>Honest Kids Appley Ever After Apple Organic Fruit Juice</p>
-                    <p>Weight ~ 3.4 lb</p>
+                    <p>Weight ~ 3.4 lbs</p>
                     <p>$4.29</p>
                 </div>
 
@@ -59,7 +58,7 @@
                     <!-- Beverages -->
                    <a href = ""><img src = "images/beverage-citrusseltzer.jpg"></a>
                    <p>Truly Hard Seltzer Hard Seltzer, Citrus Mix Pack</p>
-                    <p>Weight ~ 9 lb</p>
+                    <p>Weight ~ 9 lbs</p>
                     <p>$20.69</p>
                 </div>
 
@@ -67,7 +66,7 @@
                     <!-- Vegetables -->
                     <a href = ""><img src = "images/beverage-peachtea.jpg"></a>
                     <p>Honest Tea Organic Fair Trade Peach Tea Gluten Free</p>
-                    <p>Weight ~ 1.06 lb</p>
+                    <p>Weight ~ 1.06 lbs</p>
                     <p>$1.48</p>
                 </div>
 
@@ -84,7 +83,7 @@
                     <!-- Beverages -->
                    <a href = ""><img src = "images/beverage-minttea.jpg"></a>
                    <p>Numi Organic Caffeine Free Tea Bags Moroccan Mint</p>
-                    <p>Weight</p>
+                    <p>Weight ~ .09 lbs</p>
                     <p>$8.69</p>
                 </div>
 
@@ -92,7 +91,7 @@
                     <!-- Vegetables -->
                     <a href = ""><img src = "images/beverage-berryseltzer.jpg"></a>
                     <p>Truly Hard Seltzer Berry Variety Hard Seltzer</p>
-                    <p>Weight ~ 9 lb</p>
+                    <p>Weight ~ 9 lbs</p>
                     <p>$20.69</p>
                 </div>
 

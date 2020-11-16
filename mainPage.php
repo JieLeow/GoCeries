@@ -17,30 +17,27 @@
             <div class="row">
                 <div class="col-3">
                     <i class="fa fa-truck"></i>
-                    <p>Same day delivery? We can do better than that. Yes you heard it right, we offer <b>
-                    same hour</b> delivery within San Jose.</p>
+                    <p>We deliver your items within 24 hours!</p>
                 </div>
                 <div class="col-3">
                     <i class="fa fa-archive"></i>
-                    <p>All local sellers. Empowering the small local businesses
-                         By San Jose, For San Jose.</p>
+                    <p>Fresh picked from local farms!</p>
                 </div>
                 <div class="col-3">
                     <i class="fa fa-money" ></i>
-                    <p>10% of our earnings are donated to local charity.</p>
+                    <p>10% of our earnings are donated to local charity!</p>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-3">
-                    <p>We offer 2 hours free delivery.</p>
+                    <p>We offer free shipping for orders that weigh less than 20lbs!</p>
                 </div>
                 <div class="col-3">
-                    <p>All local sellers. Empowering the small local businesses
-                         By San Jose, For San Jose</p>
+                    <p>We have most of the grocery items you need!</p>
                 </div>
                 <div class="col-3">
-                    <p>10% of our earnings are donated to local charity.</p>
+                    <p>Empowering small local business!</p>
                 </div>
             </div>
 
@@ -58,26 +55,26 @@
             <div class = "row">
                 <div class="col-4">
                     <!-- Fruits -->
-                    <a href= ""><img src="images/fruit-banana.jpg"></a>
+                    <a href= "category-Fruits.php"><img src="images/fruit-banana.jpg"></a>
                     <br>
                     <h3> Fruits</h3>
                 </div>
 
                 <div class="col-4">
                     <!-- Beverages -->
-                   <a href = ""><img src = "images/beverage-applejuice.jpg"></a>
+                   <a href = "category-beverages.php"><img src = "images/beverage-applejuice.jpg"></a>
                     <h3>Beverages</h3>
                 </div>
 
                 <div class="col-4">
                     <!-- Vegetables -->
-                    <a href = ""><img src = "images/vegetable-cabbage.jpg"></a>
+                    <a href = "category-vegetables.php"><img src = "images/vegetable-cabbage.jpg"></a>
                     <h3>Vegetables</h3>
                 </div>
 
                 <div class="col-4">
                     <!-- Dairy and Eggs -->
-                    <a href = ""><img src="images/dairy-eggland.jpg"></a>
+                    <a href = "category-dairyneggs.php"><img src="images/dairy-eggland.jpg"></a>
                     <h3>Dairy & Eggs</h3>
                 </div>
             </div>

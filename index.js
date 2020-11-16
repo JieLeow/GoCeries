@@ -1,5 +1,5 @@
 
-let productName;
+
 
 function goToNewPage()
 {
@@ -10,7 +10,9 @@ function goToNewPage()
 }
 
 function getProductName(){
-    var   //gets the class or productName?
+  //gets the class or productName? decide
+     
+
 }
 
 
