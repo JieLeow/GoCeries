@@ -5,6 +5,9 @@ class Product{
     
 //instance fields
 public $db = null;   //make sure i understand what this means
+public $name = '';
+public $description = '';
+public $price = '';
 
 // protected $productName = '';
 // protected $productImage = '';
