@@ -40,8 +40,14 @@
     <!-- HEADER -->
     <?php
         include('phpTemplates/header.php');
-    ?>
 
+        include('functions.php'); //not sure (does it create new connection everytime?)
+
+        $products = $product->getProductDetailsData();
+
+        //now, print product title based on image clicked/ use post request? yes. most likely.
+
+    ?>
 
     <!-- single product details -->
     <div class="small-container" style="margin-top:80px;">

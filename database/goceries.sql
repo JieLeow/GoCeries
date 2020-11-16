@@ -22,10 +22,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_email` VARCHAR(255) NOT NULL,
   `user_password` VARCHAR(255) NOT NULL,
   `user_firstname` VARCHAR(255) NOT NULL,
-  `user_lastname` VARCHAR(255) NOT NULL,
-  `user_address` VARCHAR(255) NOT NULL,
-  `user_phone` INT(10) NOT NULL,
-  `order_ID` INT(11) NOT NULL,
+  -- `user_lastname` VARCHAR(255) NOT NULL,
+  -- `user_address` VARCHAR(255) NOT NULL,
+  -- `user_phone` INT(10) NOT NULL,
+  `order_ID` INT(11),
   PRIMARY KEY (`user_ID`)
   -- CONSTRAINT FK_user_orders
   --   FOREIGN KEY (order_ID)

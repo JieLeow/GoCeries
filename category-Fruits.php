@@ -42,15 +42,6 @@
           </select>
           <input type=button value="Go" onclick="goToNewPage()" />
         </form>
-        <script type="text/javascript">
-        function goToNewPage()
-        {
-            var url = document.getElementById('list').value;
-            if(url != 'none') {
-                window.location = url;
-            }
-        }
-        </script>
 
             <div class = "row">
                 <div class="col-3">
