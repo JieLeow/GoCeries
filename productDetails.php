@@ -19,18 +19,28 @@
         border: 1px solid black;
         padding: 6px;
     }
+
     table {
-        float:left;
+        float: left;
         border-collapse: collapse;
     }
+
     input {
-        width:50px; 
-        height:40px; 
-        outline:none;
-        padding-left:10px; 
-        font-size:20px; 
-        margin-right:10px; 
-        border:1px solid #23ae00
+        width: 60px; 
+        height: 40px; 
+        outline: none;
+        padding-left: 10px; 
+        font-size: 20px; 
+        margin-right: 10px; 
+        border: 1px solid #23ae00;
+        caret-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
     }
 </style>
 
@@ -50,16 +60,16 @@
     ?>
 
     <!-- single product details -->
-    <div class="small-container" style="margin-top:80px;">
+    <div class="small-container" style="margin-top: 80px;">
         <div class = "row">
             <div style= "flex: 50%; min-width: 180px; margin-bottom: 30px;">
-                <img src="mainPageImages/banana.jpg" width="100%" style="padding:0;">
+                <img src="images/fruit-banana.jpg" width="100%" style="padding: 0;">
             </div>
-            <div style= "flex: 50%; min-width: 180px; margin-bottom: 30px; padding:20px;">
+            <div style= "flex: 50%; min-width: 180px; margin-bottom: 30px; padding: 20px;">
                 <p>Home / Fruits</p>
                 <h1>Organic Banana</h1>
-                <h4 style="margin:40px 0; font-size:22px; font-weight:bold;">$0.31/each</h4>
-                <input type="number" value="1">
+                <h4 style="margin: 40px 0; font-size: 22px; font-weight: bold;">$0.31/each</h4>
+                  <input type="number" value="0" min="0" onkeydown="return false">
                 <a href="" class="btn">Add To Cart</a>
                 <h3>Nutritional Facts</h3> 
                 <br>
@@ -92,8 +102,8 @@
     <!-- related products -->
     <div class="small-container">
         <div class = "row">
-            <h2 style="float:left; margin-left:50px;">Related Products</h2>
-            <p style="float:right; margin-right:50px;">View More</p>
+            <h2 style="float: left; margin-left: 50px;">Related Products</h2>
+            <p style="float: right; margin-right: 50px;">View More</p>
         </div>
     </div>
 
