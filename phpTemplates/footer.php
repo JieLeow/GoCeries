@@ -3,8 +3,8 @@
         <div class="container">
             <div class="row">
                 <div class="footer-col-1">
-                    <h3>Download Our App</h3>
-                    <p>Download App for Android and ios Mobile</p>
+                    <h3>Customer Service</h3>
+                    <p>Call (408) 765-4321</p>
                 </div>
 
                 <div class="footer-col-2">
@@ -14,22 +14,18 @@
                 </div>
 
                 <div class="footer-col-3">
-                    <h3>Useful Links</h3>
+                    <h3>Store Hours</h3>
                     <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
+                        <li>Mon - Fri: 8am - 10pm</li>
+                        <li>Sat - Sun: 10pm - 9pm</li>
                     </ul>
                 </div>
 
                 <div class="footer-col-4">
-                    <h3>Follow Us</h3>
+                    <h3>Location</h3>
                     <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
+                        <li>777 The Alameda</li>
+                        <li>San Jose, CA 95126</li>
                     </ul>
                 </div>
             </div>

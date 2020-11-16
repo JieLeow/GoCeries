@@ -34,11 +34,11 @@
           <label for ="sort">Sort By :</label>
           <select name="list" id="list" accesskey="target">
             <option value='none' selected>Choose a category</option>
-            <option value="./category-allproducts.php">All Products</option>
-            <option value="./category-fruits.php">Fruits</option>
-            <option value="./category-vegetables.php">Vegetables</option>
-            <option value="./category-dairyneggs.php">Dairy & Eggs</option>
-            <option value="./category-beverages.php">Beverage</option>
+            <option value="category-allproducts.php">All Products</option>
+            <option value="category-fruits.php">Fruits</option>
+            <option value="category-vegetables.php">Vegetables</option>
+            <option value="category-dairyneggs.php">Dairy & Eggs</option>
+            <option value="category-beverages.php">Beverage</option>
           </select>
           <input type=button value="Go" onclick="goToNewPage()" />
         </form>
@@ -49,24 +49,24 @@
                     <a href= ""><img src="images/fruit-apple.jpg"></a>
                     <br>
                     <p>Organic Gala Apple</p>
-                    <p>Weight ~ 0.35lb</p>
-                    <p>$0.76/each</p>
+                    <p>Weight ~ 0.35lb /each</p>
+                    <p>$0.76</p>
                 </div>
 
                 <div class="col-3">
                     <!-- Beverages -->
                    <a href = ""><img src = "images/fruit-banana.jpg"></a>
                    <p>Organic Bananas</p>
-                    <p>Weight ~ 0.4 lb</p>
-                    <p>$0.31 /item | $0.75 /lb</p>
+                    <p>Weight ~ 0.4lbs /each</p>
+                    <p>$0.31</p>
                 </div>
 
                 <div class="col-3">
                     <!-- Vegetables -->
                     <a href = ""><img src = "images/fruit-peach.jpg"></a>
                     <p>Organic White Peach</p>
-                    <p>Weight ~ 0.3 lb</p>
-                    <p>$1.81/each </p>
+                    <p>Weight ~ 0.3 lb /each</p>
+                    <p>$1.81</p>
                 </div>
 
                 <div class="col-3">
@@ -74,24 +74,24 @@
                     <a href= ""><img src="images/fruit-blueberry.jpg"></a>
                     <br>
                     <p>Organic Blueberries Package</p>
-                    <p>6oz Container</p>
-                    <p>$3.99 /each</p>
+                    <p>Weight ~ 0.38lbs /container</p>
+                    <p>$3.99</p>
                 </div>
 
                 <div class="col-3">
                     <!-- Beverages -->
                    <a href = ""><img src = "images/fruit-strawberry.jpg"></a>
                    <p>Strawberries</p>
-                    <p>1lb Container</p>
-                    <p>$4.50 /each</p>
+                   <p>Weight ~ 1lb /container</p>
+                   <p>$4.50</p>
                 </div>
 
                 <div class="col-3">
                     <!-- Vegetables -->
                     <a href = ""><img src = "images/fruit-cantaloupe.jpg"></a>
                     <p>Cantaloupe</p>
-                    <p>Weight ~ 2 lb</p>
-                    <p>$2.50 /each</p>
+                    <p>Weight ~ 2 lbs /each</p>
+                    <p>$2.50</p>
                 </div>
 
 

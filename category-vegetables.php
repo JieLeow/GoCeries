@@ -34,15 +34,15 @@
           <label for ="sort">Sort By :</label>
           <select name="list" id="list" accesskey="target">
             <option value='none' selected>Choose a category</option>
-            <option value="./category-allproducts.php">All Products</option>
-            <option value="./category-fruits.php">Fruits</option>
-            <option value="./category-vegetables.php">Vegetables</option>
-            <option value="./category-dairyneggs.php">Dairy & Eggs</option>
-            <option value="./category-beverages.php">Beverage</option>
+            <option value="category-allproducts.php">All Products</option>
+            <option value="category-fruits.php">Fruits</option>
+            <option value="category-vegetables.php">Vegetables</option>
+            <option value="category-dairyneggs.php">Dairy & Eggs</option>
+            <option value="category-beverages.php">Beverage</option>
           </select>
           <input type=button value="Go" onclick="goToNewPage()" />
         </form>
-        
+
 
             <div class = "row">
                 <div class="col-3">
@@ -51,23 +51,23 @@
                     <br>
                     <p>Asparagus</p>
                     <p>Weight ~ 1 lb (bunch)</p>
-                    <p>~$3.01 /item</p>
+                    <p>~$3.01</p>
                 </div>
 
                 <div class="col-3">
                     <!-- Beverages -->
                    <a href = ""><img src = "images/vegetable-tomato.jpg"></a>
                    <p>Roma Tomato</p>
-                    <p>Weight ~ 0.25 lb</p>
-                    <p>$1.49 /lb</p>
+                    <p>Weight ~ 0.25 lb /each</p>
+                    <p>$1.49</p>
                 </div>
 
                 <div class="col-3">
                     <!-- Vegetables -->
                     <a href = ""><img src = "images/vegetable-pepper.jpg"></a>
                     <p>Green Bell Pepper</p>
-                    <p>Weight ~ 0.4 lb</p>
-                    <p>$0.99 /each</p>
+                    <p>Weight ~ 0.4 lb /each</p>
+                    <p>$0.99</p>
                 </div>
 
                 <div class="col-3">
@@ -75,24 +75,24 @@
                     <a href= ""><img src="images/vegetable-carrot.jpg"></a>
                     <br>
                     <p>Organic Loose Carrot</p>
-                    <p>Weight ~ 0.2 lb</p>
-                    <p>$0.99 /lb</p>
+                    <p>Weight ~ 0.2 lb /each</p>
+                    <p>$0.99</p>
                 </div>
 
                 <div class="col-3">
                     <!-- Beverages -->
                    <a href = ""><img src = "images/vegetable-beans.jpg"></a>
                    <p>Green Beans</p>
-                    <p>weight</p>
-                    <p>$1.99 /lb</p>
+                    <p>Weight ~ 1lb /bag</p>
+                    <p>$1.99</p>
                 </div>
 
                 <div class="col-3">
                     <!-- Vegetables -->
                     <a href = ""><img src = "images/vegetable-cabbage.jpg"></a>
                     <p>Green Cabbage</p>
-                    <p>Weight ~ 2 lb</p>
-                    <p>$0.99 /lb</p>
+                    <p>Weight ~ 2 lbs /each</p>
+                    <p>$0.99</p>
                 </div>
 
 
@@ -107,7 +107,7 @@
 
         </div>
     </div>
-    
+
  <!-- FOOTER -->
  <?php
       include('phpTemplates/footer.php');

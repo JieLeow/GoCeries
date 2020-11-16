@@ -10,7 +10,7 @@
 
     <!-- OWN CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
+
 </head>
 
 <body>
@@ -46,9 +46,8 @@
                     GETTING YOUR GROCERIES IS JUST A FEW CLICKS AWAY!</h2>
                 <hr>
                     <p>
-                    How are we different? We offer the best price and delivery services. <br>
-                    Quisque semper augue mattis wisi. Maecenas ligula pellentesque
-                </p>
+                    How are we different? We offer the best price and delivery services.
+                    </p>
                 <p>What are you waiting for? Join us now. <br>
                     <a href = "" class = "btn">Sign Up &#10026;</a>
                     <a href = "" class = "btn">Log in &#10026;</a>
