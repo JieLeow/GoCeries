@@ -43,15 +43,7 @@
           <input type=button value="Go" onclick="goToNewPage()" />
         </form>
         
-        <script type="text/javascript">
-        function goToNewPage()
-        {
-            var url = document.getElementById('list').value;
-            if(url != 'none') {
-                window.location = url;
-            }
-        }
-        </script>
+        
 
 
             <!-- <label for ="sort">Sort By :</label>
@@ -73,7 +65,7 @@
               </div>
               <div class="col-3">
                   <!-- Fruits -->
-                  <a href= ""><img src="images/dairy-milk.jpg"></a>
+                  <a href= "productDetails.php"><img src="images/dairy-milk.jpg"></a>
                   <br>
                   <p>Horizon Organic Half &Half, 1.89 L</p>
                   <p>Weight ~ 4.2 lb</p>
@@ -82,7 +74,7 @@
 
               <div class="col-3">
                   <!-- Fruits -->
-                  <a href= ""><img src="images/beverage-applejuice.jpg"></a>
+                  <a href= "productDetails.php"><img src="images/beverage-applejuice.jpg"></a>
                   <br>
                   <p>Honest Kids Appley Ever After Apple Organic Fruit Juice</p>
                   <p>Weight ~ 3.4 lb</p>
