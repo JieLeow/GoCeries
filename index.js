@@ -11,7 +11,7 @@ function goToNewPage()
 
 function getProductName(){
   //gets the class or productName? decide
-     
+     var fruit = document.getElementById('');
 
 }
 

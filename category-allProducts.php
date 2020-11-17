@@ -24,6 +24,11 @@
         include('phpTemplates/header.php');
     ?>
 
+    <!-- include functions controller -->
+    <?php
+        include('functions.php');
+    ?>
+
     <!-- ALL PRODUCTS SECTION -->
     <div class="categories all-products">
 
@@ -43,219 +48,18 @@
           <input type=button value="Go" onclick="goToNewPage()" />
         </form>
 
-
-
-
-            <!-- <label for ="sort">Sort By :</label>
-            <select name = "sort">
-                <option>Default</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-                <option>Average Rating</option>
-            </select> -->
-
             <div class = "row">
-              <div class="col-3">
-                  <!-- Fruits -->
-                  <a href= "productDetails.php"><img src="images/fruit-apple.jpg"></a>
-                  <br>
-                  <p>Organic Gala Apple</p>
-                  <p>Weight ~ 0.35lb</p>
-                  <p>$0.76 /each</p>
-              </div>
-              <div class="col-3">
-                  <!-- Fruits -->
-                  <a href= "productDetails.php"><img src="images/dairy-milk.jpg"></a>
-                  <br>
-                  <p>Horizon Organic Half &Half, 1.89 L</p>
-                  <p>Weight ~ 4.2 lb</p>
-                  <p>$7.99</p>
-              </div>
 
-              <div class="col-3">
-                  <!-- Fruits -->
-                  <a href= "productDetails.php"><img src="images/beverage-applejuice.jpg"></a>
-                  <br>
-                  <p>Honest Kids Appley Ever After Apple Organic Fruit Juice</p>
-                  <p>Weight ~ 3.4 lb</p>
-                  <p>$4.29</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Fruits -->
-                  <a href= ""><img src="images/vegetable-asparagus.jpg"></a>
-                  <br>
-                  <p>Asparagus</p>
-                  <p>Weight ~ 1 lb (bunch)</p>
-                  <p>~$3.01</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Beverages -->
-                 <a href = ""><img src = "images/vegetable-tomato.jpg"></a>
-                 <p>Roma Tomato</p>
-                  <p>Weight ~ 0.25lbs /each</p>
-                  <p>$1.49</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Vegetables -->
-                  <a href = ""><img src = "images/vegetable-pepper.jpg"></a>
-                  <p>Green Bell Pepper</p>
-                  <p>Weight ~ 0.4 lb /each</p>
-                  <p>$0.99</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Fruits -->
-                  <a href= ""><img src="images/vegetable-carrot.jpg"></a>
-                  <br>
-                  <p>Organic Loose Carrot</p>
-                  <p>Weight ~ 0.2 lb /each</p>
-                  <p>$0.99</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Beverages -->
-                 <a href = ""><img src = "images/vegetable-beans.jpg"></a>
-                 <p>Green Beans</p>
-                  <p>Weight ~ 1lb /bag</p>
-                  <p>$1.99</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Vegetables -->
-                  <a href = ""><img src = "images/vegetable-cabbage.jpg"></a>
-                  <p>Green Cabbage</p>
-                  <p>Weight ~ 2lbs /each</p>
-                  <p>$0.99</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Beverages -->
-                 <a href = ""><img src = "images/beverage-citrusseltzer.jpg"></a>
-                 <p>Truly Hard Seltzer Hard Seltzer, Citrus Mix Pack</p>
-                  <p>Weight ~ 9 lbs</p>
-                  <p>$20.69</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Vegetables -->
-                  <a href = ""><img src = "images/beverage-peachtea.jpg"></a>
-                  <p>Honest Tea Organic Fair Trade Peach Tea Gluten Free</p>
-                  <p>Weight ~ 1.06 lbs</p>
-                  <p>$1.48</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Fruits -->
-                  <a href= ""><img src="images/beverage-kombucha.jpg"></a>
-                  <br>
-                  <p>Gt's Organic Kombucha, Enlightened Synergy-Trilogy</p>
-                  <p>Weight ~ 1 lb</p>
-                  <p>$3.19</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Beverages -->
-                 <a href = ""><img src = "images/beverage-minttea.jpg"></a>
-                 <p>Numi Organic Caffeine Free Tea Bags Moroccan Mint</p>
-                  <p>Weight ~ 0.09lbs</p>
-                  <p>$8.69</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Vegetables -->
-                  <a href = ""><img src = "images/beverage-berryseltzer.jpg"></a>
-                  <p>Truly Hard Seltzer Berry Variety Hard Seltzer</p>
-                  <p>Weight ~ 9lbs</p>
-                  <p>$20.69</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Beverages -->
-                 <a href = ""><img src = "images/dairy-yogurt.jpg"></a>
-                 <p>Siggi's Icelandic Style Skyr Non-Fat Yogurt, Vanilla</p>
-                  <p>Weight ~ 0.33lbs</p>
-                  <p>$1.00</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Vegetables -->
-                  <a href = ""><img src = "images/dairy-oatmilk.jpg"></a>
-                  <p>Califia Farms Oatmilk, Gluten Free</p>
-                  <p>Weight ~ 3lbs</p>
-                  <p>$4.49</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Fruits -->
-                  <a href= ""><img src="images/dairy-creamer.jpg"></a>
-                  <br>
-                  <p>Chobani Pumpkin Spice Coffee Creamer</p>
-                  <p>Weight ~ 1.5lbs</p>
-                  <p>$4.49</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Beverages -->
-                 <a href = ""><img src = "images/dairy-vitalegg.jpg"></a>
-                 <p>Vital Farms Vital Farms Pasture-Raised (Alfresco) Eggs</p>
-                  <p>Weight ~ 2.5lbs</p>
-                  <p>$8.79 /18ct</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Vegetables -->
-                  <a href = ""><img src = "images/dairy-eggland.jpg"></a>
-                  <p>Eggland's Best Cage Free Grade A Large Brown Eggs</p>
-                  <p>Weight ~ 1.3lbs</p>
-                  <p>$3.99/ 12ct</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Beverages -->
-                 <a href = ""><img src = "images/fruit-banana.jpg"></a>
-                 <p>Organic Bananas</p>
-                  <p>Weight ~ 0.4lbs /each</p>
-                  <p>$0.31</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Vegetables -->
-                  <a href = ""><img src = "images/fruit-peach.jpg"></a>
-                  <p>Organic White Peach</p>
-                  <p>Weight ~ 0.3lbs /each</p>
-                  <p>$1.81</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Fruits -->
-                  <a href= ""><img src="images/fruit-blueberry.jpg"></a>
-                  <br>
-                  <p>Organic Blueberries Package</p>
-                  <p>Weight ~ 0.38lbs /container</p>
-                  <p>$3.99</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Beverages -->
-                 <a href = ""><img src = "images/fruit-strawberry.jpg"></a>
-                 <p>Strawberries</p>
-                  <p>Weight ~ 1lb /container</p>
-                  <p>$4.50</p>
-              </div>
-
-              <div class="col-3">
-                  <!-- Vegetables -->
-                  <a href = ""><img src = "images/fruit-cantaloupe.jpg"></a>
-                  <p>Cantaloupe</p>
-                  <p>Weight ~ 2 lbs /each</p>
-                  <p>$2.50</p>
-              </div>
-
-
-
+                <?php foreach ($productsArray as $product){ ?>
+                    <div class="col-3">
+                        <!-- All Products fetched from database -->
+                        <a href= "productDetails.php"><img src="images/<?php echo $product['product_imagename']?>"></a>
+                        <br>
+                        <p><?php echo $product['product_name'] ?></p>
+                        <p><?php echo 'Weight ~ ' . $product['product_weight'] . 'lb' ?></p>
+                        <p><?php echo '$'. $product['product_price'] ?></p>
+                    </div>
+                <?php }?>    
             </div>
 
             <div class = "products-button">

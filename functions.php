@@ -17,10 +17,10 @@ $db = new DBController();  //creates a db controller object which its constructo
 //Product object
 $product = new Product($db);
 
-print_r($product->getProductDetailsData()); //no need param, product table is default in the product class
+// print_r($product->getProductDetailsData()); //no need param, product table is default in the product class
 
-
-
+//get all products in array of arrays from db.
+$productsArray = $product->getAllProducts();
 
 
 
