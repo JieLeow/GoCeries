@@ -44,7 +44,7 @@ class Product{
 
 
 
-    public function getAllProducts($table = 'products'){   //returns an array of all objects, to be used in the categories view page to loop through each item.
+    public function getAllProducts($table = 'products'){//returns an array of all objects, to be used in the categories view page to loop through each item.
 
         //performs a query which is returned as a result object.
         $result = $this->db->con->query("SELECT product_id, product_name, product_price,        
@@ -59,6 +59,24 @@ class Product{
         shuffle($productsArray);  //needed?, else can remove.
 
         return $productsArray;
+        
+    }
+
+
+    public function getProductsByCategory($category){ //param is a string of a product category.
+
+        //performs a query which is returned as a result object.
+        $result = $this->db->con->query("SELECT product_id, product_name, product_price,        
+        product_weight, product_imagename, product_category, product_description FROM products
+        WHERE product_category = '{$category}'");         
+
+        $categoricalProductsArray = array();
+
+        while($row = $result->fetch_array()){
+            $categoricalProductsArray[] = $row;
+        }  
+
+        return $categoricalProductsArray;
         
     }
 

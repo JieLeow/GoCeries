@@ -25,6 +25,13 @@ $product = new Product($db);
 //get all products in array of arrays from db.
 $productsArray = $product->getAllProducts();
 
+//get products by category from db
+$fruitsArray = $product->getProductsByCategory('fruits');
+$vegetablesArray = $product->getProductsByCategory('vegetables');
+$beveragesArray = $product->getProductsByCategory('beverage');
+$dairiesArray = $product->getProductsByCategory('Dairy & Eggs');
+
+
 // ------------------------------------- product ------------------------------------------//
 
 

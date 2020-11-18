@@ -24,6 +24,12 @@
         include('phpTemplates/header.php');
     ?>
 
+      <!-- include functions controller -->
+      <?php
+        include('functions.php');
+    ?>
+
+
     <!-- ALL PRODUCTS SECTION -->
     <div class="categories all-products">
 
@@ -44,56 +50,16 @@
         </form>
 
             <div class = "row">
-                <div class="col-3">
-                    <!-- Fruits -->
-                    <a href= ""><img src="images/fruit-apple.jpg"></a>
-                    <br>
-                    <p>Organic Gala Apple</p>
-                    <p>Weight ~ 0.35lb /each</p>
-                    <p>$0.76</p>
-                </div>
-
-                <div class="col-3">
-                    <!-- Beverages -->
-                   <a href = ""><img src = "images/fruit-banana.jpg"></a>
-                   <p>Organic Bananas</p>
-                    <p>Weight ~ 0.4lbs /each</p>
-                    <p>$0.31</p>
-                </div>
-
-                <div class="col-3">
-                    <!-- Vegetables -->
-                    <a href = ""><img src = "images/fruit-peach.jpg"></a>
-                    <p>Organic White Peach</p>
-                    <p>Weight ~ 0.3 lb /each</p>
-                    <p>$1.81</p>
-                </div>
-
-                <div class="col-3">
-                    <!-- Fruits -->
-                    <a href= ""><img src="images/fruit-blueberry.jpg"></a>
-                    <br>
-                    <p>Organic Blueberries Package</p>
-                    <p>Weight ~ 0.38lbs /container</p>
-                    <p>$3.99</p>
-                </div>
-
-                <div class="col-3">
-                    <!-- Beverages -->
-                   <a href = ""><img src = "images/fruit-strawberry.jpg"></a>
-                   <p>Strawberries</p>
-                   <p>Weight ~ 1lb /container</p>
-                   <p>$4.50</p>
-                </div>
-
-                <div class="col-3">
-                    <!-- Vegetables -->
-                    <a href = ""><img src = "images/fruit-cantaloupe.jpg"></a>
-                    <p>Cantaloupe</p>
-                    <p>Weight ~ 2 lbs /each</p>
-                    <p>$2.50</p>
-                </div>
-
+            <?php foreach ($fruitsArray as $product){ ?>
+                    <div class="col-3">
+                        <!-- All Products fetched from database -->
+                        <a href= "<?php printf('%s?product_id=%s','productDetails.php', $product['product_id'])?>"><img src="images/<?php echo $product['product_imagename']?>"></a>
+                        <br>
+                        <p><?php echo $product['product_name'] ?></p>
+                        <p><?php echo 'Weight ~ ' . $product['product_weight'] . 'lb' ?></p>
+                        <p><?php echo '$'. $product['product_price'] ?></p>
+                    </div>
+                <?php }?>
 
             </div>
 
@@ -107,7 +73,7 @@
         </div>
     </div>
 
- <!-- FOOTER -->
- <?php
+  <!-- FOOTER -->
+  <?php
       include('phpTemplates/footer.php');
   ?>
