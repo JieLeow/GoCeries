@@ -53,7 +53,7 @@
                 <?php foreach ($productsArray as $product){ ?>
                     <div class="col-3">
                         <!-- All Products fetched from database -->
-                        <a href= "productDetails.php"><img src="images/<?php echo $product['product_imagename']?>"></a>
+                        <a href= "<?php printf('%s?product_id=%s','productDetails.php', $product['product_id'])?>"><img src="images/<?php echo $product['product_imagename']?>"></a>
                         <br>
                         <p><?php echo $product['product_name'] ?></p>
                         <p><?php echo 'Weight ~ ' . $product['product_weight'] . 'lb' ?></p>

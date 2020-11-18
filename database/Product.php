@@ -22,7 +22,6 @@ class Product{
             return null;
         $this->db = $db;
         
-
     }
 
 
@@ -34,8 +33,6 @@ class Product{
         product_description FROM {$table}");
 
         $resultArray = array();
-
-        echo "<br> ";
 
         //fetch product data one by one from the query
         while($item = mysqli_fetch_array($result, MYSQLI_ASSOC)){ //assoc use column name as index key
@@ -50,20 +47,22 @@ class Product{
     public function getAllProducts($table = 'products'){   //returns an array of all objects, to be used in the categories view page to loop through each item.
 
         //performs a query which is returned as a result object.
-        $result = $this->db->con->query("SELECT product_name, product_price,        
-        product_weight, product_imagename FROM {$table}");         
+        $result = $this->db->con->query("SELECT product_id, product_name, product_price,        
+        product_weight, product_imagename, product_category, product_description FROM {$table}");         
 
         $productsArray = array();
-
-        echo "<br> ";
 
         while($row = $result->fetch_array()){
             $productsArray[] = $row;
         }
 
+        shuffle($productsArray);  //needed?, else can remove.
+
         return $productsArray;
         
     }
+
+
 
         
 

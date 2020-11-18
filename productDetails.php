@@ -50,54 +50,42 @@
     <!-- HEADER -->
     <?php
         include('phpTemplates/header.php');
-
         include('functions.php'); //not sure (does it create new connection everytime?)
+    ?>
 
-        $products = $product->getProductDetailsData();
+    <?php 
+        $product_id = $_GET['product_id'] ?? 1;
+        foreach($productsArray as $product){
+            if($product['product_id'] == $product_id){
 
-        //now, print product title based on image clicked/ use post request? yes. most likely.
-
+            
     ?>
 
     <!-- single product details -->
     <div class="small-container" style="margin-top: 80px;">
         <div class = "row">
             <div style= "flex: 50%; min-width: 180px; margin-bottom: 30px;">
-                <img src="images/fruit-banana.jpg" width="100%" style="padding: 0;">
+                <img src="images/<?php echo $product['product_imagename'] ?>" width="100%" style="padding: 0;">
             </div>
             <div style= "flex: 50%; min-width: 180px; margin-bottom: 30px; padding: 20px;">
-                <p>Home / Fruits</p>
-                <h1>Organic Banana</h1>
-                <h4 style="margin: 40px 0; font-size: 22px; font-weight: bold;">$0.31/each</h4>
+                <p>Home / <?php echo $product['product_category']?></p>
+                <h1><?php echo $product['product_name'] ?></h1>
+                <h4 style="margin: 40px 0; font-size: 22px; font-weight: bold;">$ <?php echo $product['product_price'] ?> / each</h4>
                   <input type="number" value="0" min="0" onkeydown="return false">
                 <a href="" class="btn">Add To Cart</a>
-                <h3>Nutritional Facts</h3> 
+                <h3>Product Description</h3> 
+                <p><?php echo $product['product_description'] ?></p>
                 <br>
-                <table>
-                    <tbody>
-                      <tr>
-                        <td>Serving Size: <b>1 medium</b></td>
-                        <td>Calories: <b>105</b></td>
-                      </tr>
-                      <tr>
-                        <td>Total Fat: <b>0.4 g</b></td>
-                        <td>Protein: <b>1.3 g</b></td>
-                      </tr>
-                      <tr>
-                        <td>Total Carbohydrate: <b>27 g</b></td>
-                        <td>Total Sugars: <b>14.4 g</b></td>
-                      </tr>
-                      <tr>
-                        <td>Sodium: <b>1.2 mg</b></td>
-                        <td>Calcium <b>5.9 mg</b></td>
-                      </tr>
-                    </tbody>
-                  </table>
+        
                 
             </div>
         </div>
     </div>
 
+    <?php 
+            }
+        }
+    ?>
 
     <!-- related products -->
     <div class="small-container">
