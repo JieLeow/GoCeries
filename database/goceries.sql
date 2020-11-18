@@ -102,7 +102,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- ------------------------------------------------------
 --    Dump products data to products table    
 -- ------------------------------------------------------
-INSERT INTO `products` (`product_ID`,`product_name`,`product_category`,`product_price`, `product_weight`, `product_stock`, 'product_description'
+INSERT INTO `products` (`product_ID`,`product_name`,`product_category`,`product_price`, `product_weight`, `product_stock`, `product_description`,
 `product_imagename`)
 
 VALUES 
