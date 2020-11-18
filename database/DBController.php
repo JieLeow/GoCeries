@@ -20,9 +20,9 @@ class DBController{  //used to connect to the database
        if ($this->con->connect_error){
            echo "Fail" . $this->con->connect_error;
        }
-       echo 'Successful Connection';
+       echo '';
    }
- 
+
 
    public function __destruct(){
        $this->closeConnection(); //call the closeConnection function created below;

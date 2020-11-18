@@ -24,12 +24,6 @@
         include('phpTemplates/header.php');
     ?>
 
-      <!-- include functions controller -->
-      <?php
-        include('functions.php');
-    ?>
-
-
     <!-- ALL PRODUCTS SECTION -->
     <div class="categories all-products">
 
@@ -50,16 +44,56 @@
         </form>
 
             <div class = "row">
-            <?php foreach ($vegetablesArray as $product){ ?>
-                    <div class="col-3">
-                        <!-- All Products fetched from database -->
-                        <a href= "<?php printf('%s?product_id=%s','productDetails.php', $product['product_id'])?>"><img src="images/<?php echo $product['product_imagename']?>"></a>
-                        <br>
-                        <p><?php echo $product['product_name'] ?></p>
-                        <p><?php echo 'Weight ~ ' . $product['product_weight'] . 'lb' ?></p>
-                        <p><?php echo '$'. $product['product_price'] ?></p>
-                    </div>
-                <?php }?>
+                <div class="col-3">
+                    <!-- Fruits -->
+                    <a href= ""><img src="images/vegetable-asparagus.jpg"></a>
+                    <br>
+                    <p>Asparagus</p>
+                    <p>Weight ~ 1 lb (bunch)</p>
+                    <p>~$3.01</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Beverages -->
+                   <a href = ""><img src = "images/vegetable-tomato.jpg"></a>
+                   <p>Roma Tomato</p>
+                    <p>Weight ~ 0.25 lb /each</p>
+                    <p>$1.49</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Vegetables -->
+                    <a href = ""><img src = "images/vegetable-pepper.jpg"></a>
+                    <p>Green Bell Pepper</p>
+                    <p>Weight ~ 0.4 lb /each</p>
+                    <p>$0.99</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Fruits -->
+                    <a href= ""><img src="images/vegetable-carrot.jpg"></a>
+                    <br>
+                    <p>Organic Loose Carrot</p>
+                    <p>Weight ~ 0.2 lb /each</p>
+                    <p>$0.99</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Beverages -->
+                   <a href = ""><img src = "images/vegetable-beans.jpg"></a>
+                   <p>Green Beans</p>
+                    <p>Weight ~ 1lb /bag</p>
+                    <p>$1.99</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Vegetables -->
+                    <a href = ""><img src = "images/vegetable-cabbage.jpg"></a>
+                    <p>Green Cabbage</p>
+                    <p>Weight ~ 2 lbs /each</p>
+                    <p>$0.99</p>
+                </div>
+
 
             </div>
 
@@ -73,7 +107,7 @@
         </div>
     </div>
 
-  <!-- FOOTER -->
-  <?php
+ <!-- FOOTER -->
+ <?php
       include('phpTemplates/footer.php');
   ?>

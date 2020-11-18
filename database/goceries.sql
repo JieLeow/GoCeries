@@ -18,24 +18,42 @@ USE `goceries` ;
 -- Table `users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `users` (
-  `user_ID` INT(10) NOT NULL,
-  `user_email` VARCHAR(255) NOT NULL,
-  `user_password` VARCHAR(255) NOT NULL,
-  `user_firstname` VARCHAR(255) NOT NULL,
-  -- `user_lastname` VARCHAR(255) NOT NULL,
-  -- `user_address` VARCHAR(255) NOT NULL,
-  -- `user_phone` INT(10) NOT NULL,
-  `order_ID` INT(11),
-  PRIMARY KEY (`user_ID`)
-  -- CONSTRAINT FK_user_orders
-  --   FOREIGN KEY (order_ID)
-  --   REFERENCES `orders` (`order_ID`)
-  --   ON DELETE NO ACTION
-  --   ON UPDATE NO ACTION
-  )
+  `id` int(11) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
+  INSERT INTO `users` (`id`, `user_name`, `password`, `name`, `email`) VALUES
+  (1, 'stan123', '123', 'Stan', 'stan@gmail.com'),
+  (2, 'john', 'abc', 'John','stan@gmail.com');
+
+  --
+  -- Indexes for dumped tables
+  --
+
+  --
+  -- Indexes for table `users`
+  --
+  ALTER TABLE `users`
+    ADD PRIMARY KEY (`id`);
+
+  --
+  -- AUTO_INCREMENT for dumped tables
+  --
+
+  --
+  -- AUTO_INCREMENT for table `users`
+  --
+  ALTER TABLE `users`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  COMMIT;
+
+
+
+
+
 
 
 -- -----------------------------------------------------
@@ -100,33 +118,25 @@ DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- ------------------------------------------------------
---    Dump products data to products table    
+--    Dump products data to products table
 -- ------------------------------------------------------
-INSERT INTO `products` (`product_ID`,`product_name`,`product_category`,`product_price`, `product_weight`, `product_stock`, `product_description`,
+INSERT INTO `products` (`product_ID`,`product_name`,`product_category`,`product_price`, `product_weight`, `product_stock`,
 `product_imagename`)
 
-VALUES 
-(101, 'Organic Gala Apple', 'fruits', 0.76 , 0.35 ,200, 'Gala apples are high in fiber, vitamin C, and various antioxidants.', 'fruit-apple.jpg' ),
-(102, 'Banana', 'fruits', 0.31 , 0.4, 200, 'Bananas contain a fair amount of fiber and several antioxidants.', 'fruit-banana.jpg' ),
-(103, 'Blueberry', 'fruits', 3.99 , 6, 200, 'Blueberries are packed with antioxidants and phytoflavinoids; high in potassium and vitamin C.', 'fruit-blueberry.jpg' ),
-(104, 'Cantaloupe', 'fruits', 2.5 , 2, 200, 'The water, antioxidants, vitamins, and minerals provide a variety of health benefits.', 'fruit-cantaloupe.jpg' ),
-(105, 'Peach', 'fruits', 1.81 , 0.3, 200, 'Peaches are low in calories, and contain no saturated fats.', 'fruit-peach.jpg' ),
-(106, 'Strawberry', 'fruits', 4.5 , 1, 200, 'They’re an excellent source of vitamin C and manganese and also contain decent amounts of folate and potassium.', 'fruit-strawberry.jpg' ),
-(201, 'Asparagus','vegetables', 3.01 , 1, 200, 'Asparagus is low in calories and packed with essential vitamins, minerals and antioxidants.', 'vegetable-asparagus.jpg' ),
-(202, 'Beans', 'vegetables', 1.99 , 1, 200, 'Beans provide protein, fiber, folate, iron, potassium and magnesium.', 'vegetable-beans.jpg' ),
-(203, 'Cabbage', 'vegetables', 0.99 , 2, 200, 'Cabbage is a good source of potassium, folate, vitamin K, calcium, iron, vitamin A, and vitamin C.', 'vegetable-cabbage.jpg' ),
-(204, 'Carrot', 'vegetables', 0.99 , 0.2, 200, 'Carrot is a particularly good source of beta carotene, fiber, vitamin K1, potassium, and antioxidants.', 'vegetable-carrot.jpg' ),
-(205, 'Pepper', 'vegetables', 0.99 , 0.4, 200, 'Peppers are packed with vitamins and low in calories; excellent source of vitamin A, vitamin C, and potassium.' , 'vegetable-pepper.jpg' ),
-(206, 'Tomato', 'vegetables', 1.49 , 0.25, 200,'Major dietary source of the antioxidant lycopene; great source of vitamin C, potassium, folate, and vitamin K.', 'vegetable-tomato.jpg' ),
-(301, 'Creamer', 'Dairy & Eggs', 4.49 , 1.5, 200, 'Transform your everyday coffee into something extraordinary.', 'dairy-creamer.jpg' ),
-(302, 'Milk', 'Dairy & Eggs', 7.99 , 4.2, 200, 'Good source of Vitamin D, Riboflavin, Vitamin B12, Calcium and Phosphorus.', 'dairy-milk.jpg' ),
-(303, 'Egg', 'Dairy & Eggs',8.79 , 2.5, 200, 'Eggs contain protein, healthy fats, vitamins A, D, E, choline, iron and folate.', 'dairy-vitalegg.jpg' ),
-(304, 'Oatmilk', 'Dairy & Eggs',4.49 , 3, 200, 'Oat milk is rich in fiber and essential vitamins, such as vitamin A, B12 and D.', 'dairy-oatmilk.jpg' ),
-(305, 'Eggland', 'Dairy & Eggs',3.99 , 1.3, 200, 'Eggs contain protein, healthy fats, vitamins A, D, E, choline, iron and folate.', 'dairy-eggland.jpg' ),
-(306, 'Yogurt', 'Dairy & Eggs',1.00 , 0.33, 200, 'Yogurt is an excellent source of protein, calcium and potassium.', 'dairy-yogurt.jpg' ),
-(401, 'Apple juice', 'beverage',4.29 , 3.4, 200, 'Apple juice contains minerals such as calcium, potassium, iron, manganese and magnesium. ', 'beverage-applejuice.jpg' ),
-(402, 'Berry seltzer', 'beverage',20.69 , 9, 200, '100% All Natural Sparkling Seltzer Water; low sugars; Splash of all-natural fruit flavor.', 'beverage-berryseltzer.jpg' ),
-(403, 'Citrus seltzer', 'beverage',20.69 , 9, 200, '100% All Natural Sparkling Seltzer Water; low sugars; Splash of all-natural fruit flavor.', 'beverage-citrusseltzer.jpg' ),
-(404, 'Kombucha', 'beverage',3.19 , 1, 200, 'Fermented tea plus real, organic & raw ingredients – never concentrates or flavorings', 'beverage-kombucha.jpg' ),
-(405, 'Mint tea', 'beverage',8.69 , 0.5, 200, 'Our tea bags are constructed of Abacá Hemp Fiber Paper. They are free of dyes, adhesive, glue and chlorine bleach.', 'beverage-minttea.jpg' ),
-(406, 'Peach tea', 'beverage',1.48 , 1.06, 200, 'All Honest Tea Organic iced tea beverages are real brewed with Fair Trade Certified tea leaves, gluten Free, OU Kosher certified, and Non GMO.', 'beverage-peachtea.jpg' );
+VALUES
+(101, 'Organic Gala Apple', 'fruits', 0.76 , 0.35 ,100, 'fruit-apple.jpg' ),
+(102, 'Banana', 'fruits', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(103, 'Blueberry', 'fruits', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(104, 'Cantaloupe', 'fruits', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(105, 'Peach', 'fruits', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(106, 'Strawberry', 'fruits', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),(201, 'Asparagus','vegetables', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(202, 'Beans', 'vegetables', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(203, 'Cabbage', 'vegetables', 0.76 , 0.35,100, 'fruit-apple.jpg' ),
+(204, 'Carrot', 'vegetables', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(205, 'Pepper', 'vegetables', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(206, 'Tomato', 'vegetables', 0.76 , 0.35, 100, 'fruit-apple.jpg' ),(301, 'Creamer', 'Dairy & Eggs',0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(302, 'Milk', 'Dairy & Eggs',0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(303, 'Egg', 'Dairy & Eggs',0.76 , 0.35,100, 'fruit-apple.jpg' ),
+(304, 'Oatmilk', 'Dairy & Eggs',0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(305, 'eggland', 'Dairy & Eggs',0.76 , 0.35, 100, 'fruit-apple.jpg' ),
+(306, 'yogurt', 'Dairy & Eggs',0.76 , 0.35, 100, 'fruit-apple.jpg' );

@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,13 +59,13 @@
                 <?php foreach ($productsArray as $product){ ?>
                     <div class="col-3">
                         <!-- All Products fetched from database -->
-                        <a href= "<?php printf('%s?product_id=%s','productDetails.php', $product['product_id'])?>"><img src="images/<?php echo $product['product_imagename']?>"></a>
+                        <a href= "productDetails.php"><img src="images/<?php echo $product['product_imagename']?>"></a>
                         <br>
                         <p><?php echo $product['product_name'] ?></p>
                         <p><?php echo 'Weight ~ ' . $product['product_weight'] . 'lb' ?></p>
                         <p><?php echo '$'. $product['product_price'] ?></p>
                     </div>
-                <?php }?>    
+                <?php }?>
             </div>
 
             <div class = "products-button">
@@ -76,3 +82,9 @@
 <?php
     include('phpTemplates/footer.php');
 ?>
+<?php
+}else{
+     header("Location: loginregister.php?error=You need to login before shopping");
+     exit();
+}
+ ?>

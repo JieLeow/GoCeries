@@ -76,7 +76,7 @@ body{
 
 .col-3{
     flex: 33%;
-    min-width: 180px; 
+    min-width: 180px;
     margin-bottom: 30px;
 }
 
@@ -89,7 +89,7 @@ body{
 
 .col-4 img{
     width:80%;
-    
+
 }
 
 
@@ -136,7 +136,7 @@ p{
 /* --------------- HeaderNav ----------------- */
 .header-nav{
     background:rgba(0, 0, 0, 0.5);
-    
+
 
 }
 
@@ -153,7 +153,7 @@ p{
 .header{
     background-image: url("/images/market.jpg");
     /* background-color: rgb(114, 245, 232); */
-    
+
 }
 
 .header .row{
@@ -162,7 +162,7 @@ p{
 
 .header img{
     width: 300px;
-    
+
 }
 
 .header .column{
@@ -202,7 +202,7 @@ p{
 /* ---------Product Categories------------- */
 .categories{
     margin-top: 0px;
-} 
+}
 
 .categories h2{
     text-align: center;
@@ -229,7 +229,7 @@ p{
 .team-members{
     background: #F7F7F7;
     margin-top: 0px;
-    
+
 }
 
 .team-members h2{
@@ -296,7 +296,7 @@ p{
 .footer-col-3, .footer-col-4{
     flex-basis: 12%;
     text-align: center;
-    
+
 }
 
 .footer ul{

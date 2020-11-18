@@ -24,12 +24,6 @@
         include('phpTemplates/header.php');
     ?>
 
-      <!-- include functions controller -->
-      <?php
-        include('functions.php');
-    ?>
-
-
     <!-- ALL PRODUCTS SECTION -->
     <div class="categories all-products">
 
@@ -50,16 +44,56 @@
         </form>
 
             <div class = "row">
-            <?php foreach ($dairiesArray as $product){ ?>
-                    <div class="col-3">
-                        <!-- All Products fetched from database -->
-                        <a href= "<?php printf('%s?product_id=%s','productDetails.php', $product['product_id'])?>"><img src="images/<?php echo $product['product_imagename']?>"></a>
-                        <br>
-                        <p><?php echo $product['product_name'] ?></p>
-                        <p><?php echo 'Weight ~ ' . $product['product_weight'] . 'lb' ?></p>
-                        <p><?php echo '$'. $product['product_price'] ?></p>
-                    </div>
-                <?php }?>
+                <div class="col-3">
+                    <!-- Fruits -->
+                    <a href= ""><img src="images/dairy-milk.jpg"></a>
+                    <br>
+                    <p>Horizon Organic Half &Half, 1.89 L</p>
+                    <p>Weight ~ 4.2 lbs</p>
+                    <p>$7.99</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Beverages -->
+                   <a href = ""><img src = "images/dairy-yogurt.jpg"></a>
+                   <p>Siggi's Icelandic Style Skyr Non-Fat Yogurt, Vanilla</p>
+                    <p>Weight ~ 0.33 lbs</p>
+                    <p>$1.00</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Vegetables -->
+                    <a href = ""><img src = "images/dairy-oatmilk.jpg"></a>
+                    <p>Califia Farms Oatmilk, Gluten Free</p>
+                    <p>Weight ~ 3 lbs</p>
+                    <p>$4.49</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Fruits -->
+                    <a href= ""><img src="images/dairy-creamer.jpg"></a>
+                    <br>
+                    <p>Chobani Pumpkin Spice Coffee Creamer</p>
+                    <p>Weight ~ 1.5 lbs</p>
+                    <p>$4.49</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Beverages -->
+                   <a href = ""><img src = "images/dairy-vitalegg.jpg"></a>
+                   <p>Vital Farms Vital Farms Pasture-Raised (Alfresco) Eggs</p>
+                    <p>Weight ~ 2.5 lbs</p>
+                    <p>$8.79 / 18ct</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Vegetables -->
+                    <a href = ""><img src = "images/dairy-eggland.jpg"></a>
+                    <p>Eggland's Best Cage Free Grade A Large Brown Eggs</p>
+                    <p>Weight ~ 1.3 lbs</p>
+                    <p>$3.99 / 12ct</p>
+                </div>
+
 
             </div>
 

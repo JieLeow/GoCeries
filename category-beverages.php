@@ -24,11 +24,6 @@
         include('phpTemplates/header.php')
     ?>
 
-    <!-- include functions controller -->
-    <?php
-        include('functions.php');
-    ?>
-
     <!-- ALL PRODUCTS SECTION -->
     <div class="categories all-products">
 
@@ -50,17 +45,56 @@
 
 
             <div class = "row">
-                
-                <?php foreach ($beveragesArray as $product){ ?>
-                    <div class="col-3">
-                        <!-- All Products fetched from database -->
-                        <a href= "<?php printf('%s?product_id=%s','productDetails.php', $product['product_id'])?>"><img src="images/<?php echo $product['product_imagename']?>"></a>
-                        <br>
-                        <p><?php echo $product['product_name'] ?></p>
-                        <p><?php echo 'Weight ~ ' . $product['product_weight'] . 'lb' ?></p>
-                        <p><?php echo '$'. $product['product_price'] ?></p>
-                    </div>
-                <?php }?>
+                <div class="col-3">
+                    <!-- Fruits -->
+                    <a href= ""><img src="images/beverage-applejuice.jpg"></a>
+                    <br>
+                    <p>Honest Kids Appley Ever After Apple Organic Fruit Juice</p>
+                    <p>Weight ~ 3.4 lbs</p>
+                    <p>$4.29</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Beverages -->
+                   <a href = ""><img src = "images/beverage-citrusseltzer.jpg"></a>
+                   <p>Truly Hard Seltzer Hard Seltzer, Citrus Mix Pack</p>
+                    <p>Weight ~ 9 lbs</p>
+                    <p>$20.69</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Vegetables -->
+                    <a href = ""><img src = "images/beverage-peachtea.jpg"></a>
+                    <p>Honest Tea Organic Fair Trade Peach Tea Gluten Free</p>
+                    <p>Weight ~ 1.06 lbs</p>
+                    <p>$1.48</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Fruits -->
+                    <a href= ""><img src="images/beverage-kombucha.jpg"></a>
+                    <br>
+                    <p>Gt's Organic Kombucha, Enlightened Synergy-Trilogy</p>
+                    <p>Weight ~ 1 lb</p>
+                    <p>$3.19</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Beverages -->
+                   <a href = ""><img src = "images/beverage-minttea.jpg"></a>
+                   <p>Numi Organic Caffeine Free Tea Bags Moroccan Mint</p>
+                    <p>Weight ~ .09 lbs</p>
+                    <p>$8.69</p>
+                </div>
+
+                <div class="col-3">
+                    <!-- Vegetables -->
+                    <a href = ""><img src = "images/beverage-berryseltzer.jpg"></a>
+                    <p>Truly Hard Seltzer Berry Variety Hard Seltzer</p>
+                    <p>Weight ~ 9 lbs</p>
+                    <p>$20.69</p>
+                </div>
+
 
             </div>
 

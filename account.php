@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +30,8 @@
         <div class="container">
             <div class="small-container">
                 <h2>Account Information</h2>
-                <h3>Name</h3>
-                <p>John Doe</p>
+                <h3><?php echo $_SESSION['name']; ?></h3>
+                <p></p>
                 <h3>Change Password</h3>
                 <!-- form + password field -->
                 <h3>Shipping Address</h3>
@@ -40,3 +46,9 @@
 <?php
     include('phpTemplates/footer.php');
 ?>
+<?php
+}else{
+     header("Location: loginregister.php?error=You need to login before shopping");
+     exit();
+}
+ ?>

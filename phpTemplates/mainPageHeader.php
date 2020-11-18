@@ -1,4 +1,9 @@
+<?php
+session_start();
+include "db_conn.php";
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +21,7 @@
 <body>
 
     <!-- HEADER -->
-    <div class="header">
+    <div  class="header">
         <div class = header-nav>
             <div class = "container">
                 <div class = "navbar">
@@ -28,10 +33,17 @@
                         <ul>
                             <li><a href = "mainPage.php">Home</a></li>
                             <li><a href = "category-allProducts.php">Products</a></li>
-                            <li><a href = "mainPage.php">Contact</a></li>
-                            <li><a href = "">Account</a></li>
+                            <li><a href = "#footer">Contact</a></li>
+                            <?php if (isset($_SESSION['id'])&& isset($_SESSION['user_name'])){ ?>
+
+
+                          <li><a href = "account.php">Hello, <?php echo $_SESSION['name']; ?></a></li>
+                          <li><a href = "logout.php">Logout</a></li>
+                                <?php } else { ?>
+
+                                <li><a href = "account.php">Account</a></li>
+                                <?php } ?>
                             <li><a href = ""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-                        </ul>
                     </nav>
                 </div>
             </div>
@@ -49,8 +61,16 @@
                     How are we different? We offer the best price and delivery services.
                     </p>
                 <p>What are you waiting for? Join us now. <br>
-                    <a href = "" class = "btn">Sign Up &#10026;</a>
-                    <a href = "" class = "btn">Log in &#10026;</a>
+                  <?php if (isset($_SESSION['id'])&& isset($_SESSION['user_name'])){ ?>
+                    <
+                    <h1>Hello, <?php echo $_SESSION['name']; ?></h1>
+                  <a href="logout.php">Logout</a>
+                      <?php } else { ?>
+
+                        <a href = "loginregister.php" class = "btn">Sign Up &#10026;</a>
+                        <a href = "loginregister.php" class = "btn">Log in &#10026;</a>
+                      <?php } ?>
+
                 </p>
             </div>
 
