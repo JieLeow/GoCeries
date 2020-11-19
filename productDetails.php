@@ -68,7 +68,7 @@
                 <img src="images/<?php echo $product['product_imagename'] ?>" width="100%" style="padding: 0;">
             </div>
             <div style= "flex: 50%; min-width: 180px; margin-bottom: 30px; padding: 20px;">
-                <p>Home / <?php echo $product['product_category']?></p>
+                <p><a href = "mainPage.php">Home</a> / <a href = '<?php echo 'category-' .  $product['product_category'] . '.php'?>'> <?php echo $product['product_category']?> </a></p>
                 <h1><?php echo $product['product_name'] ?></h1>
                 <h4 style="margin: 40px 0; font-size: 22px; font-weight: bold;">$ <?php echo $product['product_price'] ?> / each</h4>
                   <input type="number" value="0" min="0" onkeydown="return false">
@@ -87,47 +87,34 @@
         }
     ?>
 
-    <!-- related products -->
-    <div class="small-container">
-        <div class = "row">
-            <h2 style="float: left; margin-left: 50px;">Related Products</h2>
-            <p style="float: right; margin-right: 50px;">View More</p>
-        </div>
-    </div>
-
-
-    <!-- SUGGESTED PRODUCTS SECTION -->
-    <div class="categories all-products">
-        <div class="small-container">
+        <!-- related products -->
+        <!-- <div class="small-container">
             <div class = "row">
-                <div class="col-3">
-                    <!-- Fruits -->
-                    <a href= ""><img src="images/fruit-banana.jpg"></a> 
-                    <br>
-                    <p>Banana</p> 
-                    <p>Rating</p>
-                    <p>Price: </p>
-                </div>
-
-                <div class="col-3">
-                    <!-- Beverages -->
-                   <a href = ""><img src = "images/beverage-applejuice.jpg"></a>
-                   <p>Banana</p> 
-                    <p>Rating</p>
-                    <p>Price: </p>
-                </div>
-
-                <div class="col-3">
-                    <!-- Vegetables -->
-                    <a href = ""><img src = "images/dairy-eggland.jpg"></a>
-                    <p>Banana</p> 
-                    <p>Rating</p>
-                    <p>Price: </p>
-                </div>
+                <h2 style="float: left; margin-left: 50px;">Related Products</h2>
+                <p style="float: right; margin-right: 50px;">View More</p>
             </div>
+        </div> -->
 
-        </div>
-    </div>
+
+        <!-- SUGGESTED PRODUCTS SECTION -->
+        <!-- <div class="categories all-products">
+            <div class="small-container">
+            
+                <div class = "row">
+                
+                    <div class="col-3"> -->
+                        <!-- Fruits -->
+                        <!-- <a href= ""><img src="images/fruit-banana.jpg"></a> 
+                        <br>
+                        <p>Banana</p> 
+                        <p>Rating</p>
+                        <p>Price: </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div> -->
 
 
 <!-- FOOTER -->
