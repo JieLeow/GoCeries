@@ -42,7 +42,7 @@
             <option value="category-allproducts.php">All Products</option>
             <option value="category-fruits.php">Fruits</option>
             <option value="category-vegetables.php">Vegetables</option>
-            <option value="category-dairyneggs.php">Dairy & Eggs</option>
+            <option value="category-dairy & eggs.php">Dairy & Eggs</option>
             <option value="category-beverages.php">Beverage</option>
           </select>
           <input type=button value="Go" onclick="goToNewPage()" />
