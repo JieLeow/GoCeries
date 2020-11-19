@@ -29,6 +29,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+INSERT INTO `users` (`user_id`, `user_loginname`, `user_password`, `user_name`,`user_email`) VALUES
+(1, 'stan123', '123', 'Stan', 's@gmail.com'),
+(2, 'k123', 'abc', 'K','k@gmail.com');
+
+
 ALTER TABLE `users`
 ADD PRIMARY KEY (`user_id`);
 ALTER TABLE `users`
