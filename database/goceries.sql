@@ -18,24 +18,22 @@ USE `goceries` ;
 -- Table `users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `users` (
-  `user_ID` INT(10) NOT NULL,
-  `user_email` VARCHAR(255) NOT NULL,
+  `user_id` INT(11) NOT NULL,
+  `user_loginname` VARCHAR(255) NOT NULL,
   `user_password` VARCHAR(255) NOT NULL,
-  `user_firstname` VARCHAR(255) NOT NULL,
-  -- `user_lastname` VARCHAR(255) NOT NULL,
-  -- `user_address` VARCHAR(255) NOT NULL,
-  -- `user_phone` INT(10) NOT NULL,
-  `order_ID` INT(11),
-  PRIMARY KEY (`user_ID`)
-  -- CONSTRAINT FK_user_orders
-  --   FOREIGN KEY (order_ID)
-  --   REFERENCES `orders` (`order_ID`)
-  --   ON DELETE NO ACTION
-  --   ON UPDATE NO ACTION
+  `user_name` VARCHAR(255) NOT NULL,
+  `user_email` VARCHAR(255) NOT NULL
+
   )
 
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
+
+ALTER TABLE `users`
+ADD PRIMARY KEY (`user_id`);
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
 
 
 -- -----------------------------------------------------
@@ -100,12 +98,12 @@ DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- ------------------------------------------------------
---    Dump products data to products table    
+--    Dump products data to products table
 -- ------------------------------------------------------
 INSERT INTO `products` (`product_ID`,`product_name`,`product_category`,`product_price`, `product_weight`, `product_stock`, `product_description`,
 `product_imagename`)
 
-VALUES 
+VALUES
 (101, 'Organic Gala Apple', 'fruits', 0.76 , 0.35 ,200, 'Gala apples are high in fiber, vitamin C, and various antioxidants.', 'fruit-apple.jpg' ),
 (102, 'Banana', 'fruits', 0.31 , 0.4, 200, 'Bananas contain a fair amount of fiber and several antioxidants.', 'fruit-banana.jpg' ),
 (103, 'Blueberry', 'fruits', 3.99 , 6, 200, 'Blueberries are packed with antioxidants and phytoflavinoids; high in potassium and vitamin C.', 'fruit-blueberry.jpg' ),
