@@ -124,9 +124,9 @@ VALUES
 (304, 'Oatmilk', 'Dairy & Eggs',4.49 , 3, 200, 'Oat milk is rich in fiber and essential vitamins, such as vitamin A, B12 and D.', 'dairy-oatmilk.jpg' ),
 (305, 'Eggland', 'Dairy & Eggs',3.99 , 1.3, 200, 'Eggs contain protein, healthy fats, vitamins A, D, E, choline, iron and folate.', 'dairy-eggland.jpg' ),
 (306, 'Yogurt', 'Dairy & Eggs',1.00 , 0.33, 200, 'Yogurt is an excellent source of protein, calcium and potassium.', 'dairy-yogurt.jpg' ),
-(401, 'Apple juice', 'beverage',4.29 , 3.4, 200, 'Apple juice contains minerals such as calcium, potassium, iron, manganese and magnesium. ', 'beverage-applejuice.jpg' ),
-(402, 'Berry seltzer', 'beverage',20.69 , 9, 200, '100% All Natural Sparkling Seltzer Water; low sugars; Splash of all-natural fruit flavor.', 'beverage-berryseltzer.jpg' ),
-(403, 'Citrus seltzer', 'beverage',20.69 , 9, 200, '100% All Natural Sparkling Seltzer Water; low sugars; Splash of all-natural fruit flavor.', 'beverage-citrusseltzer.jpg' ),
-(404, 'Kombucha', 'beverage',3.19 , 1, 200, 'Fermented tea plus real, organic & raw ingredients – never concentrates or flavorings', 'beverage-kombucha.jpg' ),
-(405, 'Mint tea', 'beverage',8.69 , 0.5, 200, 'Our tea bags are constructed of Abacá Hemp Fiber Paper. They are free of dyes, adhesive, glue and chlorine bleach.', 'beverage-minttea.jpg' ),
-(406, 'Peach tea', 'beverage',1.48 , 1.06, 200, 'All Honest Tea Organic iced tea beverages are real brewed with Fair Trade Certified tea leaves, gluten Free, OU Kosher certified, and Non GMO.', 'beverage-peachtea.jpg' );
+(401, 'Apple juice', 'beverages',4.29 , 3.4, 200, 'Apple juice contains minerals such as calcium, potassium, iron, manganese and magnesium. ', 'beverage-applejuice.jpg' ),
+(402, 'Berry seltzer', 'beverages',20.69 , 9, 200, '100% All Natural Sparkling Seltzer Water; low sugars; Splash of all-natural fruit flavor.', 'beverage-berryseltzer.jpg' ),
+(403, 'Citrus seltzer', 'beverages',20.69 , 9, 200, '100% All Natural Sparkling Seltzer Water; low sugars; Splash of all-natural fruit flavor.', 'beverage-citrusseltzer.jpg' ),
+(404, 'Kombucha', 'beverages',3.19 , 1, 200, 'Fermented tea plus real, organic & raw ingredients – never concentrates or flavorings', 'beverage-kombucha.jpg' ),
+(405, 'Mint tea', 'beverages',8.69 , 0.5, 200, 'Our tea bags are constructed of Abacá Hemp Fiber Paper. They are free of dyes, adhesive, glue and chlorine bleach.', 'beverage-minttea.jpg' ),
+(406, 'Peach tea', 'beverages',1.48 , 1.06, 200, 'All Honest Tea Organic iced tea beverages are real brewed with Fair Trade Certified tea leaves, gluten Free, OU Kosher certified, and Non GMO.', 'beverage-peachtea.jpg' );
