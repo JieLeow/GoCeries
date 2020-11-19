@@ -28,7 +28,7 @@ $productsArray = $product->getAllProducts();
 //get products by category from db
 $fruitsArray = $product->getProductsByCategory('fruits');
 $vegetablesArray = $product->getProductsByCategory('vegetables');
-$beveragesArray = $product->getProductsByCategory('beverage');
+$beveragesArray = $product->getProductsByCategory('beverages');
 $dairiesArray = $product->getProductsByCategory('Dairy & Eggs');
 
 
