@@ -207,7 +207,7 @@ $total_price += ($product["product_price"]*$product["quantity"]);
 $taxes = ($total_price*10)/100;
 $final_amount = $total_price + $taxes;
 $total_weight += ($product["product_weight"]*$product["quantity"]);
-
+$delivery = 0;
 if($total_weight>20){
     $delivery  = 5;
 } else {$delivery = 0;}
@@ -241,7 +241,7 @@ $final_amount = $total_price + $taxes + $delivery;
 <form method= "post" action='checkout.php'>
 	<input type = "hidden" name = "totalprice" value = "<?php echo $total_price?>" />
 	<input type = "hidden" name = "taxes" value = "<?php echo $taxes?>" />
-	<input type = "hidden" name = "deliveryfee" value = "<?php echo '' ?>" />
+	<input type = "hidden" name = "deliveryfee" value = "<?php echo $delivery ?>" />
 	<input type = "hidden" name = "finalprice" value = "<?php echo $final_amount?>" />
 
 	<button type="submit" id="myButton" class="button2" >Proceed to Checkout</button>
