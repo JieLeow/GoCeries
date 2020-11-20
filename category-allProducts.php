@@ -1,3 +1,10 @@
+
+<?php
+session_start();
+
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +66,7 @@
                         <p><?php echo 'Weight ~ ' . $product['product_weight'] . 'lb' ?></p>
                         <p><?php echo '$'. $product['product_price'] ?></p>
                     </div>
-                <?php }?>    
+                <?php }?>
             </div>
 
             <div class = "products-button">
@@ -76,3 +83,9 @@
 <?php
     include('phpTemplates/footer.php');
 ?>
+<?php
+}else{
+     header("Location: loginregister.php?error=You need to login before shopping");
+     exit();
+}
+ ?>
