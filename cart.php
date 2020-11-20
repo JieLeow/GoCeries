@@ -157,7 +157,7 @@ if(isset($_SESSION["shopping_cart"])){
 foreach ($_SESSION["shopping_cart"] as $product){
 ?>
 <tr>
-<td><img src='<?php echo $product["product_imagename"]; ?>' width="50" height="40" /></td>
+<td><img src='<?php echo 'images/' . $product["product_imagename"]; ?>' width="50" height="40" /></td>
 <td><?php echo $product["product_name"]; ?><br />
 <form method='post' action=''>
 <input type='hidden' name='product_ID' value="<?php echo $product["product_ID"]; ?>" />
