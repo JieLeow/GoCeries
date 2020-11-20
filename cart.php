@@ -189,6 +189,11 @@ foreach ($_SESSION["shopping_cart"] as $product){
 <option <?php if($product["quantity"]==3) echo "selected";?> value="3">3</option>
 <option <?php if($product["quantity"]==4) echo "selected";?> value="4">4</option>
 <option <?php if($product["quantity"]==5) echo "selected";?> value="5">5</option>
+<option <?php if($product["quantity"]==6) echo "selected";?> value="6">6</option>
+<option <?php if($product["quantity"]==7) echo "selected";?> value="7">7</option>
+<option <?php if($product["quantity"]==8) echo "selected";?> value="8">8</option>
+<option <?php if($product["quantity"]==9) echo "selected";?> value="9">9</option>
+<option <?php if($product["quantity"]==10) echo "selected";?> value="10">10</option>
 </select>
 </form>
 </td><td><?php echo "$".$product["product_price"]; ?></td>
