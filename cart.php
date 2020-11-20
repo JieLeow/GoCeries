@@ -114,18 +114,20 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
 		.cart .remove:hover {
 			text-decoration:underline;
 			}
-			.button2 {
 
-  width: 130px;
-  height: 40px;
-  font-size: 16px;
-  background-color: #FF9966;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
-  /* margin-left:30px; */
-}
+		.button2 {
+
+		width: 200px;
+		height: 40px;
+		font-size: 16px;
+		background-color: rgb(162, 253, 57);
+		border-radius: 6px;
+		border: none;
+		cursor: pointer;
+		margin-top: 10px;
+		color:gray;
+		/* margin-left:30px; */
+		}
 
 		</style>
 </head>
@@ -169,7 +171,7 @@ if(isset($_SESSION["shopping_cart"])){
 foreach ($_SESSION["shopping_cart"] as $product){
 ?>
 <tr>
-<td><img src='<?php echo $product["product_imagename"]; ?>' width="50" height="40" /></td>
+<td><img src='<?php echo 'images/' . $product["product_imagename"]; ?>' width="50" height="40" /></td>
 <td><?php echo $product["product_name"]; ?><br />
 <form method='post' action=''>
 <input type='hidden' name='product_ID' value="<?php echo $product["product_ID"]; ?>" />
@@ -220,7 +222,11 @@ $final_amount = $total_price + $taxes;
 </td>
 <tr>
 <td colspan="5" align="right">
-<button onclick="location.href = 'checkout.php';" id="myButton" class="button2" >CHECK OUT</button>
+
+<form method= "post" action='checkout.php'> 	
+	<button type="submit" id="myButton" class="button2" >Proceed to Checkout</button> 
+</form>
+
 
 </td>
 <tr>
