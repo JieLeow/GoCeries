@@ -114,6 +114,18 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
 		.cart .remove:hover {
 			text-decoration:underline;
 			}
+			.button2 {
+
+  width: 130px;
+  height: 40px;
+  font-size: 16px;
+  background-color: #FF9966;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  /* margin-left:30px; */
+}
 
 		</style>
 </head>
@@ -157,7 +169,7 @@ if(isset($_SESSION["shopping_cart"])){
 foreach ($_SESSION["shopping_cart"] as $product){
 ?>
 <tr>
-<td><img src='<?php echo 'images/' . $product["product_imagename"]; ?>' width="50" height="40" /></td>
+<td><img src='images/<?php echo $product["product_imagename"]; ?>' width="110" height="110" /></td>
 <td><?php echo $product["product_name"]; ?><br />
 <form method='post' action=''>
 <input type='hidden' name='product_ID' value="<?php echo $product["product_ID"]; ?>" />
@@ -175,6 +187,11 @@ foreach ($_SESSION["shopping_cart"] as $product){
 <option <?php if($product["quantity"]==3) echo "selected";?> value="3">3</option>
 <option <?php if($product["quantity"]==4) echo "selected";?> value="4">4</option>
 <option <?php if($product["quantity"]==5) echo "selected";?> value="5">5</option>
+<option <?php if($product["quantity"]==6) echo "selected";?> value="6">6</option>
+<option <?php if($product["quantity"]==7) echo "selected";?> value="7">7</option>
+<option <?php if($product["quantity"]==8) echo "selected";?> value="8">8</option>
+<option <?php if($product["quantity"]==9) echo "selected";?> value="9">9</option>
+<option <?php if($product["quantity"]==10) echo "selected";?> value="10">10</option>
 </select>
 </form>
 </td><td><?php echo "$".$product["product_price"]; ?></td>
@@ -206,6 +223,13 @@ $final_amount = $total_price + $taxes;
 <td colspan="5" align="right">
 <strong>Final Amount: <?php echo "$".$final_amount; ?></strong>
 </td>
+<tr>
+<td colspan="5" align="right">
+<button onclick="location.href = 'checkout.php';" id="myButton" class="button2" >CHECK OUT</button>
+
+</td>
+<tr>
+
 </tr>
 </tbody>
   <?php
