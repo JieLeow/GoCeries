@@ -206,7 +206,12 @@ foreach ($_SESSION["shopping_cart"] as $product){
 $total_price += ($product["product_price"]*$product["quantity"]);
 $taxes = ($total_price*10)/100;
 $final_amount = $total_price + $taxes;
+$total_weight += ($product["product_weight"]*$product["quantity"]);
 
+if($total_weight>20){
+    $delivery  = 5;
+} else {$delivery = 0;}
+$final_amount = $total_price + $taxes + $delivery;
 }
 ?>
 </table>
@@ -223,18 +228,23 @@ $final_amount = $total_price + $taxes;
 </tr>
 <tr>
 <td colspan="5" align="right">
+<strong>Delivery Fee: <?php echo "$".$delivery."  (".$total_weight." lbs)" ; ?></strong>
+</td>
+</tr>
+<tr>
+<td colspan="5" align="right">
 <strong>Final Amount: <?php echo "$".$final_amount; ?></strong>
 </td>
 <tr>
 <td colspan="5" align="right">
 
-<form method= "post" action='checkout.php'> 	
+<form method= "post" action='checkout.php'>
 	<input type = "hidden" name = "totalprice" value = "<?php echo $total_price?>" />
 	<input type = "hidden" name = "taxes" value = "<?php echo $taxes?>" />
 	<input type = "hidden" name = "deliveryfee" value = "<?php echo '' ?>" />
 	<input type = "hidden" name = "finalprice" value = "<?php echo $final_amount?>" />
-	
-	<button type="submit" id="myButton" class="button2" >Proceed to Checkout</button> 
+
+	<button type="submit" id="myButton" class="button2" >Proceed to Checkout</button>
 </form>
 
 
