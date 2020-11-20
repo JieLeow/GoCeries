@@ -101,6 +101,32 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 
+-- -----------------------------------------------------
+-- Table `payment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `payments` (
+  `payment_fname` VARCHAR(255) NOT NULL,
+  `payment_lname` VARCHAR(255) NOT NULL,
+  `payment_email` VARCHAR(255) NOT NULL,
+  `payment_address` VARCHAR(255) NOT NULL,
+  `payment_city` VARCHAR(255) NOT NULL,
+  `payment_state` VARCHAR(255) NOT NULL,
+  `payment_zip` VARCHAR(255) NOT NULL,
+  `payment_cardholder` VARCHAR(255) NOT NULL,
+  `payment_ccnumber` VARCHAR(255) NOT NULL,
+  `payment_expmonth` VARCHAR(255) NOT NULL,
+  `payment_expyear` VARCHAR(255) NOT NULL,
+  `payment_cvv` VARCHAR(255) NOT NULL,
+  `payment_billingname` VARCHAR(255) NOT NULL,
+  `payment_billingemail` VARCHAR(255) NOT NULL,
+  `payment_billingaddress` VARCHAR(255) NOT NULL,
+  `payment_billingcity` VARCHAR(255) NOT NULL,
+  `payment_billingstate` VARCHAR(255) NOT NULL,
+  `payment_billingzip` VARCHAR(255) NOT NULL
+  )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 -- ------------------------------------------------------
 --    Dump products data to products table
