@@ -53,14 +53,14 @@ if (isset($_POST['username']) && isset($_POST['password'])
           $pass = md5($pass);
 
   	    $sql = "SELECT * FROM users WHERE user_loginname='$userid' ";
-  		$result = mysqli_query($con, $sql);
+  		$result = mysqli_query($conn, $sql);
 
   		if (mysqli_num_rows($result) > 0) {
   			header("Location: loginregister.php?error=The username is taken try another&$user_data");
   	        exit();
   		}else {
              $sql2 = "INSERT INTO users(user_loginname, user_password, user_name, user_email) VALUES('$userid', '$pass', '$username','$email')";
-             $result2 = mysqli_query($con, $sql2);
+             $result2 = mysqli_query($conn, $sql2);
              if ($result2) {
              	 header("Location: loginregister.php?success=Your account has been created successfully");
   	         exit();

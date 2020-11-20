@@ -6,6 +6,7 @@
 <?php
     //require functions.php file
     include('functions.php');
+      include "db_conn.php";
 ?>
 
 
