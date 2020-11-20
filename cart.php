@@ -223,7 +223,7 @@ $final_amount = $total_price + $taxes + $delivery;
 </tr>
 <tr>
 <td colspan="5" align="right">
-<strong>Taxes: <?php echo "$".$taxes; ?></strong>
+	<strong>Taxes: <?php echo "$".sprintf("%.2f", $taxes); ?></strong>
 </td>
 </tr>
 <tr>
@@ -233,7 +233,7 @@ $final_amount = $total_price + $taxes + $delivery;
 </tr>
 <tr>
 <td colspan="5" align="right">
-<strong>Final Amount: <?php echo "$".$final_amount; ?></strong>
+	<strong>Final Amount: <?php echo "$".sprintf("%.2f", $final_amount); ?></strong>
 </td>
 <tr>
 <td colspan="5" align="right">
