@@ -4,7 +4,7 @@
 <head>
 <title>Login and Register</title>
 
-    <link  href="loginstyle.css" type="text/css" rel="stylesheet">
+    <link  href="css/loginstyle.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <div class ="background">
