@@ -252,11 +252,20 @@
     <div class="col-25">
       <div class="container" style="background-color: #f2f2f2; margin-right:25px;">
         <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
-        <p>Subtotal: <span class="price"> 0 </span></p>
-        <p>Taxes: <span class="price"> 0 </span></p>
-        <p>Delivery fee: <span class="price"> 0 </span></p>
+        <p>Subtotal: <span class="price"> <?php echo $_POST['totalprice'] ?> </span></p>
+        <p>Taxes: <span class="price"> <?php echo $_POST['taxes'] ?> </span></p>
+        <p>Delivery fee: <span class="price"> <?php echo $_POST['deliveryfee'] ?>  </span></p>
         <hr>
-        <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+        <p>Total <span class="price" style="color:black"><b><?php echo $_POST['finalprice'] ?></b></span></p>
+
+        <?php 
+          if(empty($_POST['totalprice'])){
+            echo "EMPTY";
+          }
+            
+        ?>
+
+
       </div>
     </div>
   </div>
