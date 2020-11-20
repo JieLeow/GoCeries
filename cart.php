@@ -229,6 +229,9 @@ $final_amount = $total_price + $taxes;
 <td colspan="5" align="right">
 
 <form method= "post" action='checkout.php'> 	
+	<input type = "hidden" name = "totalprice" value = <?php $total_price?> />
+	<input type = "hidden" name = "taxes" value = <?php $taxes?> />
+	<input type = "hidden" name = "finalprice" value = <?php $final_amount?> />
 	<button type="submit" id="myButton" class="button2" >Proceed to Checkout</button> 
 </form>
 
