@@ -98,7 +98,6 @@
 
   <!-- Main checkout container -->
   <h2>Checkout</h2>
-  <p></p>
   <div class="row">
     <div class="col-75">
       <div class="container" style="background-color: #f2f2f2; margin-left:25px;
@@ -154,9 +153,10 @@
               <input type="text" id="cname" name="cardname" placeholder="" required>
               <label for="ccnum">Credit card number</label>
               <input type="text" id="ccnum" name="cardnumber" placeholder=""
-              required pattern = "[0-9]+" title="Please enter numbers only" minlength= "16" maxlength="16">
+              required pattern="[0-9]+" title="Please enter numbers only" minlength="16" maxlength="16">
               <label for="expmonth">Exp Month</label>
-              <input type="text" id="expmonth" name="expmonth" placeholder="" required>
+              <input type="text" id="expmonth" name="expmonth" placeholder="" required pattern= "[A-Za-z]+"
+              title="Please enter letters only" minlength="3" maxlength="9">
               <div class="row">
                 <div class="col-50">
                   <label for="expyear">Exp Year</label>
@@ -247,14 +247,14 @@
       </div>
     </div>
 
+
     <!-- Cart -->
     <div class="col-25">
       <div class="container" style="background-color: #f2f2f2; margin-right:25px;">
         <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
-        <p><a href="#">Product 1</a> <span class="price"></span></p>
-        <p><a href="#">Product 2</a> <span class="price"></span></p>
-        <p><a href="#">Product 3</a> <span class="price"></span></p>
-        <p><a href="#">Product 4</a> <span class="price"></span></p>
+        <p>Subtotal: <span class="price"> 0 </span></p>
+        <p>Taxes: <span class="price"> 0 </span></p>
+        <p>Delivery fee: <span class="price"> 0 </span></p>
         <hr>
         <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
       </div>
