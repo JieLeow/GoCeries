@@ -43,9 +43,7 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
     <link rel="stylesheet" href="style.css">
 		<!-- additional CSS -->
 		<style>
-		/* ----Cartpage---- */
-
-		.product_wrapper {
+  	.product_wrapper {
 			float:left;
 			padding: 10px;
 			text-align: center;
@@ -131,26 +129,14 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
 
 		</style>
 </head>
-
-<body>
-	<!-- HEADER -->
-	<?php
+<!-- HEADER -->
+<?php
 			include('phpTemplates/header.php');
 	?>
-	<div style="width:1000px; margin:50 auto;">
-<?php
-if(!empty($_SESSION["shopping_cart"])) {
-$cart_count = count(array_keys($_SESSION["shopping_cart"]));
-?>
-<div class="cart_div">
-<a href="cart.php">
-<img src="images/cart-icon.png" /> Cart
-<span><?php echo $cart_count; ?></span></a>
-</div>
-<?php
-}
-?>
+	<!-- BODY -->
 
+<body>
+	<div style="width:1000px; margin:50 auto;">
 <div class="cart">
 <?php
 if(isset($_SESSION["shopping_cart"])){
@@ -167,11 +153,13 @@ if(isset($_SESSION["shopping_cart"])){
 <td>TOTAL WEIGHT</td>
 
 </tr>
+
 <?php
 foreach ($_SESSION["shopping_cart"] as $product){
 ?>
+
 <tr>
-<td><img src='<?php echo 'images/' . $product["product_imagename"]; ?>' width="50" height="40" /></td>
+<td><img src='<?php echo 'images/' . $product["product_imagename"]; ?>' width="80" height="60" /></td>
 <td><?php echo $product["product_name"]; ?><br />
 <form method='post' action=''>
 <input type='hidden' name='product_ID' value="<?php echo $product["product_ID"]; ?>" />
@@ -203,6 +191,7 @@ foreach ($_SESSION["shopping_cart"] as $product){
 </tr>
 
 <?php
+global $total_weight;
 $total_price += ($product["product_price"]*$product["quantity"]);
 $taxes = ($total_price*10)/100;
 $final_amount = $total_price + $taxes;
