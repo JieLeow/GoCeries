@@ -47,6 +47,13 @@
     border: 1px solid #ccc;
     border-radius: 3px;
   }
+  select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
   label {
     margin-bottom: 10px;
     display: block;
@@ -155,8 +162,21 @@
               <input type="text" id="ccnum" name="cardnumber" placeholder=""
               required pattern="[0-9]+" title="Please enter numbers only" minlength="16" maxlength="16">
               <label for="expmonth">Exp Month</label>
-              <input type="text" id="expmonth" name="expmonth" placeholder="" required pattern= "[A-Za-z]+"
-              title="Please enter letters only" minlength="3" maxlength="9">
+              <select name="expmonth" id="expmonth" placeholder="" title="Please select a month" required>
+                <option value=""></option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+              </select><br>
               <div class="row">
                 <div class="col-50">
                   <label for="expyear">Exp Year</label>
@@ -165,8 +185,9 @@
                 </div>
                 <div class="col-50">
                   <label for="cvv">CVV</label>
-                  <input type="text" id="cvv" name="cvv" placeholder=""
-                  required pattern="[0-9]+" title="Please enter numbers only" minlength="3" maxlength="3">
+                  <input type="text" id="cvv" onkeyup="isEmpty()"
+                  name="cvv" placeholder="" required pattern="[0-9]+"
+                  title="Please enter numbers only" minlength="3" maxlength="3">
                 </div>
               </div>
             </div>
@@ -174,10 +195,30 @@
 
           <label>
             <div class="form-group">
-              <input id="checkbox" type="checkbox" onclick="boxUnchcked()"
-              setBilling="checked">
+              <input type="checkbox" id="checkbox" onclick="boxUnchecked()" disabled>
               Billing address same as shipping
             </div>
+
+            <script>
+            function isEmpty() {
+              if (document.getElementById("ShippingFname").value==="" ||
+                  document.getElementById("ShippingLname").value==="" ||
+                  document.getElementById("ShippingEmail").value==="" ||
+                  document.getElementById("ShippingAddress").value==="" ||
+                  document.getElementById("ShippingCity").value==="" ||
+                  document.getElementById("ShippingState").value==="" ||
+                  document.getElementById("ShippingZip").value==="" ||
+                  document.getElementById("cname").value==="" ||
+                  document.getElementById("ccnum").value==="" ||
+                  document.getElementById("expmonth").value==="" ||
+                  document.getElementById("expyear").value==="" ||
+                  document.getElementById("cvv").value==="") {
+                document.getElementById('checkbox').disabled = true;
+              } else {
+                document.getElementById('checkbox').disabled = false;
+              }
+            }
+            </script>
 
             <!-- Shipping container if billing and shipping address are not the same -->
             <label>
@@ -258,11 +299,11 @@
         <hr>
         <p>Total <span class="price" style="color:black"><b><?php echo $_POST['finalprice'] ?></b></span></p>
 
-        <?php 
+        <?php
           if(empty($_POST['totalprice'])){
             echo "EMPTY";
           }
-            
+
         ?>
 
 
