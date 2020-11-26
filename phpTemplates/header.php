@@ -11,7 +11,7 @@
                         <ul>
                             <li><a href = "mainPage.php">Home</a></li>
                             <li><a href = "category-allProducts.php">Products</a></li>
-                            <li><a href = "#footer">Contact</a></li>
+                            <li><a href = "about.php">About</a></li>
                             <?php if (isset($_SESSION['user_id'])&& isset($_SESSION['user_loginname'])){ ?>
 
 
