@@ -10,7 +10,7 @@
       include('phpTemplates/header.php');
   ?>
 
-    <h1 style="margin-left: 15px;">Thank you! Your order has been placed.</h1>
+    <h1 style="margin-left: 20px;">Thank you! Your order has been placed.</h1>
 
     <?php
 
