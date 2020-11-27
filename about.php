@@ -44,6 +44,13 @@
 
     <div class="container">
         <div class="row">
+          <h2><b>About Us</b></h2>
+          <br><br>
+          <hr>
+          <hr>
+        </div>
+
+        <div class="row">
             <div class="col-2">
                 <p>We are a small startup focusing on delivering groceries to your doorstep while maintaining the highest quality and freshness of our products</p>
                 <p>Suspendisse ac auctor dui, eget lobortis urna. Curabitur at dictum ex. Praesent tincidunt metus tellus, vitae rhoncus ex sodales sed. 
