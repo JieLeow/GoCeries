@@ -53,6 +53,14 @@
         include('functions.php'); //not sure (does it create new connection everytime?)
     ?>
 
+    <!-- WHAT I AM ACTUALLY SUPPOSED TO DO:
+        - fix the product details page
+        - get the product id
+        - make an product array based on currentPage's productID
+        - upon "add", that array is added to the cart
+        - if the array already exists in the cart, update its quantity when "add" is pressed, DONT make new array.
+        -
+    -->
     
     <?php 
     // ADDED INTEGRATION TO CART (TRIAL)
@@ -61,44 +69,132 @@
             $product_ID = $_GET['product_id'];
             $result = mysqli_query($db->con,"SELECT * FROM `products` WHERE `product_ID`='$product_ID'");
             $row = mysqli_fetch_assoc($result);
-            $name = $row['product_name'];
-            echo $name;
+            $name = $row['product_name'];    
             $product_ID = $row['product_ID'];
             $price = $row['product_price'];
             $image = $row['product_imagename'];
             $weight = $row['product_weight'];
             
-            
-            $cartArray = array(
-                $product_ID=>array(
+            //-------understood everything from above: basically just get product details and stored into variables.-----------
+
+
+
+            //---------------------- try to implement my own version here: ------------------//
+            $productDetailsArray = array(
                 'product_name'=>$name,
                 'product_ID'=>$product_ID,
                 'product_price'=>$price,
                 'product_weight'=>$weight,
-                'quantity'=>1,
-                'product_imagename'=>$image)
+                'quantity'=>1, //default quantity = 1; is there a problem here?
+                'product_imagename'=>$image
             );
+
+
+            //upon "add", add product to cart. 
+            //if cart contains product, update quantity. else, add the product array. 
+
+            //right now, the add button just refreshes the page. DOESNT DO SHIT LOL.
+            //so, i think should utilize the post request properly.
+
             
-            if(empty($_SESSION["shopping_cart"])) {
-                $_SESSION["shopping_cart"] = $cartArray;
-                $status = "<div class='box'>Product is added to your cart!</div>";
-            }else{
-                $array_keys = array_keys($_SESSION["shopping_cart"]);
-                if(in_array($product_ID,$array_keys)) {
-                    $status = "<div>Product is already added to your cart!</div>";
-                } else {
-                $_SESSION["shopping_cart"] = array_merge($_SESSION["shopping_cart"],$cartArray);
-                $status = "<div class='box'>Product is added to your cart!</div>";
+            //problem : 1 . when only single product, cannot add cart(SOLVED I THINK)
+            //          2 . Cannot increase quantity of product.
+
+            
+            $alreadyInCart = false;
+
+            //debug
+            $counter = 1;
+
+            if(isset($_POST['addToCart'])){
+
+                if(empty($_SESSION['shopping_cart'])){
+                    $_SESSION['shopping_cart'] = array();
+                    $_SESSION['shopping_cart'][$product_ID] = $productDetailsArray;
+                    $alreadyInCart = true;
+                }else{
+                    //loop through cart, if product id found, increment. else add product to cart.
+                    foreach($_SESSION['shopping_cart'] as $cartProduct){ //TODO: this line not executed yet I think.
+                        if($cartProduct['product_ID'] == $product_ID){
+                            $cartProduct['quantity'] = $cartProduct['quantity'] +1;
+                            $alreadyInCart = true; //be careful about the scope
+
+                           
+                            //debug
+                            echo'<br>';
+                            echo 'product quantity is: ' . $cartProduct['quantity']; 
+                            echo '<br>';
+
+                            $counter++;
+                            echo 'quantity counter is: ' . $counter;
+                            echo '<br>';
+                            echo 'POST value before reset is: ' . $_POST['addToCart'];
+                        }
+                    }
+                    if(!$alreadyInCart){ //where cart is not empty, but product not in cart
+                        $_SESSION['shopping_cart'][$product_ID] = $productDetailsArray;
+                        $alreadyInCart = true;
+                    }
                 }
-                }
+
+                //debug
+                echo '<br>' . 'is product in cart?';
+                echo $alreadyInCart ? ' true' : ' false';
+
+                echo "<br><br><br>";
+                print_r($_SESSION['shopping_cart']);
+
+                $_POST['addToCart'] = NULL;
+                print_r($_POST['addToCart']);
             }
+            //---------------------- my own implementation ends here ------------------------//
+
+
+            //if product already in cart, then prompt message:
+                // echo "<script type='text/javascript'>alert('Product is already added to the cart');</script>";
+            
+            //---------------------- default implementation ---------------------------//
+            // $cartArray = array(   //this is the individual product row with their information in cartArray, which contains a product, that is an array of information. 
+            //     $product_ID=>array(
+            //     'product_name'=>$name,
+            //     'product_ID'=>$product_ID,
+            //     'product_price'=>$price,
+            //     'product_weight'=>$weight,
+            //     'quantity'=>1,
+            //     'product_imagename'=>$image)
+            // );
+            
+            // if(empty($_SESSION["shopping_cart"])) {  //if the shopping cart session is empty, store the cart array to the session.
+            //     $_SESSION["shopping_cart"] = $cartArray; 
+            //     $status = "<div class='box'>Product is added to your cart!</div>";
+            //     print_r($_SESSION["shopping_cart"]);
+
+            //     echo $status;
+            //     //reset the data
+                
+                
+            // }else{
+            //     $array_keys = array_keys($_SESSION["shopping_cart"]); //check what?????
+            //     print_r($_SESSION["shopping_cart"]);
+            //     if(in_array($product_ID,$array_keys)) {
+            //         $status = "<div>Product is already added to your cart!</div>";
+            //         echo $status;
+            //     } else {
+            //     $_SESSION["shopping_cart"] = array_merge($_SESSION["shopping_cart"],$cartArray); //merge the cart array with the shopping cart session array.
+            //     $status = "<div class='box'>Product is added to your cart!</div>";
+            //     print_r($_SESSION["shopping_cart"]);
+            //     echo $status;
+
+            //     }
+            // }
+        }
     ?>
 
 
     <?php
     // ADDED INTEGRATION TO CART (TRIAL)
     if(!empty($_SESSION["shopping_cart"])) {
-        $cart_count = count(array_keys($_SESSION["shopping_cart"]));   
+        $cart_count = count(array_keys($_SESSION["shopping_cart"]));   //this count the number of products in the cart (not quantity);
     ?>
     <div class="cart_div">
     <a href="cart.php"><img src="images/cart-icon.png" /> Cart<span><?php echo $cart_count; ?></span></a>
@@ -110,6 +206,7 @@
     }//ADDED INTEGRATION TO CART (TRIAL) END AT THIS LINE
 
         $product_id = $_GET['product_id'] ?? 1;
+
         foreach($productsArray as $product){
             if($product['product_id'] == $product_id){ //find product in array that matches current product_id
             
@@ -128,9 +225,8 @@
                     <h4 style="margin: 40px 0; font-size: 22px; font-weight: bold;">$ <?php echo $product['product_price'] ?> / each</h4>
                 
                     <!-- <input type="number" value="0" min="0" onkeydown="return false"> -->
-                    <!-- <a href="" class="btn" type="submit">Add To Cart</a> -->
 
-                    <button type='submit' class='btn'>Add to Cart</button>
+                    <button name='addToCart' type='submit' class='btn' label="Add to Cart" value="1">Add to Cart</button>
                     <h3>Product Description</h3> 
                     <p><?php echo $product['product_description'] ?></p>
                     <br>
