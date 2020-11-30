@@ -129,7 +129,7 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
 
 		.empty-cart{
 			margin-top: 250px;
-			margin-bottom: 2px;
+			margin-bottom: 250px;
 			text-align: center;
 		}
 
