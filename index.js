@@ -92,5 +92,40 @@ function addToCart(){
 function updateCartTotal(){
     
 }
+//----------------product details page---------------------//
+function decreaseStock(){
+    var value = parseInt(document.getElementById('stock').innerHTML, 10);
+    value--;
+    document.getElementById('stock').innerHTML = "FUCK UOU";
+    console.log("add to cartedddd");
+}
 
+
+function addToCartMessage(){
+    \alert("The product is successfully added to your cart!");
+
+    //further modify to determine out of stock or not
+}
+
+
+
+
+//----------------- GOOGLE MAPS LOCATION-------------------//
+
+// Initialize and add the map
+function initMap() {
+    // The location of Uluru
+    const uluru = { lat: 27.205, lng: 77.497 };
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: uluru,
+    });
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+      position: uluru,
+      map: map,
+    });
+  }
+  
 
