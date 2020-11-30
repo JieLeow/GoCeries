@@ -15,6 +15,8 @@ include "db_conn.php";
     <!-- OWN CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+    
+
 </head>
 
 <body>
@@ -42,7 +44,7 @@ include "db_conn.php";
 
                                   <li><a href = "account.php">Account</a></li>
                                   <?php } ?>
-                            <li><a href = ""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                            <li><a href = "cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -62,7 +64,7 @@ include "db_conn.php";
                     </p>
                 <p>What are you waiting for? Join us now. <br>
                   <?php if (isset($_SESSION['user_id'])&& isset($_SESSION['user_loginname'])){ ?>
-                    <
+                    
                     <h1>Hello, <?php echo $_SESSION['user_name']; ?></h1>
                   <a href="logout.php">Logout</a>
                       <?php } else { ?>

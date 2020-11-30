@@ -24,7 +24,7 @@
       // Initialize and add the map
       function initMap() {
         // The location of Uluru
-        const uluru = { lat: 37.338207, lng: -121.886330 };
+        const uluru = { lat: 137.338207, lng: -121.886330 };
         // The map, centered at Uluru
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 12,
@@ -42,9 +42,12 @@
   <body>
     <?php include('phpTemplates/header.php') ?>
 
-    <div class="container">
+    <div class="small-container about-container">
+      <h2 class = "about-us"><b>About Us</b></h2>
+      <br>
+      <hr>
         <div class="row">
-          <h2><b>About Us</b></h2>
+          
           <br><br>
           <hr>
           <hr>
@@ -55,13 +58,14 @@
                 <p>We are a small startup focusing on delivering groceries to your doorstep while maintaining the highest quality and freshness of our products</p>
                 <p>Suspendisse ac auctor dui, eget lobortis urna. Curabitur at dictum ex. Praesent tincidunt metus tellus, vitae rhoncus ex sodales sed. 
                     Curabitur bibendum sit amet eros in varius. Duis imperdiet sollicitudin erat sed cursus. Vivamus nec felis nisi. Quisque dignissim libero a quam gravida egestas. 
-                    Cras cursus nulla sit amet velit hendrerit, vitae sollicitudin diam placerat. Praesent semper tellus nec arcu ultrices ultrices. 
-                    Ut ultricies dolor in sapien tincidunt interdum a ac nibh. Etiam ullamcorper rhoncus velit eu fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; 
-                    Maecenas justo sem, pellentesque id vulputate et, consectetur ut lacus. Nullam nisl ligula, vehicula eu magna ac, rhoncus rhoncus lacus.</p>
+                    Cras cursus nulla sit amet velit hendrerit, vitae sollicitudin diam placerat. Praesent semper tellus nec arcu ultrices ultrices. </p>
+                  <br>
+                  <p>Ut ultricies dolor in sapien tincidunt interdum a ac nibh. Etiam ullamcorper rhoncus velit eu fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; 
+                  Maecenas justo sem, pellentesque id vulputate et, consectetur ut lacus. Nullam nisl ligula, vehicula eu magna ac, rhoncus rhoncus lacus.</p>
             </div>
 
             <div class ="col-2">
-                <p>Our location:</p>
+                <p><b>Our location:</b></p>
                 <div id="map"></div>
             </div>
 
