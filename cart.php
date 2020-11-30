@@ -127,6 +127,12 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
 		/* margin-left:30px; */
 		}
 
+		.empty-cart{
+			margin-top: 250px;
+			margin-bottom: 2px;
+			text-align: center;
+		}
+
 		</style>
 </head>
 <!-- HEADER -->
@@ -244,9 +250,17 @@ $final_amount = $total_price + $taxes + $delivery;
 </tbody>
   <?php
 }else{
-	echo "<h3>Your cart is empty!</h3>";
+
+	?>
+	<div class='small-container empty-cart'>
+		<h3>Your cart is empty!</h3>
+		<p> View our products <a href ='category-allProducts.php'>here!</a></p>
+	</div>
+	
+	<?php 
 	}
-?>
+	?>
+
 </table>
 
 </div>

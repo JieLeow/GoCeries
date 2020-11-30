@@ -65,10 +65,10 @@
             </div>
 
             <div class = "products-button">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
+                <span title='Fruits'><a href="category-fruits.php">1</a></span>
+                <span title='Vegetables'><a href="category-vegetables.php">2</a></span>
+                <span title='Dairy & Eggs'><a href="category-dairy & eggs.php">3</a></span>
+                <span title='Beverages'><a href="category-beverages.php">4</a></span>
             </div>
 
         </div>

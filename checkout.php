@@ -82,6 +82,16 @@
     float: right;
     color: grey;
   }
+
+  h2{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  hr{
+    margin-bottom: 20px;
+  }
   </style>
 
 <link href="css/style.css" rel="stylesheet">
@@ -105,6 +115,7 @@
 
   <!-- Main checkout container -->
   <h2>Checkout</h2>
+  <hr>
   <div class="row">
     <div class="col-75">
       <div class="container" style="background-color: #f2f2f2; margin-left:25px;
@@ -292,7 +303,7 @@
     <!-- Cart -->
     <div class="col-25">
       <div class="container" style="background-color: #f2f2f2; margin-right:25px;">
-        <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
+        <h4><a href='cart.php'>Cart</a> <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
         <p>Subtotal: <span class="price"> <?php echo $_POST['totalprice'] ?> </span></p>
         <p>Taxes: <span class="price"> <?php echo $_POST['taxes'] ?> </span></p>
         <p>Delivery fee: <span class="price"> <?php echo $_POST['deliveryfee'] ?>  </span></p>

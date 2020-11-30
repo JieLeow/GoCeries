@@ -1,4 +1,4 @@
-@import url("/css/typography.css");
+@import url("typography.css");
 
 
 
@@ -151,7 +151,7 @@ p{
 /* --------------- Header ----------------- */
 
 .header{
-    background-image: url("/images/market.jpg");
+    background-image: url("/goceries/images/market.jpg");
     /* background-color: rgb(114, 245, 232); */
     
 }
@@ -376,4 +376,36 @@ p{
 .products-button span:hover{
     background: rgb(94, 208, 94);
     color: white;
+}
+
+.products-button a:hover{
+    text-decoration: none;
+
+}
+
+.products-button a:link {
+    text-decoration: none;
+  }
+
+
+
+/* ---About Page ----*/
+
+.col-2{
+    flex: 50%;
+    min-width: 180px; 
+    margin-bottom: 30px;
+}
+
+.about-us{
+    text-align: center;
+}
+
+.about-container{
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+.about-container h2{
+    font-size: 30px;
 }
