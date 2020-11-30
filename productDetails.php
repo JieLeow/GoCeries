@@ -106,6 +106,10 @@
             //debug
             $counter = 1;
 
+            $productQuantity = $product->getProductStock($_GET['product_id']);
+            echo '<br>product id is: ' . $_GET['product_id'] . '<br>';
+            echo 'product stock left is: ' . $productQuantity . '<br>';
+
             if(isset($_POST['addToCart'])){
 
                 if(empty($_SESSION['shopping_cart'])){
@@ -114,21 +118,20 @@
                     $alreadyInCart = true;
                 }else{
                     //loop through cart, if product id found, increment. else add product to cart.
-                    foreach($_SESSION['shopping_cart'] as $cartProduct){ //TODO: this line not executed yet I think.
+                    foreach($_SESSION['shopping_cart'] as &$cartProduct){ //TODO: this line not executed yet I think.
                         if($cartProduct['product_ID'] == $product_ID){
                             $cartProduct['quantity'] = $cartProduct['quantity'] +1;
-                            $alreadyInCart = true; //be careful about the scope
+                            $alreadyInCart = true; 
 
-                           
-                            //debug
-                            echo'<br>';
-                            echo 'product quantity is: ' . $cartProduct['quantity']; 
-                            echo '<br>';
+                            // //debug
+                            // echo'<br>';
+                            // echo 'product quantity is: ' . $cartProduct['quantity']; 
+                            // echo '<br>';
 
-                            $counter++;
-                            echo 'quantity counter is: ' . $counter;
-                            echo '<br>';
-                            echo 'POST value before reset is: ' . $_POST['addToCart'];
+                            // $counter++;
+                            // echo 'quantity counter is: ' . $counter;
+                            // echo '<br>';
+                            // echo 'POST value before reset is: ' . $_POST['addToCart'];
                         }
                     }
                     if(!$alreadyInCart){ //where cart is not empty, but product not in cart
@@ -193,6 +196,8 @@
 
     <?php
     // ADDED INTEGRATION TO CART (TRIAL)
+    
+
     if(!empty($_SESSION["shopping_cart"])) {
         $cart_count = count(array_keys($_SESSION["shopping_cart"]));   //this count the number of products in the cart (not quantity);
     ?>
@@ -220,15 +225,17 @@
             </div>
             <div style= "flex: 50%; min-width: 180px; margin-bottom: 30px; padding: 20px;">
                 <form method='post' action=''>
-                    <p><a href = "mainPage.php">Home</a> / <a href = "category-allProducts.php">All Products / </a> <a href = '<?php echo 'category-' .  $product['product_category'] . '.php'?>'> <?php echo $product['product_category']?> </a></p>
+                    <p><a href = "mainPage.php">Home</a> / <a href = "category-allProducts.php">All Products</a> / <a href = '<?php echo 'category-' .  $product['product_category'] . '.php'?>'> <?php echo $product['product_category']?> </a></p>
                     <h1><?php echo $product['product_name'] ?></h1>
                     <h4 style="margin: 40px 0; font-size: 22px; font-weight: bold;">$ <?php echo $product['product_price'] ?> / each</h4>
-                
+                    <p><?php echo 'Weight:  ' . $product['product_weight'] , ' lbs'?> / each</p>
                     <!-- <input type="number" value="0" min="0" onkeydown="return false"> -->
 
-                    <button name='addToCart' type='submit' class='btn' label="Add to Cart" value="1">Add to Cart</button>
+                    <button name='addToCart' type='submit' class='btn' label="Add to Cart" value="1" onclick="decreaseStock()">Add to Cart</button>
+                    <p id="stock"><?php echo 'Stock left: ' . $productQuantity ?></p>
                     <h3>Product Description</h3> 
                     <p><?php echo $product['product_description'] ?></p>
+                    
                     <br>
                 </form>
                 
