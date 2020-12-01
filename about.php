@@ -41,24 +41,28 @@
           <hr>
         </div>
 
-        <div class="row">
-            <div class="col-2">
-                <p>We are a small startup focusing on delivering groceries to your doorstep while maintaining the highest quality and freshness of our products</p>
-                <p>Suspendisse ac auctor dui, eget lobortis urna. Curabitur at dictum ex. Praesent tincidunt metus tellus, vitae rhoncus ex sodales sed.
-                    Curabitur bibendum sit amet eros in varius. Duis imperdiet sollicitudin erat sed cursus. Vivamus nec felis nisi. Quisque dignissim libero a quam gravida egestas.
-                    Cras cursus nulla sit amet velit hendrerit, vitae sollicitudin diam placerat. Praesent semper tellus nec arcu ultrices ultrices. </p>
-                  <br>
-                  <p>Ut ultricies dolor in sapien tincidunt interdum a ac nibh. Etiam ullamcorper rhoncus velit eu fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-                  Maecenas justo sem, pellentesque id vulputate et, consectetur ut lacus. Nullam nisl ligula, vehicula eu magna ac, rhoncus rhoncus lacus.</p>
-            </div>
+      <div class="row">
+          <div class="col-2">
+              <p>Welcome to Goceries, the online platform for the OFS grocery store in San Jose. We strive to be your number one source for your groceries! 
+                We're dedicated to providing you the very best of our products, with an emphasis on our delivery speed,  your satisfaction, and for society's good.</p>
+                <br>
+              <p>Founded in 2020, We are a small startup focusing on delivering groceries to your doorstep while maintaining the highest quality and freshness of our products.
+                We strive to break up the monopoly by the few grocery store giants by offering extremely competitive prices and best services to you.
+              </p>
+                <br>
+              <p>We hope you enjoy our products as much as we enjoy offering them to you! If you have any questions or comments, please don't hesitate to contact us.</p>
+                <br>
+              <p>Sincerely,</p>
+              <p><em>Goceries Team</em></p>
+          </div>
 
-            <div class ="col-2">
-                <p><b>Our location:</b></p>
-                <div id="map"></div>
-            </div>
+          <div class ="col-2">
+              <p><b> &nbsp;  &nbsp; &nbsp;   Our location:</b></p>
+              <div id="map"></div>
+          </div>
 
 
-        </div>
+      </div>
     </div>
 
     <?php include('phpTemplates/footer.php')?>

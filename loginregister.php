@@ -29,7 +29,7 @@
           <?php if (isset($_GET['success'])) { ?>
                <p class="success"><?php echo $_GET['success']; ?></p>
           <?php } ?>
-          <input type ="text" name="userid" id="userid" class="input-field" placeholder="User Id" required>
+          <input type ="text" name="userid" id="userid" class="input-field" placeholder="Username" required>
 
             <input type ="text" class="input-field" name="password" id="password" placeholder="Enter Your Password" required>
             <input type="checkbox" class="check-box"<span>Remember Your Password</span>
@@ -49,13 +49,13 @@
                                         <input type="text"
                                                name="userid"
                                                class="input-field"
-                                               placeholder="User Id"
+                                               placeholder="Username"
                                                value="<?php echo $_GET['userid']; ?>">
                                    <?php }else{ ?>
                                         <input type="text"
                                                name="userid"
                                                class="input-field"
-                                               placeholder="User Id">
+                                               placeholder="Username">
                                    <?php }?>
 
 
@@ -63,17 +63,17 @@
                                                  <input type="text"
                                                         name="username"
                                                         class="input-field"
-                                                        placeholder="User Name"
+                                                        placeholder="Full Name"
                                                         value="<?php echo $_GET['username']; ?>">
                                             <?php }else{ ?>
                                                  <input type="text"
                                                         name="username"
                                                         class="input-field"
-                                                        placeholder="User Name">
+                                                        placeholder="Full Name">
                                             <?php }?>
 
 
-          <input type ="email"  name="email" id="email" class="input-field" placeholder="Email Id" >
+          <input type ="email"  name="email" id="email" class="input-field" placeholder="Email Address" >
 
             <input type ="text" name="password" id="password" class="input-field" placeholder="Enter Your Password" >
               <input type ="text" name="re_password" id="re_password" class="input-field" placeholder="Re-Enter Your Password" >
