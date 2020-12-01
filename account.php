@@ -120,7 +120,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
     $row = mysqli_fetch_array($result);
     if ($_POST["currentPassword"] === $row["user_password"]) {
         mysqli_query($conn, "UPDATE users set user_password='" . $_POST["newPassword"] . "' WHERE user_id='" . $_SESSION["user_id"] . "'");
-        echo '<script>alert("Password has been successfully changed")</script>';
+        echo '<script>alert("Password has been successfully updated")</script>';
     } else
         echo '<script>alert("Current password is not correct")</script>';
 }
