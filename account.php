@@ -1,9 +1,10 @@
 <?php
-  session_start();
-  include('db_conn.php');
-  if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
+session_start();
+include('db_conn.php');
 
-?>
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,6 @@
 </head>
 
 <body>
-
     <!-- HEADER -->
     <?php
         include('phpTemplates/header.php');
@@ -89,44 +89,40 @@
 
           if(!currentPassword.value) {
             currentPassword.focus();
-            document.getElementById("currentPassword").innerHTML = "required";
+            document.getElementById("currentPassword").innerHTML = "This field is required";
             output = false;
           }
           else if(!newPassword.value) {
             newPassword.focus();
-            document.getElementById("newPassword").innerHTML = "required";
+            document.getElementById("newPassword").innerHTML = "This field is required";
             output = false;
           }
           else if(!confirmPassword.value) {
             confirmPassword.focus();
-            document.getElementById("confirmPassword").innerHTML = "required";
+            document.getElementById("confirmPassword").innerHTML = "This field is required";
             output = false;
           }
           if(newPassword.value != confirmPassword.value) {
             newPassword.value="";
             confirmPassword.value="";
             newPassword.focus();
-            document.getElementById("confirmPassword").innerHTML = "not same";
+            document.getElementById("confirmPassword").innerHTML = "New password and confirmation password do not match";
             output = false;
           }
           return output;
         }
       </script>
 
-
-
-
 <?php
     include('phpTemplates/footer.php');
-    //$_SESSION["userId"] = "9";
     if (count($_POST) > 0) {
     $result = mysqli_query($conn, "SELECT * FROM users WHERE user_id='" . $_SESSION["user_id"] . "'");
     $row = mysqli_fetch_array($result);
-    if ($_POST["currentPassword"] == $row["user_password"]) {
+    if ($_POST["currentPassword"] === $row["user_password"]) {
         mysqli_query($conn, "UPDATE users set user_password='" . $_POST["newPassword"] . "' WHERE user_id='" . $_SESSION["user_id"] . "'");
-        $message = "Password Changed";
+        echo '<script>alert("Password has been successfully changed")</script>';
     } else
-        $message = "Current Password is not correct";
+        echo '<script>alert("Current password is not correct")</script>';
 }
 ?>
 <?php
