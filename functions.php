@@ -32,6 +32,13 @@ $beveragesArray = $product->getProductsByCategory('beverages');
 $dairiesArray = $product->getProductsByCategory('Dairy & Eggs');
 
 
+//get a single product by id from db
+// $singleProductWithDetails = $product->getSingleProduct($_GET['product_id']); //where to get $productID?
+
+
+//get single product's quantity
+// $productQuantity = $product->getProductStock($_GET['product_id']);
+
 // ------------------------------------- product ------------------------------------------//
 
 

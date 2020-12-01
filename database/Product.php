@@ -81,6 +81,36 @@ class Product{
     }
 
 
+    public function getThreeRelatedProducts($category){
+        $result = $this->db->con->query("SELECT product_id, product_name, product_price,        
+        product_weight, product_imagename, product_category, product_description FROM products
+        WHERE product_category = '{$category}'");         
+
+        $RelatedProductsArray = array();
+
+        while($row = $result->fetch_array()){
+            $RelatedProductsArray[] = $row;
+        }  
+
+        return $RelatedProductsArray;
+    }
+
+    public function getSingleProduct($product_ID){
+
+        $result =$this->db->con->query("SELECT * FROM `products` WHERE `product_id`='{$product_ID}'");
+
+        return $result;
+
+    }
+
+
+    //used to get the quantity of stock left for a product
+    public function getProductStock($product_ID){
+        $result =$this->db->con->query("SELECT product_stock FROM `products` WHERE `product_id`='{$product_ID}'");
+
+        $stockLeft = (int) $result->fetch_assoc()['product_stock'];
+        return $stockLeft;
+    }
 
         
 
