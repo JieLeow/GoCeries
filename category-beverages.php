@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
+
+ ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -50,7 +56,7 @@
 
 
             <div class = "row">
-                
+
                 <?php foreach ($beveragesArray as $product){ ?>
                     <div class="col-3">
                         <!-- All Products fetched from database -->
@@ -78,3 +84,9 @@
 <?php
     include('phpTemplates/footer.php')
 ?>
+<?php
+}else{
+     header("Location: loginregister.php?error=You need to login before shopping");
+     exit();
+}
+ ?>
