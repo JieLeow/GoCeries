@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
+
+ ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -77,3 +83,9 @@
   <?php
       include('phpTemplates/footer.php');
   ?>
+  <?php
+  }else{
+       header("Location: loginregister.php?error=You need to login before shopping");
+       exit();
+  }
+ ?>

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+  session_start();
+  include('db_conn.php');
+  ?>
 <html>
   <head>
     <title>Add Map</title>
@@ -20,9 +24,9 @@
         /* The width is the width of the web page */
       }
     </style>
-    
+
   </head>
-  
+
   <body>
     <?php include('phpTemplates/header.php') ?>
 
@@ -31,7 +35,7 @@
       <br>
       <hr>
         <div class="row">
-          
+
           <br><br>
           <hr>
           <hr>
@@ -40,11 +44,11 @@
         <div class="row">
             <div class="col-2">
                 <p>We are a small startup focusing on delivering groceries to your doorstep while maintaining the highest quality and freshness of our products</p>
-                <p>Suspendisse ac auctor dui, eget lobortis urna. Curabitur at dictum ex. Praesent tincidunt metus tellus, vitae rhoncus ex sodales sed. 
-                    Curabitur bibendum sit amet eros in varius. Duis imperdiet sollicitudin erat sed cursus. Vivamus nec felis nisi. Quisque dignissim libero a quam gravida egestas. 
+                <p>Suspendisse ac auctor dui, eget lobortis urna. Curabitur at dictum ex. Praesent tincidunt metus tellus, vitae rhoncus ex sodales sed.
+                    Curabitur bibendum sit amet eros in varius. Duis imperdiet sollicitudin erat sed cursus. Vivamus nec felis nisi. Quisque dignissim libero a quam gravida egestas.
                     Cras cursus nulla sit amet velit hendrerit, vitae sollicitudin diam placerat. Praesent semper tellus nec arcu ultrices ultrices. </p>
                   <br>
-                  <p>Ut ultricies dolor in sapien tincidunt interdum a ac nibh. Etiam ullamcorper rhoncus velit eu fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; 
+                  <p>Ut ultricies dolor in sapien tincidunt interdum a ac nibh. Etiam ullamcorper rhoncus velit eu fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
                   Maecenas justo sem, pellentesque id vulputate et, consectetur ut lacus. Nullam nisl ligula, vehicula eu magna ac, rhoncus rhoncus lacus.</p>
             </div>
 
@@ -53,7 +57,7 @@
                 <div id="map"></div>
             </div>
 
-            
+
         </div>
     </div>
 
