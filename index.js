@@ -96,7 +96,7 @@ function updateCartTotal(){
 function decreaseStock(){
     var value = parseInt(document.getElementById('stock').innerHTML, 10);
     value--;
-    document.getElementById('stock').innerHTML = "FUCK UOU";
+    document.getElementById('stock').innerHTML = "Added!";
     console.log("add to cartedddd");
 }
 
