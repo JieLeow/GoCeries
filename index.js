@@ -102,7 +102,7 @@ function decreaseStock(){
 
 
 function addToCartMessage(){
-    \alert("The product is successfully added to your cart!");
+    alert("The product is successfully added to your cart!");
 
     //further modify to determine out of stock or not
 }
@@ -114,16 +114,16 @@ function addToCartMessage(){
 
 // Initialize and add the map
 function initMap() {
-    // The location of Uluru
-    const uluru = { lat: 27.205, lng: 77.497 };
-    // The map, centered at Uluru
+    // The location of goceries
+    const goceries = { lat: 37.338207, lng: -121.886330 };
+    // The map, centered at goceries
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 4,
-      center: uluru,
+      zoom: 13,
+      center: goceries,
     });
-    // The marker, positioned at Uluru
+    // The marker, positioned at goceries
     const marker = new google.maps.Marker({
-      position: uluru,
+      position: goceries,
       map: map,
     });
   }
