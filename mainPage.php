@@ -75,7 +75,7 @@
 
                 <div class="col-4">
                     <!-- Dairy and Eggs -->
-                    <a href = "category-dairyneggs.php"><img src="images/dairy-eggland.jpg"></a>
+                    <a href = "category-dairy & eggs.php"><img src="images/dairy-eggland.jpg"></a>
                     <h3>Dairy & Eggs</h3>
                 </div>
             </div>

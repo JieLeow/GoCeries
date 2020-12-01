@@ -41,6 +41,11 @@
         -ms-user-select: none;
         -o-user-select: none;
         user-select: none;
+        
+    }
+
+    .btn{
+        margin: 30px 20px 30px 0px;
     }
 </style>
 
@@ -202,8 +207,16 @@
         $cart_count = count(array_keys($_SESSION["shopping_cart"]));   //this count the number of products in the cart (not quantity);
     ?>
     <div class="cart_div">
-    <a href="cart.php"><img src="images/cart-icon.png" /> Cart<span><?php echo $cart_count; ?></span></a>
+    <a href="cart.php"><img src="images/cart-icon.png" /> Cart<span><?php echo '(' . $cart_count . ')' ?></span></a>
     </div>
+
+    <!-- add javascript to change button number -->
+    <!-- <script>
+         function updateCartNumber() {
+            document.getElementById('count').innerHTML =  <?php echo $cart_count ?> ;
+         }
+         window.onload = updateCartNumber;
+    </script> -->
 
 
 
@@ -231,7 +244,7 @@
                     <p><?php echo 'Weight:  ' . $product['product_weight'] , ' lbs'?> / each</p>
                     <!-- <input type="number" value="0" min="0" onkeydown="return false"> -->
 
-                    <button name='addToCart' type='submit' class='btn' label="Add to Cart" value="1" onclick="decreaseStock()">Add to Cart</button>
+                    <button name='addToCart' type='submit' class='btn' label="Add to Cart" value="1" onclick="decreaseStock();addToCartMessage();">Add to Cart</button>
                     <p id="stock"><?php echo 'Stock left: ' . $productQuantity ?></p>
                     <h3>Product Description</h3> 
                     <p><?php echo $product['product_description'] ?></p>
