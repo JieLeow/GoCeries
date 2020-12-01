@@ -22,13 +22,13 @@ if (isset($_POST['userid']) && isset($_POST['password'])) {
         header("Location: loginregister.php?error=Password is required");
 	    exit();
 	}else{
-		$sql = "SELECT * FROM users WHERE user_loginname='$userid' AND user_password='$pass'";
-
+		$sql = "SELECT * FROM users WHERE user_loginname='$userid' ";
+  $hashpass = md5($pass);
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
-            if ($row['user_loginname'] === $userid && $row['user_password'] === $pass) {
+            if ($row['user_loginname'] === $userid && $row['user_password'] === $pass || $row['user_password'] === $hashpass) {
             	$_SESSION['user_loginname'] = $row['user_loginname'];
             	$_SESSION['user_name'] = $row['user_name'];
             	$_SESSION['user_id'] = $row['user_id'];
