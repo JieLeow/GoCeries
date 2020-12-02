@@ -94,13 +94,14 @@
           if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
           }
-
-          // register payment
-          $sql = "INSERT INTO payments (payment_fname, payment_lname, payment_email,
+          
+          
+          // register payment   //add in user id as well, right now user id set as just a single number 3.
+          $sql = "INSERT INTO payments (payment_user_id, payment_fname, payment_lname, payment_email,  
           payment_address, payment_city, payment_state, payment_zip, payment_cardholder,
           payment_ccnumber, payment_expmonth, payment_expyear, payment_cvv,
           payment_billingname, payment_billingemail, payment_billingaddress,
-          payment_billingcity, payment_billingstate, payment_billingzip) VALUES ('$shippingfirstname',
+          payment_billingcity, payment_billingstate, payment_billingzip) VALUES ('3', '$shippingfirstname',
           '$shippinglastname','$shippingemail','$shippingaddress','$shippingcity','$shippingstate','$shippingzip',
           '$cardname','$cardnumber','$monthexp','$yearexp','$cvv','$billingfullname','$billingemail',
           '$billingaddress','$billingcity','$billingstate','$billingzip')";
