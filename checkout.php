@@ -128,31 +128,30 @@
               <div class="row">
                 <div class="col-50">
                   <label for="fname"><i class="fa fa-user"></i>First Name</label>
-                  <input type="text" id="ShippingFname" name="shippingfirstname" placeholder=""
-                  required pattern = "\S[A-Za-z](.*\S)?" title="Please enter letters only">
+                  <input type="text" id="ShippingFname" onkeyup="isEmpty()" name="shippingfirstname" placeholder=""
+                  required pattern = "[A-Za-z]+" title="Please enter letters only and no spaces">
                 </div>
                 <div class="col-50">
                   <label for="lname"><i class="fa fa-user"></i>Last Name</label>
-                  <input type="text" id="ShippingLname" name="shippinglastname" placeholder=""
-                  required pattern = "\S[A-Za-z](.*\S)?" title="Please enter letters only">
+                  <input type="text" id="ShippingLname" onkeyup="isEmpty()" name="shippinglastname" placeholder=""
+                  required pattern = "[A-Za-z]+" title="Please enter letters only and no spaces">
                 </div>
               </div>
               <label for="email"><i class="fa fa-envelope"></i>Email</label>
-              <input type="email" id="ShippingEmail" name="shippingemail" placeholder="" required>
+              <input type="email" id="ShippingEmail" onkeyup="isEmpty()" name="shippingemail" placeholder="" required>
               <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-              <input type="text" id="ShippingAddress" name="shippingaddress" placeholder="" required pattern="\S(.*\S)?">
+              <input type="text" id="ShippingAddress" onkeyup="isEmpty()" name="shippingaddress" placeholder="" required pattern="\S(.*\S)?">
               <label for="city"><i class="fa fa-institution"></i> City</label>
-              <input type="text" id="ShippingCity" name="shippingcity" placeholder="" required pattern = "\S(.*\S)?">
+              <input type="text" id="ShippingCity" onkeyup="isEmpty()" name="shippingcity" placeholder="" required pattern = "\S(.*\S)?">
 
               <div class="row">
                 <div class="col-50">
                   <label for="state">State</label>
-                  <input type="text" id="ShippingState" name="shippingstate" placeholder=""
-                  required pattern="[A-Z]+" title="Please enter uppercase letters only" minlength="2" maxlength="2">
+                  <input type="text" id="ShippingState" name="shippingstate" value="CA" readonly>
                 </div>
                 <div class="col-50">
                   <label for="zip">Zip</label>
-                  <input type="text" id="ShippingZip" name="shippingzip" placeholder=""
+                  <input type="text" id="ShippingZip" onkeyup="isEmpty()" name="shippingzip" placeholder=""
                   required pattern= "[0-9]+" title="Please enter numbers only" minlength="5" maxlength="5">
                 </div>
               </div>
@@ -168,12 +167,12 @@
                 <i class="fa fa-cc-discover" style="color:orange;"></i>
               </div>
               <label for="cname">Name on Card</label>
-              <input type="text" id="cname" name="cardname" placeholder="" required>
+              <input type="text" id="cname" onkeyup="isEmpty()" name="cardname" placeholder="" required>
               <label for="ccnum">Credit card number</label>
-              <input type="text" id="ccnum" name="cardnumber" placeholder=""
+              <input type="text" id="ccnum" onkeyup="isEmpty()" name="cardnumber" placeholder=""
               required pattern="[0-9]+" title="Please enter numbers only" minlength="16" maxlength="16">
               <label for="expmonth">Exp Month</label>
-              <select name="expmonth" id="expmonth" placeholder="" title="Please select a month" required>
+              <select name="expmonth" id="expmonth" onkeyup="isEmpty()" placeholder="" title="Please select a month" required>
                 <option value=""></option>
                 <option value="January">January</option>
                 <option value="February">February</option>
@@ -191,7 +190,7 @@
               <div class="row">
                 <div class="col-50">
                   <label for="expyear">Exp Year</label>
-                  <input type="text" id="expyear" name="expyear" placeholder=""
+                  <input type="text" id="expyear" onkeyup="isEmpty()" name="expyear" placeholder=""
                   required pattern="[0-9]+" title="Please enter numbers only" minlength="4" maxlength="4">
                 </div>
                 <div class="col-50">
@@ -304,11 +303,11 @@
     <div class="col-25">
       <div class="container" style="background-color: #f2f2f2; margin-right:25px;">
         <h4><a href='cart.php'>Cart</a> <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
-        <p>Subtotal: <span class="price"> <?php echo $_POST['totalprice'] ?> </span></p>
-        <p>Taxes: <span class="price"> <?php echo $_POST['taxes'] ?> </span></p>
-        <p>Delivery fee: <span class="price"> <?php echo $_POST['deliveryfee'] ?>  </span></p>
+        <p>Subtotal: <span class="price"> <?php echo "$".sprintf("%.2f", $_POST['totalprice']); ?> </span></p>
+        <p>Taxes: <span class="price"> <?php echo "$".sprintf("%.2f", $_POST['taxes']); ?></span></p>
+        <p>Delivery fee: <span class="price"> <?php echo "$".sprintf("%.2f", $_POST['deliveryfee']); ?></span></p>
         <hr>
-        <p>Total <span class="price" style="color:black"><b><?php echo $_POST['finalprice'] ?></b></span></p>
+        <p>Total <span class="price" style="color:black"><b><?php echo "$".sprintf("%.2f", $_POST['finalprice']); ?></b></span></p>
 
         <?php
           if(empty($_POST['totalprice'])){

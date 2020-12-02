@@ -16,7 +16,7 @@
         font-size: 25px;
         font-weight: bold;
     }
-    
+
     img {
         width: 100px;
         height: 100px;
@@ -35,27 +35,35 @@
 
   <body>
 
+
     <!-- HEADER -->
     <?php
       include('phpTemplates/header.php');
-  ?>
-
-    <h1 style="margin-top: 40px; margin-left: 20px; margin-bottom: 20px; text-align:center; font-size:240%;">Thank you! Your order has been placed.</h1>
-    
+    ?>
 
     <?php
- 
+      session_start();
+      foreach($_POST as $key=>$val) {
+        $_SESSION['POST'][$key] = $val;
+      }
+     ?>
+
+    <h1 style="margin-top: 40px; margin-left: 20px; margin-bottom: 20px; text-align:center; font-size:240%;">Thank you! Your order has been placed.</h1>
+
+
+    <?php
+
         //functions
         function getODate() {
             $today = new DateTime(); //not working - what is the datetime object that gets inserted into the database
             return $today;
         }
-        
+
         function getONum() { //not guarenteed uniqueness
             $func = 17 * rand(0, 1000) + time(); //time() in seconds
             return $func;
         }
-        
+
       //if container has been filled out
       if (isset($_POST["shippingfirstname"]) && isset($_POST["shippinglastname"]) && isset($_POST["shippingemail"]) && isset($_POST["shippingaddress"])
         && isset($_POST["shippingcity"]) && isset($_POST["shippingstate"]) && isset($_POST["shippingzip"]) &&
@@ -85,6 +93,7 @@
               $billingcity = $_POST["billingcity"];
               $billingstate = $_POST["billingstate"];
               $billingzip = $_POST["billingzip"];
+              $userid = $_SESSION['user_id'];
 
 
           // create connection
@@ -94,32 +103,32 @@
           if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
           }
-          
-          
+
+
           // register payment   //add in user id as well, right now user id set as just a single number 3.
-          $sql = "INSERT INTO payments (payment_user_id, payment_fname, payment_lname, payment_email,  
+          $sql = "INSERT INTO payments (payment_user_id, payment_fname, payment_lname, payment_email,
           payment_address, payment_city, payment_state, payment_zip, payment_cardholder,
           payment_ccnumber, payment_expmonth, payment_expyear, payment_cvv,
           payment_billingname, payment_billingemail, payment_billingaddress,
-          payment_billingcity, payment_billingstate, payment_billingzip) VALUES ('3', '$shippingfirstname',
+          payment_billingcity, payment_billingstate, payment_billingzip) VALUES ('$userid', '$shippingfirstname',
           '$shippinglastname','$shippingemail','$shippingaddress','$shippingcity','$shippingstate','$shippingzip',
           '$cardname','$cardnumber','$monthexp','$yearexp','$cvv','$billingfullname','$billingemail',
           '$billingaddress','$billingcity','$billingstate','$billingzip')";
 
           //send sequel to database
           $results = mysqli_query($conn, $sql);
-            
+
             //declare all variables for orders table
             // $orderdate = getDate();
             // $orderdate = date('m/d/Y h:i:s a', time()); //user friendly format
             $orderdate = date('Y-m-d H:i:s'); //for insertion to db;
             $orderid = getONum();
             /*--------need to get the order total details---*/
-            $userid = 3; //temporary, will fix to current user using session or smtg
+            $userid = $_SESSION['user_id']; //temporary, will fix to current user using session or smtg
             $ordertotal = 0; // $finalprice in the cart page
             $ordertax = 0;
             $orderstatus = "Processing Order";
-            
+
             // register order
             $sql2 = "INSERT INTO orders (order_ID, user_ID, order_total,
             order_tax, order_date, order_delivery_status) VALUES ('$orderid',
@@ -127,13 +136,18 @@
 
             //send sequel to database
             $results2 = mysqli_query($conn, $sql2);
-            
-            
+
+
             /*---probably need to insert orders-product-details data into database here too (for the images)------*/
-            
-            
+            $quantity = 5;
+            $product_ID = 204;
+
+            $sql3 = "UPDATE products SET product_stock=product_stock-'$quantity' WHERE product_ID='$product_ID'";
+
+            $results3= mysqli_query($conn, $sql3);
+
           //checks whether or not the output is received from database
-          if ($results && $results2) {
+          if ($results && $results2 && $results3) {
             echo '<div class="divr">';
             echo '<span style="margin-left: 20px;">'.$_POST['shippingfirstname'].' </span>';
             echo '<span>'.$_POST['shippinglastname'].'</span>';
@@ -145,7 +159,7 @@
             echo '<span style="margin-left: 20px;">'.$_POST['shippingcity'].',</span>';
             echo '<span style="margin-left: 5px;">'.$_POST['shippingstate'].'</span>';
             echo '<span style="margin-left: 5px; margin-bottom: 200px;">'.$_POST['shippingzip'].'</span>';
-              
+
               echo '<h1 style="text-align:center; margin-top:40px;">Your Order</h2>';
               echo '<span> Order Date: '.$orderdate . '</span>';
               echo "<br>";
@@ -174,7 +188,7 @@
               echo "<br>";
               echo '<div id="map"></div>';
               echo '</div>';
-              
+
           } else {
             echo mysqli_error($conn);
           }
@@ -201,13 +215,13 @@
   // Initialize and add the map
   function initMap() {
       const labels = "AB";
-      
+
       // The location of the billing address (placeholder - need to use Geocoder in maps api)
       const address = { lat: 37.33219619200047, lng: 121.90493422446872 };
-      
+
     // The location of the store
     const store = { lat: 37.33219619200047, lng: -121.90493422446872 };
-      
+
     // The map, centered at the store
     const map = new google.maps.Map(document.getElementById("map"), {
       center: store,
@@ -220,7 +234,7 @@
       const markerB = new google.maps.Marker({
         position: address, label: labels[1], map: map,
       });
-      
+
       // doesn't seem to work - should adjust zoom so that both markers are visible on the map
       var markers = [markerA, markerB];
            var bounds = new google.maps.LatLngBounds();
