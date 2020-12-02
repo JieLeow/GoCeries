@@ -166,6 +166,8 @@ foreach ($_SESSION["shopping_cart"] as $product){
 <tr>
 <td><img src='<?php echo 'images/' . $product["product_imagename"]; ?>' width="80" height="60" /></td>
 <td><?php echo $product["product_name"]; ?><br />
+<td><?php echo $product["product_stock"]; ?><br />
+
 <form method='post' action=''>
 <input type='hidden' name='product_ID' value="<?php echo $product["product_ID"]; ?>" />
 <input type='hidden' name='action' value="remove" />
