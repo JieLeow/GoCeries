@@ -230,9 +230,11 @@
                     <h4 style="margin: 40px 0; font-size: 22px; font-weight: bold;">$ <?php echo $product['product_price'] ?> / each</h4>
                     <p><?php echo 'Weight:  ' . $product['product_weight'] , ' lbs'?> / each</p>
                     <!-- <input type="number" value="0" min="0" onkeydown="return false"> -->
-
+                    <?php if($productQuantity > 0) {?>
                     <button name='addToCart' type='submit' class='btn' label="Add to Cart" value="1" onclick="decreaseStock()">Add to Cart</button>
                     <p id="stock"><?php echo 'Stock left: ' . $productQuantity ?></p>
+                  <?php } else { ?> <p> OUT OF STOCK </p>
+                  <?php } ?><br><br>
                     <h3>Product Description</h3>
                     <p><?php echo $product['product_description'] ?></p>
 
