@@ -74,6 +74,8 @@
             $price = $row['product_price'];
             $image = $row['product_imagename'];
             $weight = $row['product_weight'];
+            $stock = $row['product_stock'];
+
 
             //-------understood everything from above: basically just get product details and stored into variables.-----------
 
@@ -86,7 +88,8 @@
                 'product_price'=>$price,
                 'product_weight'=>$weight,
                 'quantity'=>1, //default quantity = 1; is there a problem here?
-                'product_imagename'=>$image
+                'product_imagename'=>$image,
+                'product_stock'=>$stock
             );
 
 
