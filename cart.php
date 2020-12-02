@@ -164,9 +164,10 @@ foreach ($_SESSION["shopping_cart"] as $product){
 ?>
 
 <tr>
-<td><img src='<?php echo 'images/' . $product["product_imagename"]; ?>' width="80" height="60" /></td>
-<td><?php echo $product["product_name"]; ?><br />
-<td><?php echo $product["product_stock"]; ?><br />
+<!-- <td><img src='<?php echo 'images/' . $product["product_imagename"]; ?>' width="80" height="60" /></td> -->
+<td><a href= "<?php printf('%s?product_id=%s','productDetails.php', $product['product_ID'])?>"><img src="images/<?php echo $product['product_imagename']?>" width='80' height='60'></a></td>
+
+<td><a href= "<?php printf('%s?product_id=%s','productDetails.php', $product['product_ID'])?>"><?php echo $product["product_name"]; ?></a><br />
 
 <form method='post' action=''>
 <input type='hidden' name='product_ID' value="<?php echo $product["product_ID"]; ?>" />
@@ -175,6 +176,8 @@ foreach ($_SESSION["shopping_cart"] as $product){
 </form>
 </td>
 <td>
+<?php if($product['product_stock'] > 10) {?>
+
 <form method='post' action=''>
 <input type='hidden' name='product_ID' value="<?php echo $product["product_ID"]; ?>" />
 <input type='hidden' name='action' value="change" />
@@ -191,6 +194,9 @@ foreach ($_SESSION["shopping_cart"] as $product){
 <option <?php if($product["quantity"]==10) echo "selected";?> value="10">10</option>
 </select>
 </form>
+<?php } else { ?> <h6>Qty = <?php echo $product["quantity"]; ?></h6><p><a href= "<?php printf('%s?product_id=%s','productDetails.php', $product['product_ID'])?>">add more</a><br />
+</p>
+<?php } ?><br><br>
 </td><td><?php echo "$".$product["product_price"]; ?></td>
 <td><?php echo "$".$product["product_price"]*$product["quantity"]; ?></td>
 <td><?php echo $product["product_weight"]*$product["quantity"]. " lbs"; ?></td>
