@@ -117,9 +117,12 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
     include('phpTemplates/footer.php');
     if (count($_POST) > 0) {
     $result = mysqli_query($conn, "SELECT * FROM users WHERE user_id='" . $_SESSION["user_id"] . "'");
+
+  $pass = md5($_POST["currentPassword"]);
+  $hashNewPass = md5($_POST["newPassword"]);
     $row = mysqli_fetch_array($result);
-    if ($_POST["currentPassword"] === $row["user_password"]) {
-        mysqli_query($conn, "UPDATE users set user_password='" . $_POST["newPassword"] . "' WHERE user_id='" . $_SESSION["user_id"] . "'");
+    if ($_POST["currentPassword"] === $row["user_password"] || $pass === $row["user_password"] ) {
+        mysqli_query($conn, "UPDATE users set user_password='" . $hashNewPass . "' WHERE user_id='" . $_SESSION["user_id"] . "'");
         echo '<script>alert("Password has been successfully updated")</script>';
     } else
         echo '<script>alert("Current password is not correct")</script>';
