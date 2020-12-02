@@ -109,10 +109,12 @@
           $results = mysqli_query($conn, $sql);
             
             //declare all variables for orders table
-            $orderdate = getDate();
+            // $orderdate = getDate();
+            // $orderdate = date('m/d/Y h:i:s a', time()); //user friendly format
+            $orderdate = date('Y-m-d H:i:s'); //for insertion to db;
             $orderid = getONum();
             /*--------need to get the order total details---*/
-            $userid = 0;
+            $userid = 3; //temporary, will fix to current user using session or smtg
             $ordertotal = 0; // $finalprice in the cart page
             $ordertax = 0;
             $orderstatus = "Processing Order";
@@ -144,13 +146,14 @@
             echo '<span style="margin-left: 5px; margin-bottom: 200px;">'.$_POST['shippingzip'].'</span>';
               
               echo '<h1 style="text-align:center; margin-top:40px;">Your Order</h2>';
-              echo '<span> Order Placed: '.$orderdate.'</span>';
+              echo '<span> Order Date: '.$orderdate . '</span>';
               echo "<br>";
               echo '<span> Order #: ' .$orderid.'</span>';
               echo "<br>";
               echo '<span>Total: $'.$ordertotal.'</span>';
               echo "<br>";
               // need to get the product details from databse
+              echo '<span>What You Have Ordered: </span>';
               echo '<span>
               <table>
               <tbody>
