@@ -301,8 +301,6 @@
 <?php
     $_SESSION['finalprice'] = $_POST['finalprice'];
     $_SESSION['taxes'] = $_POST['taxes'];
-
-    
 ?>
 
     <!-- Cart -->

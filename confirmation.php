@@ -139,10 +139,12 @@
 
 
             /*---probably need to insert orders-product-details data into database here too (for the images)------*/
-            $quantity = 0;
-            $product_ID = 102;
+            $product_ID = 0;
+            $quantity = 100;
 
-            $sql3 = "UPDATE products SET product_stock=product_stock-'$quantity' WHERE product_ID='$product_ID'";
+              $sql3 = "UPDATE products SET product_stock=product_stock-'$quantity' WHERE product_ID='$product_ID'";
+
+
 
             $results3= mysqli_query($conn, $sql3);
 
@@ -166,7 +168,7 @@
               echo "<br>";
               echo '<span> Order #: ' .$orderid.'</span>';
               echo "<br>";
-              echo '<span>Total: $'.$ordertotal.'</span>';
+              echo '<span> Total: $'.sprintf("%.2f", $ordertotal).'</span>';
               echo "<br>";
               // need to get the product details from databse
               echo '<span>What You Have Ordered: </span>';
