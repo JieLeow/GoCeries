@@ -44,7 +44,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
                   <tr><h6><b>Contact Information</b></h6> </tr>
                   <tr>
                     <td>Email Address:</td>
-                    <td><?php echo $_SESSION['payment_email']; ?></td>
+                    <td><?php echo $_SESSION['user_email']; ?></td>
                   </tr>
                   <tr>
                     <td>Shippping Address</td>

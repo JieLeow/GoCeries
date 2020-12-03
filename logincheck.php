@@ -32,6 +32,7 @@ if (isset($_POST['userid']) && isset($_POST['password'])) {
             	$_SESSION['user_loginname'] = $row['user_loginname'];
             	$_SESSION['user_name'] = $row['user_name'];
             	$_SESSION['user_id'] = $row['user_id'];
+              	$_SESSION['user_email'] = $row['user_email'];
             	header("Location: mainPage.php");
 		        exit();
             }else{

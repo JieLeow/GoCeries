@@ -53,12 +53,19 @@ if (isset($_POST['username']) && isset($_POST['password'])
           $pass = md5($pass);
 
   	    $sql = "SELECT * FROM users WHERE user_loginname='$userid' ";
+        $sql1 = "SELECT * FROM users WHERE user_email='$email' ";
   		$result = mysqli_query($conn, $sql);
+      $result1 = mysqli_query($conn, $sql1);
+
 
   		if (mysqli_num_rows($result) > 0) {
   			header("Location: loginregister.php?error=The username is taken try another&$user_data");
   	        exit();
-  		}else {
+  		} else if(mysqli_num_rows($result1) > 0) {
+        header("Location: loginregister.php?error=The email is taken try another");
+  	        exit();
+      }
+      else {
              $sql2 = "INSERT INTO users(user_loginname, user_password, user_name, user_email) VALUES('$userid', '$pass', '$username','$email')";
              $result2 = mysqli_query($conn, $sql2);
              if ($result2) {
