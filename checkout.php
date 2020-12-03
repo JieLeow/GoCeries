@@ -46,6 +46,13 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
     border: 1px solid #ccc;
     border-radius: 3px;
   }
+  input[type=number] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
   input[type=email] {
     width: 100%;
     margin-bottom: 20px;
@@ -113,7 +120,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
   ?>
 
   <?php
-  
+
     foreach($_POST as $key=>$val) {
       $_SESSION['POST'][$key] = $val;
     }
@@ -196,8 +203,8 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
               <div class="row">
                 <div class="col-50">
                   <label for="expyear">Exp Year</label>
-                  <input type="text" id="expyear" onkeyup="isEmpty()" name="expyear" placeholder=""
-                  required pattern="[0-9]+" title="Please enter numbers only" minlength="4" maxlength="4">
+                  <input type="number" id="expyear" onkeyup="isEmpty()" name="expyear" placeholder=""
+                  required pattern="[2][0][2-9][0-9]" title="Please enter a year between 2021 and 2099" minlength="4" maxlength="4" min="2021" max="2099">
                 </div>
                 <div class="col-50">
                   <label for="cvv">CVV</label>
@@ -211,7 +218,8 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
 
           <label>
             <div class="form-group">
-              <input type="checkbox" id="checkbox" onclick="boxUnchecked()" disabled>
+              <input type="checkbox" id="checkbox" onclick="boxUnchecked()"
+              title="Please fill out shipping and payment information first" disabled>
               Billing address same as shipping
             </div>
 
@@ -256,8 +264,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
                           <div class="row">
                             <div class="col-50">
                               <label for="state">State</label>
-                              <input type="text" id="BillingState" name="billingstate" placeholder=""
-                              required pattern="[A-Z]+" title="Please enter uppercase letters only" minlength="2" maxlength="2">
+                              <input type="text" id="BillingState" name="billingstate" value="CA" readonly>
                             </div>
                             <div class="col-50">
                               <label for="zip">Zip</label>
