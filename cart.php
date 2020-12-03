@@ -1,13 +1,27 @@
 <?php
 
 session_start();
+// <!-- HEADER -->
+
+include('functions.php'); //to get product quantity from db
+
+			
+	
+
 $status="";
-if (isset($_POST['action']) && $_POST['action']=="remove"){
+if (isset($_POST['action']) && $_POST['action']=="remove"){ //removes product entirely from cart 
 if(!empty($_SESSION["shopping_cart"])) {
 	foreach($_SESSION["shopping_cart"] as $key => $value) {
 		// if($_POST["product_ID"] == $key)
 		if($_POST["product_ID"] == $_SESSION["shopping_cart"][$key]['product_ID']){
+
+		$productID = $_SESSION["shopping_cart"][$key]['product_ID'];
+
 		unset($_SESSION["shopping_cart"][$key]);
+
+		//reset temp stock count for that product based on id
+		unset($_SESSION['tempProductQuantity'][$productID] );
+
 		$status = "<div class='box' style='color:red;'> Product is removed from your cart!</div>";
 		}
 		if(empty($_SESSION["shopping_cart"]))
@@ -16,10 +30,14 @@ if(!empty($_SESSION["shopping_cart"])) {
 		}
 }
 
-if (isset($_POST['action']) && $_POST['action']=="change"){
+if (isset($_POST['action']) && $_POST['action']=="change"){//change the quantity of the product using the drop down quantity selector
   foreach($_SESSION["shopping_cart"] as &$value){
     if($value['product_ID'] === $_POST["product_ID"]){
-        $value['quantity'] = $_POST["quantity"];
+		$value['quantity'] = $_POST["quantity"];
+		
+		//update temp stock count for that product based on id
+		$_SESSION['tempProductQuantity'][$_POST["product_ID"]] = $product->getProductStock($_POST["product_ID"]) - $value['quantity']    ;// original product quantity minus POST[QUANTITY]
+
         break; // Stop the loop after we've found the product
     }
 }
@@ -28,6 +46,7 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
 ?>
 <html>
 <head>
+	<?php include('phpTemplates/header.php');?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goceries</title>
@@ -117,13 +136,19 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
 		width: 200px;
 		height: 40px;
 		font-size: 16px;
-		background-color: rgb(162, 253, 57);
+		background-color: #8beb82;
 		border-radius: 6px;
 		border: none;
 		cursor: pointer;
 		margin-top: 10px;
 		color:gray;
 		/* margin-left:30px; */
+		transition: 0.5s;
+		}
+
+		.button2:hover{
+			background: rgb(94, 208, 94);
+    color: white;
 		}
 
 		.empty-cart{
@@ -134,10 +159,7 @@ if (isset($_POST['action']) && $_POST['action']=="change"){
 
 		</style>
 </head>
-<!-- HEADER -->
-<?php
-			include('phpTemplates/header.php');
-	?>
+
 	<!-- BODY -->
 
 <body>
@@ -272,9 +294,20 @@ $final_amount = $total_price + $taxes + $delivery;
 
 </div>
 </div>
-</body>
-</html>
+
+<!-- prevents refreshing of page for unwanted post request -->
+<!-- <script>
+      if (window.history.replaceState) {
+        window.history.replaceState( null, null, window.location.href );
+        }
+</script> -->
+
 <!-- FOOTER -->
 <?php
     include('phpTemplates/footer.php');
 ?>
+
+</body>
+</html>
+
+
