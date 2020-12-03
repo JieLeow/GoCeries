@@ -26,9 +26,10 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
     ?>
 
     <div class="account-info">
-        <div class="container">
+        <div class="container account-container">
             <div>
               <h2 style="text-align:center"><b> Account Information</b></h2>
+              <hr>
                 <table style="width:40%">
                   <tr><h6><b>User Information</b></h6> </tr>
                   <tr>

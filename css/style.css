@@ -409,3 +409,9 @@ p{
 .about-container h2{
     font-size: 30px;
 }
+
+/* User Account Page */
+.account-container{
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
