@@ -44,7 +44,7 @@ include "db_conn.php";
 
                                   <li><a href = "account.php">Account</a></li>
                                   <?php } ?>
-                            <li><a href = "cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                            <li><a href = "cart.php"><i class="fa fa-shopping-cart cart-icon" aria-hidden="true"></i></a></li>
                         </ul>
                     </nav>
                 </div>
