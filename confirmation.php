@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  foreach($_POST as $key=>$val) {
+    $_SESSION['POST'][$key] = $val;
+  }
+ ?>
+
 <html>
   <head>
     <title>Confirmation</title>
@@ -40,13 +47,6 @@
     <?php
       include('phpTemplates/header.php');
     ?>
-
-    <?php
-      session_start();
-      foreach($_POST as $key=>$val) {
-        $_SESSION['POST'][$key] = $val;
-      }
-     ?>
 
     <h1 style="margin-top: 40px; margin-left: 20px; margin-bottom: 20px; text-align:center; font-size:240%;">Thank you! Your order has been placed.</h1>
 
@@ -125,8 +125,8 @@
             $orderid = getONum();
             /*--------need to get the order total details---*/
             $userid = $_SESSION['user_id']; //temporary, will fix to current user using session or smtg
-            $ordertotal = 0; // $finalprice in the cart page
-            $ordertax = 0;
+            $ordertotal = $_SESSION['finalprice']; // $finalprice in the cart page
+            $ordertax = $_SESSION['taxes'];
             $orderstatus = "Processing Order";
 
             // register order
@@ -139,12 +139,13 @@
 
 
             /*---probably need to insert orders-product-details data into database here too (for the images)------*/
-            $quantity = 5;
-            $product_ID = 204;
+            $quantity = 0;
+            $product_ID = 102;
 
             $sql3 = "UPDATE products SET product_stock=product_stock-'$quantity' WHERE product_ID='$product_ID'";
 
             $results3= mysqli_query($conn, $sql3);
+
 
           //checks whether or not the output is received from database
           if ($results && $results2 && $results3) {
