@@ -47,8 +47,8 @@
     <?php
       include('phpTemplates/header.php');
     ?>
-
-    <h1 style="margin-top: 40px; margin-left: 20px; margin-bottom: 20px; text-align:center; font-size:240%;">Thank you! Your order has been placed.</h1>
+    
+    <!-- <h1 style="margin-top: 40px; margin-left: 20px; margin-bottom: 20px; text-align:center; font-size:240%;">Thank you! Your order has been placed.</h1> -->
 
 
     <?php
@@ -69,7 +69,7 @@
         && isset($_POST["shippingcity"]) && isset($_POST["shippingstate"]) && isset($_POST["shippingzip"]) &&
         isset($_POST["cardname"]) && isset($_POST["cardnumber"]) && isset($_POST["expmonth"])
         && isset($_POST["expyear"]) && isset($_POST["cvv"]) && isset($_POST["billingemail"]) && isset($_POST["billingaddress"])
-        && isset($_POST["billingcity"]) && isset($_POST["billingstate"]) && isset($_POST["billingzip"])) {
+        && isset($_POST["billingcity"]) && isset($_POST["billingstate"]) && isset($_POST["billingzip"])) { //first if bracket
         if ($_POST["shippingfirstname"] && $_POST["shippinglastname"] && $_POST["shippingemail"] && $_POST["shippingaddress"] &&
             $_POST["shippingcity"] && $_POST["shippingstate"] && $_POST["shippingzip"] && $_POST["cardname"] &&
             $_POST["cardnumber"] && $_POST["expmonth"] && $_POST["expyear"]
@@ -104,7 +104,8 @@
             die("Connection failed: " . mysqli_connect_error());
           }
 
-
+          echo '<h1 style="margin-top: 40px; margin-left: 20px; margin-bottom: 20px; text-align:center; font-size:240%;">Thank you! Your order has been placed.</h1>';
+          
           // register payment   //add in user id as well, right now user id set as just a single number 3.
           $sql = "INSERT INTO payments (payment_user_id, payment_fname, payment_lname, payment_email,
           payment_address, payment_city, payment_state, payment_zip, payment_cardholder,
@@ -121,6 +122,7 @@
             //declare all variables for orders table
             // $orderdate = getDate();
             // $orderdate = date('m/d/Y h:i:s a', time()); //user friendly format
+            date_default_timezone_set('America/Los_Angeles');
             $orderdate = date('Y-m-d H:i:s'); //for insertion to db;
             $orderid = getONum();
             /*--------need to get the order total details---*/
@@ -129,7 +131,7 @@
             $ordertax = $_SESSION['taxes'];
             $orderstatus = "Processing Order";
 
-            // register order
+            //FIRST SQL----------------------CREATES AND ORDER IN ORDER TABLE----------------------------------//
             $sql2 = "INSERT INTO orders (order_ID, user_ID, order_total,
             order_tax, order_date, order_delivery_status) VALUES ('$orderid',
             '$userid','$ordertotal','$ordertax','$orderdate','$orderstatus')";
@@ -139,14 +141,46 @@
 
 
             /*---probably need to insert orders-product-details data into database here too (for the images)------*/
-            $product_ID = 0;
-            $quantity = 100;
+            // $product_ID = 0;
+            // $quantity = 100;
 
-              $sql3 = "UPDATE products SET product_stock=product_stock-'$quantity' WHERE product_ID='$product_ID'";
+            
+            
 
+            //SECOND SQL------------------------UPDATING PRODUCT STOCK QUANTITY--------------------------------//
+            
+            //for loop to loop through the products in the shopping cart
+            print "<pre>";
+            print_r($_SESSION['shopping_cart']);
+            print "</pre>";
+            
+            forEach($_SESSION['shopping_cart'] as $products){
 
+              //variable to store cart product stock, to not mess up sql statement
+              $stock = $products['product_stock'] - $products['quantity'];
+              $id = $products['product_ID'];
 
-            $results3= mysqli_query($conn, $sql3);
+              //either use tempProductQuantity SESSION, or the cart SESSION, stock - quantity;
+              $sql3 = "UPDATE products SET product_stock ='{$stock}' where product_id = '{$id}'";
+              $results3= mysqli_query($conn, $sql3);
+
+              
+            }
+
+            //THIRD SQL--------------------STORE ORDER DETAILS WITH PRODUCT AND ORDERED QUANTITY----------------//
+            // forEach($_SESSION['shopping_cart'] as $products){
+
+            //   //variable to store cart product stock, to not mess up sql statement
+            //   $quantity = $$products['quantity'];
+            //   $id = $products['product_ID'];
+              
+
+            //   //either use tempProductQuantity SESSION, or the cart SESSION, stock - quantity;
+            //   $sql3 = "INSERT INTO ";
+            //   $results3= mysqli_query($conn, $sql3);
+
+            // }
+            
 
 
           //checks whether or not the output is received from database
@@ -192,6 +226,13 @@
               echo '<div id="map"></div>';
               echo '</div>';
 
+
+              //Resets the cart after successful checkout
+              unset($_SESSION["shopping_cart"]);
+
+              //not sure do i need to do this
+              unset($_SESSION["tempProductQuantity"]);
+
           } else {
             echo mysqli_error($conn);
           }
@@ -202,7 +243,8 @@
                 location="checkout.php"; </script>';
         }
       } else {
-        echo "Form was not submitted. Please try again.";
+        // echo "Form was not submitted. Please try again.";
+        echo '<h1 style="margin-top: 40px; margin-left: 20px; margin-bottom: 500px; text-align:center; font-size:240%;">Checkout was not successful. Please Return to Cart Page and Try Again.</h1>';
       }
     ?>
 
@@ -247,6 +289,13 @@
 
            map.fitBounds(bounds);
   }
+</script>
+
+<!-- prevents refreshing of page for unwanted post request -->
+<script>
+      if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+        }
 </script>
 
     <!-- FOOTER -->
