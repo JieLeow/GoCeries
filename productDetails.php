@@ -109,9 +109,17 @@
             //debug
             $counter = 1;
 
-            $productQuantity = $product->getProductStock($_GET['product_id']);
+            //define a session variable that is an array of tempProductQuantities.
+            $tempProductQuantity = $product->getProductStock($_GET['product_id']);
+
             echo '<br>product id is: ' . $_GET['product_id'] . '<br>';
-            echo 'product stock left is: ' . $productQuantity . '<br>';
+            
+            //works, but fix for better readability
+            if(!isset( $_SESSION['tempProductQuantity'][$product_ID] )){
+                $_SESSION['tempProductQuantity'][$product_ID] = $tempProductQuantity; //initialize to zero
+            }
+
+            
 
             if(isset($_POST['addToCart'])){
 
@@ -119,6 +127,12 @@
                     $_SESSION['shopping_cart'] = array();
                     $_SESSION['shopping_cart'][$product_ID] = $productDetailsArray;
                     $alreadyInCart = true;
+                    
+                //temporary products stock counter
+                if($_SESSION['tempProductQuantity'][$product_ID] > 0){
+                    $_SESSION['tempProductQuantity'][$product_ID] = $_SESSION['tempProductQuantity'][$product_ID]- 1;
+                }
+
                 }else{
                     //loop through cart, if product id found, increment. else add product to cart.
                     foreach($_SESSION['shopping_cart'] as &$cartProduct){ //TODO: this line not executed yet I think.
@@ -135,14 +149,27 @@
                             // echo 'quantity counter is: ' . $counter;
                             // echo '<br>';
                             // echo 'POST value before reset is: ' . $_POST['addToCart'];
+                            if($_SESSION['tempProductQuantity'][$product_ID] > 0){
+                                $_SESSION['tempProductQuantity'][$product_ID] = $_SESSION['tempProductQuantity'][$product_ID]- 1;
+                            }
+            
                         }
                     }
                     if(!$alreadyInCart){ //where cart is not empty, but product not in cart
                         $_SESSION['shopping_cart'][$product_ID] = $productDetailsArray;
                         $alreadyInCart = true;
+
+                        if($_SESSION['tempProductQuantity'][$product_ID] > 0){
+                            $_SESSION['tempProductQuantity'][$product_ID] = $_SESSION['tempProductQuantity'][$product_ID]- 1;
+                        }
+
                     }
                 }
-
+                
+                
+                //debug temp stock counter
+                echo 'product stock left is: ' . $_SESSION['tempProductQuantity'][$product_ID]. '<br>';
+                print_r( $_SESSION['tempProductQuantity']);
                 //debug
                 echo '<br>' . 'is product in cart?';
                 echo $alreadyInCart ? ' true' : ' false';
@@ -233,9 +260,9 @@
                     <h4 style="margin: 40px 0; font-size: 22px; font-weight: bold;">$ <?php echo $product['product_price'] ?> / each</h4>
                     <p><?php echo 'Weight:  ' . $product['product_weight'] , ' lbs'?> / each</p>
                     <!-- <input type="number" value="0" min="0" onkeydown="return false"> -->
-                    <?php if($productQuantity > 0) {?>
+                    <?php if($_SESSION['tempProductQuantity'][$product_ID] > 0) {?>
                     <button name='addToCart' type='submit' class='btn' label="Add to Cart" value="1" onclick="decreaseStock()">Add to Cart</button>
-                    <p id="stock"><?php echo 'Stock left: ' . $productQuantity ?></p>
+                    <p id="stock"><?php echo 'Stock left: ' . $_SESSION['tempProductQuantity'][$product_ID] ?></p>
                   <?php } else { ?> <p> OUT OF STOCK </p>
                   <?php } ?><br><br>
                     <h3>Product Description</h3>
