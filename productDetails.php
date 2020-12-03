@@ -42,6 +42,15 @@
         -o-user-select: none;
         user-select: none;
     }
+
+    .add-btn{
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+
+    #stock{
+        margin-left: 5px;
+    }
 </style>
 
 
@@ -114,12 +123,14 @@
 
             echo '<br>product id is: ' . $_GET['product_id'] . '<br>';
             
-            //works, but fix for better readability
+            //works, but fix for better readability?
             if(!isset( $_SESSION['tempProductQuantity'][$product_ID] )){
-                $_SESSION['tempProductQuantity'][$product_ID] = $tempProductQuantity; //initialize to zero
+                $_SESSION['tempProductQuantity'][$product_ID] = $tempProductQuantity; //initialize to quantity in product db
             }
 
             
+
+
 
             if(isset($_POST['addToCart'])){
 
@@ -261,7 +272,7 @@
                     <p><?php echo 'Weight:  ' . $product['product_weight'] , ' lbs'?> / each</p>
                     <!-- <input type="number" value="0" min="0" onkeydown="return false"> -->
                     <?php if($_SESSION['tempProductQuantity'][$product_ID] > 0) {?>
-                    <button name='addToCart' type='submit' class='btn' label="Add to Cart" value="1" onclick="decreaseStock()">Add to Cart</button>
+                    <button name='addToCart' type='submit' class='btn add-btn' label="Add to Cart" value="1" onclick="decreaseStock()">Add to Cart</button>
                     <p id="stock"><?php echo 'Stock left: ' . $_SESSION['tempProductQuantity'][$product_ID] ?></p>
                   <?php } else { ?> <p> OUT OF STOCK </p>
                   <?php } ?><br><br>
@@ -313,7 +324,14 @@
             </div>
         </div> -->
 
+<!-- prevents refreshing of page for unwanted post request -->
+<script>
+      if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+        }
+</script>
 
+        
 <!-- FOOTER -->
     <?php
         include('phpTemplates/footer.php');
