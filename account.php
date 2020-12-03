@@ -28,7 +28,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
     <div class="account-info">
         <div class="container">
             <div>
-              <h2 style="text-align:center"><b><?php echo $_SESSION['user_name']; ?>'s Account Information</b></h2>
+              <h2 style="text-align:center"><b> Account Information</b></h2>
                 <table style="width:40%">
                   <tr><h6><b>User Information</b></h6> </tr>
                   <tr>
@@ -47,8 +47,24 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
                     <td><?php echo $_SESSION['user_email']; ?></td>
                   </tr>
                   <tr>
-                    <td>Shippping Address</td>
-                    <td><?php echo $_SESSION['payment_address']; ?></td>
+                    <td>Shipping Address:</td>
+                    <td>
+                    <?php
+                    $result0 = mysqli_query($conn, "SELECT * FROM users INNER JOIN payments ON users.user_id = payments.payment_user_id WHERE users.user_id='" . $_SESSION["user_id"] . "'");
+                    if ($row = mysqli_fetch_array($result0)){
+                      echo $row["payment_address"];
+                      echo ", ";
+                      echo $row["payment_city"];
+                      echo ", ";
+                      echo $row["payment_state"];
+                      echo " ";
+                      echo $row["payment_zip"];
+
+                  }else {
+                    echo"No shipping address to show";
+                  }
+                    ?>
+                  </td>
                   </tr>
                 </table>
                 <table style="width:40%">
@@ -74,6 +90,23 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
                     </table>
                   </div>
                 </form>
+              </table>
+              <table style="width:40%">
+                <tr><h6><b>Order history</b></h6> </tr>
+                <tr>
+                  <td>
+                  <?php
+                  $result1 = mysqli_query($conn, "SELECT users.user_id, orders.user_ID, orders.order_ID FROM users INNER JOIN orders ON users.user_id = orders.user_ID WHERE users.user_id='" . $_SESSION["user_id"] . "'");
+                  if ($row = mysqli_fetch_array($result1)){
+                    echo '<span style="margin-right: 50px;"> Your order number is: </span>';
+                    echo '<span>'.$row["order_ID"].'</span>';
+
+                }else {
+                  echo"You don't have any order yet";
+                }
+                  ?>
+                </td>
+                </tr>
               </table>
             </div>
           </div>
