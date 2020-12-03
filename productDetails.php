@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +79,7 @@
 
     <?php
     // ADDED INTEGRATION TO CART (TRIAL)
-    session_start();
+
         if (isset($_GET['product_id']) && $_GET['product_id']!=""){
             $product_ID = $_GET['product_id'];
             $result = mysqli_query($db->con,"SELECT * FROM `products` WHERE `product_ID`='$product_ID'");
@@ -122,13 +128,13 @@
             $tempProductQuantity = $product->getProductStock($_GET['product_id']);
 
             echo '<br>product id is: ' . $_GET['product_id'] . '<br>';
-            
+
             //works, but fix for better readability?
             if(!isset( $_SESSION['tempProductQuantity'][$product_ID] )){
                 $_SESSION['tempProductQuantity'][$product_ID] = $tempProductQuantity; //initialize to quantity in product db
             }
 
-            
+
 
 
 
@@ -138,7 +144,7 @@
                     $_SESSION['shopping_cart'] = array();
                     $_SESSION['shopping_cart'][$product_ID] = $productDetailsArray;
                     $alreadyInCart = true;
-                    
+
                 //temporary products stock counter
                 if($_SESSION['tempProductQuantity'][$product_ID] > 0){
                     $_SESSION['tempProductQuantity'][$product_ID] = $_SESSION['tempProductQuantity'][$product_ID]- 1;
@@ -163,7 +169,7 @@
                             if($_SESSION['tempProductQuantity'][$product_ID] > 0){
                                 $_SESSION['tempProductQuantity'][$product_ID] = $_SESSION['tempProductQuantity'][$product_ID]- 1;
                             }
-            
+
                         }
                     }
                     if(!$alreadyInCart){ //where cart is not empty, but product not in cart
@@ -176,8 +182,8 @@
 
                     }
                 }
-                
-                
+
+
                 //debug temp stock counter
                 echo 'product stock left is: ' . $_SESSION['tempProductQuantity'][$product_ID]. '<br>';
                 print_r( $_SESSION['tempProductQuantity']);
@@ -331,8 +337,14 @@
         }
 </script>
 
-        
+
 <!-- FOOTER -->
     <?php
         include('phpTemplates/footer.php');
     ?>
+    <?php
+    }else{
+         header("Location: loginregister.php?error=You need to login before shopping");
+         exit();
+    }
+     ?>

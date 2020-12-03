@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
+
+ ?>
 <html>
   <head>
 
@@ -107,7 +113,7 @@
   ?>
 
   <?php
-    session_start();
+  
     foreach($_POST as $key=>$val) {
       $_SESSION['POST'][$key] = $val;
     }
@@ -299,13 +305,13 @@
     </div>
 
 <?php
-    
+
     // $_SESSION['finalprice'] = $_POST['finalprice'];
     // $_SESSION['taxes'] = $_POST['taxes'];
 
     //try
     isset($_POST['finalprice'])? $_SESSION['finalprice'] = $_POST['finalprice']: $_SESSION['finalprice'] = 0;
-    isset($_POST['taxes'])? $_SESSION['taxes'] = $_POST['taxes']: $_SESSION['taxes'] = 0;         
+    isset($_POST['taxes'])? $_SESSION['taxes'] = $_POST['taxes']: $_SESSION['taxes'] = 0;
 
 ?>
 
@@ -321,7 +327,7 @@
                 <hr>
                 <p>Total <span class="price" style="color:black"><b><?php echo "$".sprintf("%.2f", $_POST['finalprice']); ?></b></span></p>
               </div>
-        
+
     <?php }
           else{ ?>
               <div class="container" style="background-color: #f2f2f2; margin-right:25px;">
@@ -333,11 +339,11 @@
               <p>Total <span class="price" style="color:black"><b>$0.00</b></span></p>
             </div>
 
-          <?php } ?>       
+          <?php } ?>
 
 
 
-      
+
     </div>
   </div>
 
@@ -356,3 +362,9 @@
 
   </body>
 </html>
+<?php
+}else{
+     header("Location: loginregister.php?error=You need to login before shopping");
+     exit();
+}
+ ?>
