@@ -299,31 +299,55 @@
     </div>
 
 <?php
-    $_SESSION['finalprice'] = $_POST['finalprice'];
-    $_SESSION['taxes'] = $_POST['taxes'];
+    
+    // $_SESSION['finalprice'] = $_POST['finalprice'];
+    // $_SESSION['taxes'] = $_POST['taxes'];
+
+    //try
+    isset($_POST['finalprice'])? $_SESSION['finalprice'] = $_POST['finalprice']: $_SESSION['finalprice'] = 0;
+    isset($_POST['taxes'])? $_SESSION['taxes'] = $_POST['taxes']: $_SESSION['taxes'] = 0;         
+
 ?>
 
     <!-- Cart -->
-    <div class="col-25">
-      <div class="container" style="background-color: #f2f2f2; margin-right:25px;">
-        <h4><a href='cart.php'>Cart</a> <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
-        <p>Subtotal: <span class="price"> <?php echo "$".sprintf("%.2f", $_POST['totalprice']); ?> </span></p>
-        <p>Taxes: <span class="price"> <?php echo "$".sprintf("%.2f", $_POST['taxes']); ?></span></p>
-        <p>Delivery fee: <span class="price"> <?php echo "$".sprintf("%.2f", $_POST['deliveryfee']); ?></span></p>
-        <hr>
-        <p>Total <span class="price" style="color:black"><b><?php echo "$".sprintf("%.2f", $_POST['finalprice']); ?></b></span></p>
 
-        <?php
-          if(empty($_POST['totalprice'])){
-            echo "EMPTY";
-          }
+    <?php if(isset($_POST['totalprice']) && isset($_POST['taxes']) && isset($_POST['deliveryfee']) && isset($_POST['finalprice'])){?>
+            <div class="col-25">
+              <div class="container" style="background-color: #f2f2f2; margin-right:25px;">
+                <h4><a href='cart.php'>Cart</a> <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
+                <p>Subtotal: <span class="price"> <?php echo "$".sprintf("%.2f", $_POST['totalprice']); ?> </span></p>
+                <p>Taxes: <span class="price"> <?php echo "$".sprintf("%.2f", $_POST['taxes']); ?></span></p>
+                <p>Delivery fee: <span class="price"> <?php echo "$".sprintf("%.2f", $_POST['deliveryfee']); ?></span></p>
+                <hr>
+                <p>Total <span class="price" style="color:black"><b><?php echo "$".sprintf("%.2f", $_POST['finalprice']); ?></b></span></p>
+              </div>
+        
+    <?php }
+          else{ ?>
+              <div class="container" style="background-color: #f2f2f2; margin-right:25px;">
+              <h4><a href='cart.php'>Cart</a> <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
+              <p>Subtotal: <span class="price"> $0.00 </span></p>
+              <p>Taxes: <span class="price">$0.00</span></p>
+              <p>Delivery fee: <span class="price"> $0.00</span></p>
+              <hr>
+              <p>Total <span class="price" style="color:black"><b>$0.00</b></span></p>
+            </div>
 
-        ?>
+          <?php } ?>       
 
 
-      </div>
+
+      
     </div>
   </div>
+
+<!-- prevents refreshing of page for unwanted post request -->
+<!-- <script>
+      if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+        }
+</script> -->
+
 
   <!-- FOOTER -->
   <?php
