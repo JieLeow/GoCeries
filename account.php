@@ -69,6 +69,23 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
                   </tr>
                 </table>
                 <table style="width:40%">
+                  <tr><h6><b>Order history</b></h6> </tr>
+                  <tr>
+                    <?php
+                    $result1 = mysqli_query($conn, "SELECT users.user_id, orders.user_ID, orders.order_ID FROM users INNER JOIN orders ON users.user_id = orders.user_ID WHERE users.user_id='" . $_SESSION["user_id"] . "'");
+
+                    if(mysqli_num_rows($result1) > 0){ // to check any rows exists or not
+                      echo '<td> Your order number(s) is/are: </td> ';
+                      while($row = mysqli_fetch_array($result1)) {
+                        echo '<tr><td>'.$row["order_ID"].',</td></tr>';
+                      }
+                    }else {
+                      echo "You don't have any order yet";
+                    }
+                    ?>
+                  </tr>
+              </table>
+                <table style="width:40%">
                   <tr><h6><b>Change password</b></h6></tr>
                   <form name="frmChange" method="post" action="" onSubmit="return validatePassword()">
                     <div style="width:500px;">
@@ -92,23 +109,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
                   </div>
                 </form>
               </table>
-              <table style="width:40%">
-                <tr><h6><b>Order history</b></h6> </tr>
-                <tr>
-                  <td>
-                  <?php
-                  $result1 = mysqli_query($conn, "SELECT users.user_id, orders.user_ID, orders.order_ID FROM users INNER JOIN orders ON users.user_id = orders.user_ID WHERE users.user_id='" . $_SESSION["user_id"] . "'");
-                  if ($row = mysqli_fetch_array($result1)){
-                    echo '<span style="margin-right: 50px;"> Your order number is: </span>';
-                    echo '<span>'.$row["order_ID"].'</span>';
 
-                }else {
-                  echo"You don't have any order yet";
-                }
-                  ?>
-                </td>
-                </tr>
-              </table>
             </div>
           </div>
         </div>
