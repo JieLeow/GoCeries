@@ -150,9 +150,9 @@
             //SECOND SQL------------------------UPDATING PRODUCT STOCK QUANTITY--------------------------------//
             
             //for loop to loop through the products in the shopping cart
-            print "<pre>";
-            print_r($_SESSION['shopping_cart']);
-            print "</pre>";
+            // print "<pre>";
+            // print_r($_SESSION['shopping_cart']);
+            // print "</pre>";
             
             forEach($_SESSION['shopping_cart'] as $products){
 

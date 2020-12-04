@@ -127,7 +127,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
             //define a session variable that is an array of tempProductQuantities.
             $tempProductQuantity = $product->getProductStock($_GET['product_id']);
 
-            echo '<br>product id is: ' . $_GET['product_id'] . '<br>';
+            //echo '<br>product id is: ' . $_GET['product_id'] . '<br>';
 
             //works, but fix for better readability?
             if(!isset( $_SESSION['tempProductQuantity'][$product_ID] )){
@@ -185,17 +185,17 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
 
 
                 //debug temp stock counter
-                echo 'product stock left is: ' . $_SESSION['tempProductQuantity'][$product_ID]. '<br>';
-                print_r( $_SESSION['tempProductQuantity']);
-                //debug
-                echo '<br>' . 'is product in cart?';
-                echo $alreadyInCart ? ' true' : ' false';
+                // echo 'product stock left is: ' . $_SESSION['tempProductQuantity'][$product_ID]. '<br>';
+                // print_r( $_SESSION['tempProductQuantity']);
+                // //debug
+                // echo '<br>' . 'is product in cart?';
+                // echo $alreadyInCart ? ' true' : ' false';
 
-                echo "<br><br><br>";
-                print_r($_SESSION['shopping_cart']);
+                // echo "<br><br><br>";
+                // print_r($_SESSION['shopping_cart']);
 
-                $_POST['addToCart'] = NULL;
-                print_r($_POST['addToCart']);
+                // $_POST['addToCart'] = NULL;
+                // print_r($_POST['addToCart']);
             }
             //---------------------- my own implementation ends here ------------------------//
 
