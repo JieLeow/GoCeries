@@ -411,7 +411,7 @@ p{
 
 .about-container{
     margin-top: 80px;
-    margin-bottom: 100px;
+    margin-bottom: 250px;
 }
 
 .about-container h2{
@@ -421,5 +421,12 @@ p{
 /* User Account Page */
 .account-container{
     margin-top: 80px;
-    margin-bottom: 100px;
+    margin-bottom: 250px;
 }
+
+
+/* ----Account Page----- */
+.account-container{
+    margin-bottom: 200px;
+}
+    

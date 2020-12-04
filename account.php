@@ -26,7 +26,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
     ?>
 
     <div class="account-info">
-        <div class="container">
+        <div class="container account-container">
             <div>
               <h2 style="text-align:center"><b> Account Information</b></h2>
                 <table style="width:40%">
@@ -108,12 +108,13 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
                   ?>
                 </tr>
               </table>
-              <table style="width:40%">
+              <!-- <table style="width:40%">
                 <tr><h6><b>Order Details</b></h6> </tr>
                 <tr>
-                  <td><a href = ".html">View your order details here</a></td>
+                  <td><a href = "orderTracking.php">View your order details here</a></td>
                 </tr>
-              </table>
+              </table> -->
+
             </div>
           </div>
         </div>

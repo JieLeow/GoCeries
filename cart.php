@@ -157,6 +157,10 @@ if (isset($_POST['action']) && $_POST['action']=="change"){//change the quantity
 			text-align: center;
 		}
 
+		.footer{
+			margin-top: 100px;
+		}
+
 		</style>
 </head>
 
