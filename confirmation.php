@@ -168,18 +168,19 @@
             }
 
             //THIRD SQL--------------------STORE ORDER DETAILS WITH PRODUCT AND ORDERED QUANTITY----------------//
-            // forEach($_SESSION['shopping_cart'] as $products){
+            forEach($_SESSION['shopping_cart'] as $products){
 
-            //   //variable to store cart product stock, to not mess up sql statement
-            //   $quantity = $$products['quantity'];
-            //   $id = $products['product_ID'];
-              
+              //variable to store cart product stock, to not mess up sql statement
+              $totalquantity = $products['quantity'];
+              $productid = $products['product_ID'];
+              //$orderid 
+              $totalweight = $products['product_weight']*$totalquantity;
+          
+              //either use tempProductQuantity SESSION, or the cart SESSION, stock - quantity;
+              $sql3 = "INSERT INTO orders_products_details VALUES ($orderid, $productid, $totalweight, $totalquantity)";
+              $results3= mysqli_query($conn, $sql3);
 
-            //   //either use tempProductQuantity SESSION, or the cart SESSION, stock - quantity;
-            //   $sql3 = "INSERT INTO ";
-            //   $results3= mysqli_query($conn, $sql3);
-
-            // }
+            }
             
 
 
@@ -205,22 +206,22 @@
               echo '<span> Total: $'.sprintf("%.2f", $ordertotal).'</span>';
               echo "<br>";
               // need to get the product details from databse
-              echo '<span>What You Have Ordered: </span>';
-              echo '<span>
-              <table>
-              <tbody>
-              <tr>
-                <td><img src="images/dairy-oatmilk.jpg"></td>
-                <td><img src="images/dairy-oatmilk.jpg"></td>
-                <td><img src="images/dairy-oatmilk.jpg"></td>
-                <td><img src="images/dairy-oatmilk.jpg"></td>
-                <td><img src="images/dairy-oatmilk.jpg"></td>
-              <td><h2>...</h2></td>
-              </tr>
-              </tbody>
-              </table>
-              </span>';
-              echo "<br>";
+              // echo '<span>What You Have Ordered: </span>';
+              // echo '<span>
+              // <table>
+              // <tbody>
+              // <tr>
+              //   <td><img src="images/dairy-oatmilk.jpg"></td>
+              //   <td><img src="images/dairy-oatmilk.jpg"></td>
+              //   <td><img src="images/dairy-oatmilk.jpg"></td>
+              //   <td><img src="images/dairy-oatmilk.jpg"></td>
+              //   <td><img src="images/dairy-oatmilk.jpg"></td>
+              // <td><h2>...</h2></td>
+              // </tr>
+              // </tbody>
+              // </table>
+              // </span>';
+              // echo "<br>";
               echo '<span>Track Package:</span>';
               echo "<br>";
               echo '<div id="map"></div>';
