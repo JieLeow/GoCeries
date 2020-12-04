@@ -80,7 +80,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
                         echo '<tr><td>'.$row["order_ID"].',</td></tr>';
                       }
                     }else {
-                      echo "You don't have any order yet";
+                      echo "<td> You don't have any order yet </td>";
                     }
                     ?>
                   </tr>
