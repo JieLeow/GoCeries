@@ -26,10 +26,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
     ?>
 
     <div class="account-info">
-        <div class="container account-container">
+        <div class="container">
             <div>
               <h2 style="text-align:center"><b> Account Information</b></h2>
-              <hr>
                 <table style="width:40%">
                   <tr><h6><b>User Information</b></h6> </tr>
                   <tr>
@@ -64,52 +63,57 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_loginname'])) {
                   }else {
                     echo"No shipping address to show";
                   }
-                    ?>
+                  ?>
                   </td>
                   </tr>
                 </table>
-                <table style="width:40%">
-                  <tr><h6><b>Order history</b></h6> </tr>
-                  <tr>
-                    <?php
-                    $result1 = mysqli_query($conn, "SELECT users.user_id, orders.user_ID, orders.order_ID FROM users INNER JOIN orders ON users.user_id = orders.user_ID WHERE users.user_id='" . $_SESSION["user_id"] . "'");
-
-                    if(mysqli_num_rows($result1) > 0){ // to check any rows exists or not
-                      echo '<td> Your order number(s) is/are: </td> ';
-                      while($row = mysqli_fetch_array($result1)) {
-                        echo '<tr><td>'.$row["order_ID"].',</td></tr>';
-                      }
-                    }else {
-                      echo "<td> You don't have any order yet </td>";
-                    }
-                    ?>
-                  </tr>
-              </table>
-                <table style="width:40%">
-                  <tr><h6><b>Change password</b></h6></tr>
-                  <form name="frmChange" method="post" action="" onSubmit="return validatePassword()">
-                    <div style="width:500px;">
-                      <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
-                      <table border="0" cellpadding="10" cellspacing="0" width="500" align="center" class="tblSaveForm">
-                        <tr>
-                          <td width="40%"><label>Current Password</label></td>
-                          <td width="60%"><input type="password" name="currentPassword" class="txtField"/><span id="currentPassword"  class="required"></span></td>
-                        </tr>
-                        <tr>
-                          <td><label>New Password</label></td>
-                          <td><input type="password" name="newPassword" class="txtField"/><span id="newPassword" class="required"></span></td>
-                        </tr>
-                        <td><label>Confirm Password</label></td>
-                        <td><input type="password" name="confirmPassword" class="txtField"/><span id="confirmPassword" class="required"></span></td>
+              <table style="width:40%">
+                <tr><h6><b>Change password</b></h6></tr>
+                <form name="frmChange" method="post" action="" onSubmit="return validatePassword()">
+                  <div style="width:500px;">
+                    <div class="message"><?php if(isset($message)) { echo $message; } ?></div>
+                    <table border="0" cellpadding="10" cellspacing="0" width="500" align="center" class="tblSaveForm">
+                      <tr>
+                        <td width="40%"><label>Current Password</label></td>
+                        <td width="60%"><input type="password" name="currentPassword" class="txtField"/><span id="currentPassword"  class="required"></span></td>
                       </tr>
                       <tr>
-                        <td colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit"></td>
+                        <td><label>New Password</label></td>
+                        <td><input type="password" name="newPassword" class="txtField"/><span id="newPassword" class="required"></span></td>
                       </tr>
-                    </table>
-                  </div>
-                </form>
-              </table>
+                      <td><label>Confirm Password</label></td>
+                      <td><input type="password" name="confirmPassword" class="txtField"/><span id="confirmPassword" class="required"></span></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit"></td>
+                    </tr>
+                  </table>
+                </div>
+              </form>
+            </table>
+            <table style="width:40%">
+              <tr><h6><b>Order history</b></h6> </tr>
+              <tr>
+                <?php
+                  $result1 = mysqli_query($conn, "SELECT users.user_id, orders.user_ID, orders.order_ID FROM users INNER JOIN orders ON users.user_id = orders.user_ID WHERE users.user_id='" . $_SESSION["user_id"] . "'");
 
+                  if(mysqli_num_rows($result1) > 0){ // to check any rows exists or not
+                    echo '<td> Your order number(s) is/are: </td> ';
+                    while($row = mysqli_fetch_array($result1)) {
+                      echo '<tr><td>'.$row["order_ID"].',</td></tr>';
+                    }
+                  }else {
+                    echo "You don't have any order yet";
+                  }
+                  ?>
+                </tr>
+              </table>
+              <table style="width:40%">
+                <tr><h6><b>Order Details</b></h6> </tr>
+                <tr>
+                  <td><a href = ".html">View your order details here</a></td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
